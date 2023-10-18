@@ -1,5 +1,5 @@
 <!-- This is the mobile carousel for featured items, should be invisible on medium and up,
-     This will need to be looped with PHP to create items when we have DB set up. -->
+     This will need to be looped with PHP to create items when we have DB set up.  -->
 <div class="container">
     <h2 class="text-center">Featured Items</h2>
 
