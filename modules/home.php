@@ -14,7 +14,7 @@
         <!-- This is the inner item which will need to be looped through for each featured item, there might should be some logic for if there are no featured items. -->
         <div class="carousel-inner">
             <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
+                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
@@ -37,7 +37,7 @@
     <div class="container-fluid invisible visible-md">
         <div class="row py-5 g-2">
             <div class="card col-lg-3 col-md-4 p-3">                
-                <img src="">
+                <img src="./favicon/android-chrome-512x512.png">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
                     <p class="card-text"></p>
