@@ -6,10 +6,12 @@
     <div class="container-fluid visible invisible-md">
         <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <!-- These buttons will need to be looped through for the carousel when we have featured items enabled in the DB -->
+            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="0" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
+        <!-- This is the inner item which will need to be looped through for each featured item, there might should be some logic for if there are no featured items. -->
         <div class="carousel-inner">
             <div class="carousel-item">
                 <img src="..." class="d-block w-100" alt="...">
@@ -50,6 +52,8 @@
     </div>
 </div>
 <hr>
+
+<!-- This is the about section to be included here on the homepage. The content needs to be created still -->
 <div class="container">
     <div class="container-fluid">
         <h2>
