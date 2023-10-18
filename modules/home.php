@@ -63,3 +63,15 @@
         </div>
     </div>
 </div>
+<hr>
+<div class="container">
+    <div class="container-fluid">
+        <h2>
+            About Working Title
+        </h2>
+        <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium impedit soluta doloribus voluptatem magnam molestias inventore rerum distinctio! Minus enim inventore deserunt quas ipsa iure animi impedit, in facere voluptatibus.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam, illo ut in asperiores sed suscipit facilis sunt vero odio quos aperiam inventore et commodi corrupti eligendi iure ducimus minima?
+        </p>
+    </div>
+</div>
