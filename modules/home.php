@@ -6,7 +6,7 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
+        <div class="carousel-item">
         <img src="..." class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
             <h5>First slide label</h5>
@@ -39,7 +39,24 @@
     </div>
 </div>
 <div class="container invisible visible-md">
-    <div class="row">
-        
+<div class="row py-5 g-2">
+            <div class="card col-lg-3 col-md-4 col-sm-6 col-12 p-3">                
+                <img src="./images/<?php echo $product['Name']; ?>.jpg" class="card-img-top rounded" alt="<?php echo $product['Description']; ?>">
+                <div class="card-body">
+                    <h5 class="card-title text-center"><?php echo $product['Name'];?></h5>
+                    <p class="card-text"><?php echo $product['Description']; ?></p>
+                </div>
+                <ul class="list-group list-group-flush MMwhite rounded">
+                    <li class="list-group-item text-center MMwhite">$<?php echo $product['Price']; ?>.00</li>
+                </ul>
+                <div class="card-body text-center MMblue rounded">
+                    <form action="./AddToCart.php" method="POST">
+                        <input type="text" name="ProductID" value="<?php echo $product['ProductID']?>" hidden></input>
+                    <button type="submit" class="card-link btn btn-dark">Add to Cart</button>
+                    </form>
+                </div>
+            </div>
+  
+        <?php } ?> 
     </div>
 </div>
