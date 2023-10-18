@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php include'./modules/head.php'; ?>
 <body>
-    <!-- ======= Hero Section ======= -->
+    <!-- ======= Hero Section =======  -->
   <section id="hero" class="hero">
     <div class="container text-center">
       <div class="row">
