@@ -23,7 +23,7 @@
 <main>
     <!--Navigation-->
   <div>
-    <?php include 'header.php'; ?>
+    <?php include './modules/header.php'; ?>
   </div>
     <!--End Navigation-->
     <!--Carousel-->
@@ -37,7 +37,7 @@
             Featured Items
           </h2>
           <div>
-            <?php include 'home.php'; ?>
+            <?php include './modules/home.php'; ?>
           </div>
         </div>
       </div>
@@ -57,7 +57,7 @@
     <!--End About Me-->
 </main>
 <footer>
-    <?php include 'footer.php'; ?>
+    <?php include './modules/footer.php'; ?>
 </footer>
 
 </body>
