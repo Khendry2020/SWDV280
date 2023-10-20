@@ -2,52 +2,37 @@
      This will need to be looped with PHP to create items when we have DB set up.  -->
 <div class="container">
     <h2 class="text-center">Featured Items</h2>
-    <div class="container-fluid visible"> 
-        <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <!-- These buttons will need to be looped through for the carousel when we have featured items enabled in the DB -->
-            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <!-- This is the inner item which will need to be looped through for each featured item, there might should be some logic for if there are no featured items. -->
-        <div class="carousel-inner">
-            <div class="carousel-item">
-                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100 img-fluid" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
+    <div class="container-fluid"> 
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                <img src="./favicon/apple-touch-icon.png" class="d-block w-100 img-fluid" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="./favicon/apple-touch-icon.png" class="d-block w-100 img-fluid" alt="...">
+                </div>
+                <div class="carousel-item">
+                <img src="./favicon/apple-touch-icon.png" class="d-block w-100 img-fluid" alt="...">
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100 img-fluid" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100 img-fluid" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Some representative placeholder content for the first slide.</p>
-                </div>
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#featuredControl" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#featuredControl" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </div>
-
     <!-- This is the scalable model for featured items in md and up
         This will need to be looped with PHP to create items when we have DB set up. -->
-    <div class="container-fluid invisible visible-md">
+    <div class="container-fluid">
         <div class="row py-5 g-2">
             <div class="card col-lg-3 col-md-4 p-3">
                 <img src="./favicon/android-chrome-512x512.png">
