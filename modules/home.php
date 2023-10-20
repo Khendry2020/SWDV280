@@ -1,6 +1,26 @@
 <!-- This is the mobile carousel for featured items, should be invisible on medium and up,
      This will need to be looped with PHP to create items when we have DB set up.  -->
 <div class="container">
+<<<<<<< HEAD
+    <h2 class="text-center">Featured Items</h2>
+
+    <div class="container-fluid visible invisible-md">
+        <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <!-- These buttons will need to be looped through for the carousel when we have featured items enabled in the DB -->
+                <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="0" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <!-- This is the inner item which will need to be looped through for each featured item, there might should be some logic for if there are no featured items. -->
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="./favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Some representative placeholder content for the first slide.</p>
+                    </div>
+=======
     <h2 class="text-center">Featured Items and noodles</h2>
     <h2 class="text-center">Featured Items and noodles</h2>
 test
@@ -51,7 +71,7 @@ test
         This will need to be looped with PHP to create items when we have DB set up. -->
     <div class="container-fluid invisible visible-md">
         <div class="row py-5 g-2">
-            <div class="card col-lg-3 col-md-4 p-3">                
+            <div class="card col-lg-3 col-md-4 p-3">
                 <img src="./favicon/android-chrome-512x512.png">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
