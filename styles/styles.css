@@ -1,0 +1,13 @@
+/* Media point for shopping cart to 
+display on top right corner in small screens */
+@media screen and (max-width: 500px){
+    .media{
+      position: relative;  
+    }
+} 
+
+@media screen and (max-width: 360px){
+  .media{
+    position: relative;  
+  }
+}
