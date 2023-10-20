@@ -2,7 +2,7 @@
      This will need to be looped with PHP to create items when we have DB set up.  -->
 <div class="container">
     <h2 class="text-center">Featured Item</h2>
-    <div class="container-fluid visible invisible-md"> 
+    <div class="container-fluid visible"> 
         <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
             <!-- These buttons will need to be looped through for the carousel when we have featured items enabled in the DB -->
