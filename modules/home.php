@@ -3,7 +3,7 @@
 <div class="container">
     <h2 class="text-center">Featured Items</h2>
 
-    <div class="container-fluid visible invisible-md">
+    <div class="container-fluid visible invisible-md"> 
         <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
             <!-- These buttons will need to be looped through for the carousel when we have featured items enabled in the DB -->
