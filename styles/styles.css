@@ -1,0 +1,16 @@
+/*Colors and styling for background and fonts in pallete*/
+.color-light {
+    color: #FFEFCF;
+}
+.bg-color-light {
+    background-color: #FFEFCF; ;
+}
+.color-orange {
+    background-color: #FF7A00;
+}
+.color-red {
+    background-color: #D44000;
+}
+.color-brown {
+    background-color: #864000;
+}

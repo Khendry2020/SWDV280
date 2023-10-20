@@ -1,8 +1,8 @@
-<footer class="mb-0">
+<footer class="mb-0 color-brown">
     <div class="text-center mb-0 MMblue border-top border-black border-5">
         <div class="py-2">
             <a href="./index.php">
-                <img style="height: 400px;" class="mh-100 rounded img-fluid my-2" src="favicon/android-chrome-512x512.png"
+                <img style="height: 200px;" class="mh-100 rounded img-fluid my-2" src="favicon/android-chrome-512x512.png"
                     alt="Scott's Funiture Barn Logo">
             </a>
         </div>

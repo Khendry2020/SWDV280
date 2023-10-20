@@ -1,9 +1,10 @@
 <!-- This is the mobile carousel for featured items, should be invisible on medium and up,
      This will need to be looped with PHP to create items when we have DB set up.  -->
-<div class="container">
-    <h2 class="text-center">Featured Items and noodles</h2>
-    <h2 class="text-center">Featured Items and noodles</h2>
-test
+<div class="container color-orange">
+    <span class="container">
+        <h2 class="text-center">Featured Items and noodles</h2>
+    </span>
+
     <div class="container-fluid visible invisible-md"> 
         <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -55,8 +56,8 @@ test
 <hr>
 
 <!-- This is the about section to be included here on the homepage. The content needs to be created still -->
-<div class="container">
-    <div class="container-fluid">
+<div class="MMblue border border-black border-5 container color-red">
+    <div class="container-fluid color-light">
         <h2>
             About Working Title
         </h2>
