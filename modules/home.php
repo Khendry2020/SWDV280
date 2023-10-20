@@ -1,7 +1,7 @@
 <!-- This is the mobile carousel for featured items, should be invisible on medium and up,
      This will need to be looped with PHP to create items when we have DB set up.  -->
 <div class="container">
-    <h2 class="text-center">Featured Item</h2>
+    <h2 class="text-center">Featured Items</h2>
     <div class="container-fluid visible"> 
         <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
@@ -13,14 +13,14 @@
         <!-- This is the inner item which will need to be looped through for each featured item, there might should be some logic for if there are no featured items. -->
         <div class="carousel-inner">
             <div class="carousel-item">
-                <img src="/favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
+                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="/favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
+                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
