@@ -2,7 +2,7 @@
      This will need to be looped with PHP to create items when we have DB set up.  -->
 <div class="container">
     <h2 class="text-center">Featured Items</h2>
-    <div class="container-fluid"> 
+    <div class="container-fluid" id="mobileCarousel"> 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -32,9 +32,45 @@
     </div>
     <!-- This is the scalable model for featured items in md and up
         This will need to be looped with PHP to create items when we have DB set up. -->
-    <div class="container-fluid">
+    <div class="container-fluid" id="desktopCards">
         <div class="row py-5 g-2">
-            <div class="card col-lg-3 col-md-4 p-3">
+            <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
+                <img src="./favicon/android-chrome-512x512.png">
+                <div class="card-body">
+                    <h5 class="card-title text-center"></h5>
+                    <p class="card-text"></p>
+                </div>
+                <ul class="list-group list-group-flush rounded">
+                    <li class="list-group-item text-center"></li>
+                </ul>
+                <div class="card-body text-center rounded">
+                </div>
+            </div>
+            <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
+                <img src="./favicon/android-chrome-512x512.png">
+                <div class="card-body">
+                    <h5 class="card-title text-center"></h5>
+                    <p class="card-text"></p>
+                </div>
+                <ul class="list-group list-group-flush rounded">
+                    <li class="list-group-item text-center"></li>
+                </ul>
+                <div class="card-body text-center rounded">
+                </div>
+            </div>
+            <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
+                <img src="./favicon/android-chrome-512x512.png">
+                <div class="card-body">
+                    <h5 class="card-title text-center"></h5>
+                    <p class="card-text"></p>
+                </div>
+                <ul class="list-group list-group-flush rounded">
+                    <li class="list-group-item text-center"></li>
+                </ul>
+                <div class="card-body text-center rounded">
+                </div>
+            </div>
+            <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
                 <img src="./favicon/android-chrome-512x512.png">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
