@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* Media point for shopping cart to 
 display on top right corner in small screens */
 @media screen and (max-width: 500px){
@@ -11,28 +10,4 @@ display on top right corner in small screens */
   .media{
     position: relative;  
   }
-=======
-@media only screen and (max-width: 576px) {
-    #mobileCarousel {
-        display: block;
-        visibility: visible;
-    }
-
-    #desktopCards {
-        display: none;
-        visibility: hidden;
-    }
-}
-
-@media only screen and (min-width: 577px) {
-    #mobileCarousel {
-        display: none;
-        visibility: hidden;
-    }
-
-    #desktopCards {
-        display: block;
-        visibility: visible;
-    }
->>>>>>> 07e3b28d4ba962f231159f09538e12c1e5046d2c
 }
