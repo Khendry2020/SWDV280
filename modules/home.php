@@ -6,28 +6,28 @@
         <div id="mobileFeatured" class="carousel slide " data-bs-ride="carousel">
         <div class="carousel-indicators">
             <!-- These buttons will need to be looped through for the carousel when we have featured items enabled in the DB -->
-            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="0"  aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#featuredControl" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
         <!-- This is the inner item which will need to be looped through for each featured item, there might should be some logic for if there are no featured items. -->
         <div class="carousel-inner">
             <div class="carousel-item">
-                <img src="../favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
+                <img src="/favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
+                <img src="/favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="../favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
+                <img src="./favicon/android-chrome-512x512.png" class="d-block w-100" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
                     <p>Some representative placeholder content for the first slide.</p>
