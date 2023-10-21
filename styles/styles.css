@@ -1,13 +1,37 @@
 /* Media point for shopping cart to 
 display on top right corner in small screens */
-@media screen and (max-width: 500px){
-    .media{
-      position: relative;  
+@media screen and (max-width: 500px) {
+    .media {
+        position: relative;
     }
-} 
+}
 
-@media screen and (max-width: 360px){
-  .media{
-    position: relative;  
-  }
+@media screen and (max-width: 360px) {
+    .media {
+        position: relative;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    #mobileCarousel {
+        display: block;
+        visibility: visible;
+    }
+
+    #desktopCards {
+        display: none;
+        visibility: hidden;
+    }
+}
+
+@media only screen and (min-width: 577px) {
+    #mobileCarousel {
+        display: none;
+        visibility: hidden;
+    }
+
+    #desktopCards {
+        display: block;
+        visibility: visible;
+    }
 }
