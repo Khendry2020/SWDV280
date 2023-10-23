@@ -2,8 +2,8 @@
 // Set up the database connection
 // TODO - Update credentials for security
 $dsn = 'mysql:host=3.93.31.85;dbname=scotts_furniture_barn';
-$username = 'root';
-$password = '';
+$username = 'phpmyadmin';
+$password = 'Pa$$w0rd';
 $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
 try {
