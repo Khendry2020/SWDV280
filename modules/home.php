@@ -88,14 +88,17 @@
 <hr>
 
 <!-- This is the about section to be included here on the homepage. The content needs to be created still -->
-<div class="MMblue border border-black border-5 container color-red">
+<div class="MMblue border border-black border-5 container color-red mb-4">
+<a href="about.php" class="text-decoration-none color-light" >
     <div class="container-fluid color-light">
         <h2>
-            About Working Title
+        Click here to learn more about Scott's Funiture Barn
         </h2>
+
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium impedit soluta doloribus voluptatem magnam molestias inventore rerum distinctio! Minus enim inventore deserunt quas ipsa iure animi impedit, in facere voluptatibus.
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam, illo ut in asperiores sed suscipit facilis sunt vero odio quos aperiam inventore et commodi corrupti eligendi iure ducimus minima?
         </p>
     </div>
+</a>
 </div>

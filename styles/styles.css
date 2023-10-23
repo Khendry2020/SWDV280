@@ -20,7 +20,7 @@
     background-color: #864000;
 }
 
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 768px) {
     #mobileCarousel {
         display: block;
         visibility: visible;
@@ -32,7 +32,7 @@
     }
 }
 
-@media only screen and (min-width: 577px) {
+@media only screen and (min-width: 769px) {
     #mobileCarousel {
         display: none;
         visibility: hidden;
@@ -41,5 +41,17 @@
     #desktopCards {
         display: block;
         visibility: visible;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .media {
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .media {
+        position: relative;
     }
 }
