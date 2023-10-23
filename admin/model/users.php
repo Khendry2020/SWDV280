@@ -1,10 +1,10 @@
 <?php
 function display_admins() {
-    global $db;
+    global $dba;
     $query = 'SELECT * FROM admin
               ORDER BY AdminId';
     try {
-        $statement = $db->prepare($query);
+        $statement = $dba->prepare($query);
         $statement->execute();
         $result = $statement->fetchAll();
         $statement->closeCursor();
@@ -15,11 +15,11 @@ function display_admins() {
 }
 
 function get_admin($admin_id) {
-    global $db;
+    global $dba;
     $query = 'SELECT * FROM admin
               WHERE AdminId = :admin_id';
     try {
-        $statement = $db->prepare($query);
+        $statement = $dba->prepare($query);
         $statement->bindValue(':admin_id', $admin_id);
         $statement->execute();
         $result = $statement->fetch();
@@ -30,12 +30,13 @@ function get_admin($admin_id) {
     }
 }
 
+
 function add_admin($username, $roles, $password) {
-    global $db;
+    global $dba;
     $query = 'INSERT INTO admin (UserName, Roles, Password)
               VALUES (:username, :roles, :password)';
     try {
-        $statement = $db->prepare($query);
+        $statement = $dba->prepare($query);
         $statement->bindValue(':username', $username);
         $statement->bindValue(':roles', $roles);
         $statement->bindValue(':password', $password);
@@ -49,13 +50,13 @@ function add_admin($username, $roles, $password) {
 }
 
 function update_admin($admin_id, $admin_name, $role) {
-    global $db;
+    global $dba;
     $query = '
         UPDATE admin
         SET UserName = :admin_name, Roles = :role
         WHERE CategoryId = :admin_id';
     try {
-        $statement = $db->prepare($query);
+        $statement = $dba->prepare($query);
         $statement->bindValue(':name', $name);
         $statement->bindValue(':cat_id', $cat_id);
         $statement->execute();
@@ -67,10 +68,10 @@ function update_admin($admin_id, $admin_name, $role) {
 }
 
 function delete_admin($admin_id) {
-    global $db;
+    global $dba;
     $query = 'DELETE FROM admin WHERE AdminId = :admin_id';
     try {
-        $statement = $db->prepare($query);
+        $statement = $dba->prepare($query);
         $statement->bindValue(':admin_id', $admin_id);
         $statement->execute();
         $statement->closeCursor();
