@@ -1,37 +1,16 @@
-<!DOCTYPE html>
-<?php include './modules/head.php'; ?>
+<?php
+session_start();
+require_once('util/main.php');
+require_once('util/tags.php');
+require_once('models/database.php');
+require_once('models/products_db.php');
+require_once('models/categories_db.php');
 
-<body>
-  <!-- ======= Hero Section =======  -->
-  <section id="hero" class="hero">
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-md-12">
-        </div>
+// Get all the categories from categories_db useful for Navigation 
+$categories = get_categories();
+// Display the home page
+include('views/home.php');
 
-        <div class="col-md-12">
-          <h1>
-            Scott's Furniture Barn
-          </h1>
+// Dump the session with var_dump($_SESSION);
 
-          <p class="tagline">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          </p>
-        </div>
-      </div>
-
-  </section><!-- End Hero -->
-  <main>
-    <!--Navigation-->
-    <div>
-      <?php include './modules/header.php'; ?>
-    </div>
-    <?php include './modules/home.php'; ?>
-  </main>
-  <footer>
-    <?php include './modules/footer.php'; ?>
-  </footer>
-
-</body>
-
-</html>
+?>
