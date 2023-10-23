@@ -10,6 +10,7 @@
 			<div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
 				<ul class="navbar-nav">
 					<li class="nav-item pe-4"><a class="nav-link" href="index.php">Home</a></li>
+					<li class="nav-item pe-4"><a class="nav-link" href="about.php">About</a></li>
 					<li class="nav-item pe-4"><a class="nav-link" href="#">Gallery</a></li>
 					<li class="nav-item pe-4"><a class="nav-link" href="#">Contact</a></li>
 				</ul>
