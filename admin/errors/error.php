@@ -1,4 +1,4 @@
-<?php include 'view/he'
+<?php include './modules/head.php'; ?>
 <?php include 'view/header.php'; ?>
 <section>
     <h2>Error</h2>
