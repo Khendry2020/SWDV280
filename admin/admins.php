@@ -21,8 +21,7 @@ $admins = display_admins();
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				<a href="<?php echo 'controller' . 
-						'?action=add_admin'; ?>"> Add Admin User
+				<a href="./add/add_admin.php"> Add Admin User
 				</a>
 
 			<ul>

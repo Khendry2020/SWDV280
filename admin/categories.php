@@ -21,8 +21,7 @@ $categories = get_categories();
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				<a href="<?php echo 'controller' . 
-						'?action=add_category'; ?>"> Add Category
+				<a href="./add/add_category.php"> Add Category
 				</a>
 
 			<ul>

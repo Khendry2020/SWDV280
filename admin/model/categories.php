@@ -37,7 +37,7 @@ function add_category($name) {
               VALUES (:name)';
     try {
         $statement = $dba->prepare($query);
-        $statement->bindValue(':cat_id', $cat_id);
+        $statement->bindValue(':name', $name);
         $statement->execute();
         $result = $statement->fetch();
         $statement->closeCursor();
