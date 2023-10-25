@@ -12,7 +12,7 @@
       <div class="modal-body bg-light">
         <!---- Login ---->
         <h3>Login</h3>
-        <form action="authenticate.php" method="post"> <!-- action added -->
+        <form action="./userLogin.php" method="post"> <!-- action added -->
           <!-- Email -->
           <div class="mb-3 mt-3 text-start">
             <label class="text-start" for="email">
@@ -34,7 +34,7 @@
         <hr>
         <!---- Sign up ---->
         <h3>Sign Up</h3>
-        <form action="authenticate" method="post">
+        <form action="./userSignup.php" method="post">
           <div class=" mb-3 mt-3 text-start">
             <label class="text-start" for="email">Email</label>
             <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">

@@ -31,4 +31,3 @@ if ($stmt = $con->prepare('SELECT loginId, password FROM login WHERE username = 
     }
     $stmt->close();
 }
-//https://codeshack.io/secure-login-system-php-mysql/
