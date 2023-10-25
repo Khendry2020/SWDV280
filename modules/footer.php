@@ -2,7 +2,7 @@
     <div class="text-center mb-0 border-top border-black border-5">
         <div class="py-2">
             <a href="./index.php">
-                <img style="height: 200px;" class="mh-100 rounded img-fluid my-2" src="favicon/android-chrome-512x512.png"
+                <img style="height: 200px;" class="mh-100 rounded img-fluid my-2" src="images/scottslogo.png"
                     alt="Scott's Funiture Barn Logo">
             </a>
         </div>
