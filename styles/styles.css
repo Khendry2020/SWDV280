@@ -44,7 +44,7 @@
 
 }
 
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 768px) {
     #mobileCarousel {
         display: none;
         visibility: hidden;
