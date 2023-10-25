@@ -260,6 +260,8 @@ switch ($action) {
 
         include('view_reports.php');
         break;
+
+  
 }
 
 // var_dump($_SESSION);
