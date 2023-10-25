@@ -26,7 +26,7 @@ session_start();
 				</p>
 				<a href="products.php">View Products</a>
 				<a href="categories.php">View Categories</a>
-				<a href="users.php">View Admins</a>
+				<a href="admins.php">View Admins</a>
 				<a href="reports.php">View Reports</a>
 			</section>
         </div>

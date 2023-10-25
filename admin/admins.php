@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('./model/database.php');
-include('./model/categories.php');
+include('./model/admins.php');
 $users = display_admins();
 ?>
 
