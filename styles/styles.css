@@ -32,6 +32,7 @@
     }
 
     #headerImg {
+        width: 40px;
         display: block;
         visibility: visible;
     }
@@ -78,11 +79,11 @@
 }
 
 /* log in form styles */
-.form-login{
+.form-login {
     background-color: rgba(245, 238, 238, 0.434);
     padding: 10px;
     border-radius: 5%;
-  } 
+}
 
-  /* Bootstrap Icons */
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"); 
+/* Bootstrap Icons */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");

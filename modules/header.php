@@ -2,7 +2,12 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
-            <a class="navbar-brand fs-6" href="#"><img src="../favicon/android-chrome-192x192.png" alt="Furniture Logo" style="width:30px;" class="rounded-pill pe-1">Scott's Furniture Barn</a>
+		<div id="headerBrandname">
+				<a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
+			</div>
+			<div id="headerImg">
+			<a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px"></a>
+			</div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
             </button>
