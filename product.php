@@ -42,36 +42,31 @@ $list_price = number_format($product['Price'], 2);
 <!DOCTYPE html>
     <?php include './modules/head.php'; ?>
     <body>
+        <?php include './modules/header.php'; ?>
         <main>
-            <div>
-                <?php include './modules/header.php'; ?>
-            </div>  
-            <section>
-            <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
-                 if ($product == NULL || $product == 0 || $product === false): ?>
-                <div>The product you are looking for does not exist. Please hit the back button in your browser. If you believe this is an error, please contact support.</div>
-            <?php else: ?>
-                <h1>
-                    <?php echo $product_name; ?>
-                </h1>
-                <img src="./images/products/<?php echo $image; ?>" alt="<?php echo $product_name; ?>" class="img-fluid " /> 
-                <div>
-                    <p>
-                        <b>List Price:</b> <?php echo '$' . $list_price; ?>
-                    </p>
-                    <h2>Description</h2>
-                    <?php echo $description; ?>
+            <div class="container mx-auto text-center">
+                <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
+                    if ($product == NULL || $product == 0 || $product === false): ?>
+                    <p class="fs-6 text-center">The product you are looking for does not exist. Please hit the back button in your browser. If you believe this is an error, please contact support.</p>
+                <?php else: ?>
+                    <h4 class="fs-4 pb-1">Category Name</h4>
+                    <div class="">
+                        <img class="img-fluid rounded product-img" src="./images/products/<?php echo $image; ?>" alt="<?php echo $product_name; ?>"/> 
+                    </div>
+                <?php endif; ?>
+
+                <div class="py-4">
+                    <p class="fs-5"><?php echo $product_name; ?></p>
+                    <p class="fs-6 text-justify"><?php echo $description; ?></p>
+                    <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
                     <form action="." method="post">
                         <input type="hidden" name="action" value="reserve_item">
                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                         <input type="submit" value="Reserve Item">
                     </form>
                 </div>
-            <?php endif; ?>
-            </section>
+            </div>
         </main>
-        <footer>
-            <?php include './modules/footer.php'; ?>
-        </footer>
+        <?php include './modules/footer.php'; ?>
     </body>
 </html>
