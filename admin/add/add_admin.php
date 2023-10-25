@@ -32,7 +32,6 @@ if (isset($_POST['add'])) {
 }
 
 ?>
-
 <!DOCTYPE html>
   <?php include '../../modules/head.php'; ?>
   <body>

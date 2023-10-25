@@ -30,9 +30,7 @@ $products = get_items();
 				<li>
 				<?php echo $product['Name']; ?>
 				<form>
-				<a href="<?php echo
-					'edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit
-				</a>
+				<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit
 				</form>
 				<form action="./index.php" method="post">
 					<input type="hidden" name="product_id" value="<?php echo $product['ItemId']; ?>" />
