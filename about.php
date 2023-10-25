@@ -7,7 +7,7 @@
       <div>
         <?php include './modules/header.php'; ?>
       </div>    
-      <?php include './modules/about.php'; ?>
+      <?php include './modules/aboutBody.php'; ?>
     </main>
     <footer>
         <?php include './modules/footer.php'; ?>
