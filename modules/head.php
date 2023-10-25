@@ -20,9 +20,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- style sheet css here -->
-    <link rel="stylesheet"href="style.css">
+    <link rel="stylesheet"href="./styles/styles.css">
     
     <!-- JavaScript here-->
     <script src="./scripts/script.js"></script>
-    
 </head>
