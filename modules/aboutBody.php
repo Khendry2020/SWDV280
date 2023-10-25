@@ -4,8 +4,8 @@
         <div class="col-md-6 col-12">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis error, autem perferendis numquam nulla quis vitae quia! Dolor dolore alias itaque, deserunt quia enim nihil quidem, cupiditate possimus repellendus obcaecati. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, tenetur asperiores dicta cum consequuntur velit quis dignissimos, possimus quod assumenda sunt est vero ea id beatae? Eaque dolores fuga dolorem.</p>
         </div>
-        <div class="col-md-6 col-12"><img src="./images/scotts_S.png" class="img-fluid rounded p-1"></div>
-        <div class="col-md-6 col-12"><img src="./images/scotts_S.png" class="img-fluid rounded p-1"></div>
+        <div class="col-md-6 col-12 text-center"><img src="./images/scotts_S.png" class="img-fluid rounded p-1"></div>
+        <div class="col-md-6 col-12 text-center"><img src="./images/scotts_S.png" class="img-fluid rounded p-1"></div>
         <div class="col-md-6 col-12">
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perspiciatis error, autem perferendis numquam nulla quis vitae quia! Dolor dolore alias itaque, deserunt quia enim nihil quidem, cupiditate possimus repellendus obcaecati.</p>
         </div>
