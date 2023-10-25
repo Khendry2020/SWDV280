@@ -4,7 +4,6 @@ session_start();
 <!DOCTYPE html>
   <?php include'./modules/head.php'; ?>
   <body>
-      <!-- ======= Hero Section =======  -->
     <section id="hero" class="hero">
       <div class="container text-center">
         <div class="row">
@@ -20,13 +19,15 @@ session_start();
           </div>
         </div>
       </div>
-    </section><!-- End Hero -->
+    </section>
     <main>
         <!--Navigation-->
       <div>
         <?php include './admin/modules/admin_bar.php'; ?>
       </div>    
-        <?php include './admin/modules/admin_landing.php'; ?>
+
+
+    <?php include './admin/modules/admin_landing.php'; ?>
     </main>
     <footer>
     
