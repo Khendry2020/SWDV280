@@ -261,6 +261,8 @@ switch ($action) {
         include('view_reports.php');
         break;
 
+    
+
   
 }
 
