@@ -29,9 +29,9 @@ $categories = get_categories();
 				<!-- display links for all categorys -->
 				<?php foreach ($categories as $category) : ?>
 				<li>
-				<?php echo $category['Name']; ?>
+				<?php echo $category['CategoryType']; ?>
 				<form>
-				<a href="<?php echo $app_path . 'controller' . 
+				<a href="<?php echo 'controller' . 
 						'?action=edit_category' .
 						'&amp;category_id=' . $category['CategoryId']; ?>"> Edit
 				</a>
@@ -44,10 +44,6 @@ $categories = get_categories();
 				</li>
 				<?php endforeach; ?>
 			</ul>
-			<!--     <a href="<?php echo $app_path . 'controller' . 
-						'?action=delete_category' .
-						'&amp;category_id=' . $category['CategoryId']; ?>"> Delete
-				</a> -->
         </div>
     </main>
     <footer>
