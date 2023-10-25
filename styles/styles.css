@@ -32,7 +32,7 @@
     }
 
     #headerImg {
-        width: 40px;
+        width: 65px;
         display: block;
         visibility: visible;
     }
@@ -76,6 +76,13 @@
     .media {
         position: relative;
     }
+}
+
+#hero img {
+    object-fit: cover;
+    max-height: 165px;
+    width: 100%;
+    max-width: 554px;
 }
 
 /* log in form styles */

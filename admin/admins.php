@@ -1,8 +1,8 @@
 <?php
 session_start();
 include('./model/database.php');
-include('./model/categories.php');
-$categories = get_categories();
+include('./model/admins.php');
+$admins = display_admins();
 ?>
 
 <!DOCTYPE html>
@@ -21,21 +21,21 @@ $categories = get_categories();
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				<a href="./add/add_category.php"> Add Category
+				<a href="./add/add_admin.php"> Add Admin User
 				</a>
 
 			<ul>
 				<!-- display links for all categorys -->
-				<?php foreach ($categories as $category) : ?>
+				<?php foreach ($admins as $admin) : ?>
 				<li>
-				<?php echo $category['CategoryType']; ?>
+				<?php echo $admin['UserName']; ?>
 				<form>
-				<a href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>"> Edit
+				<a href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>"> Edit
 				</a>
 				</form>
 				<form action="./index.php" method="post">
-				<input type="hidden" name="category_id" value="<?php echo $category['CategoryId']; ?>" />
-				<input type="hidden" name="action" value="delete_category" />
+				<input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>" />
+				<input type="hidden" name="action" value="delete_admin" />
 				<input type="submit" value="Delete">
 				</form>
 				</li>

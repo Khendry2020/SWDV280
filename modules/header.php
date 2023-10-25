@@ -6,7 +6,7 @@
 				<a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
 			</div>
 			<div id="headerImg">
-			<a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px"></a>
+			<a class="navbar-brand" href="index.php"><img src="./images/scottslogo.png" alt="" class="img-fluid rounded"></a>
 			</div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
                 <span class="navbar-toggler-icon"></span>
@@ -16,7 +16,7 @@
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                 </ul>
             </div>
 			
