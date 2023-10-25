@@ -78,6 +78,13 @@
     }
 }
 
+#hero img {
+    object-fit: cover;
+    max-height: 160px;
+    width: 100%;
+    max-width: 554px;
+}
+
 /* log in form styles */
 .form-login {
     background-color: rgba(245, 238, 238, 0.434);
