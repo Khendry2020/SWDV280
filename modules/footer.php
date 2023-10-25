@@ -20,7 +20,7 @@
             </div>
             <div class="col">
                 <a href="contact.php" class="text-decoration-none text-light">
-                    <i class="bi bi-pin-map">3489&nbsp;N&nbsp;Meridian&nbsp;Rd.&nbsp;Meridian&nbsp;ID&nbsp;83646</i>
+                    <i class="bi bi-pin-map">&nbsp;3489&nbsp;N&nbsp;Meridian&nbsp;Rd.&nbsp;Meridian&nbsp;ID&nbsp;83646</i>
                 </a>
             </div>
             <hr>
