@@ -16,17 +16,13 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
     <link rel="manifest" href="./favicon/site.webmanifest">
     
-    <!-- Google Fonts Material Symbols-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-
-
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- style sheet css here -->
-    <link rel="stylesheet"href="./styles/styles.css">
+    <link rel="stylesheet"href="style.css">
     
     <!-- JavaScript here-->
     <script src="./scripts/script.js"></script>
     
-
 </head>
