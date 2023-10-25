@@ -14,11 +14,12 @@
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
                 </ul>
             </div>
-
-            <!-- php if signed in, --> <!-- Need inplment this code? -->
-			<!-- <?php //include './modules/logout.php'; ?> -->
+			
+			<!-- Need to implment this code. -->
+            <!-- php if signed in, --> 
+			<?php //include './modules/logout.php'; ?>
 			<!-- else { -->
-			<!-- <?php include './modules/signin.php'; ?> -->
+			<?php include './modules/signin.php'; ?>
 			<!-- } -->
             
             <div class="d-flex">
