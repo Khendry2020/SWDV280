@@ -1,3 +1,4 @@
+<?php
 function donationFuniture(){
     global $db;
     try{
@@ -14,3 +15,5 @@ function donationFuniture(){
              display_db_error($error_message);
      }         
 }
+
+?>
