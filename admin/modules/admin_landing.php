@@ -11,6 +11,6 @@ Sed tempus pulvinar est faucibus iaculis. Sed consequat, arcu sed mollis venenat
         <li class="list-group-item"><a href="<?php echo $app_path . 'controller' . '?action=view_categories'; ?>">View Categories</a></li>
         <li class="list-group-item"><a href="<?php echo $app_path . 'controller' . '?action=view_users'; ?>">View Users</a></li>
         <li class="list-group-item"><a href="<?php echo $app_path . 'controller' . '?action=view_reports'; ?>">View Reports</a></li>
-        <a href="<?php echo $app_path . 'controller' . '?action=view_donation'; ?>">View Donations</a>
+        <li class="list-group-item"><a href="<?php echo $app_path . 'controller' . '?action=view_donation'; ?>">View Donations</a></li>
     </ul>
 </div>

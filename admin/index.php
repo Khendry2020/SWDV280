@@ -28,6 +28,7 @@ session_start();
 				<a href="categories.php">View Categories</a>
 				<a href="admins.php">View Admins</a>
 				<a href="reports.php">View Reports</a>
+        <a href="donation.php">View Donations</a>
 			</section>
         </div>
     </main>

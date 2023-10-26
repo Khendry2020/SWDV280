@@ -2,7 +2,7 @@
 function donationFuniture(){
     global $db;
     try{
-    $query = 'SELECT Name, Phone, Img, Description From Users Join  	
+    $query = 'SELECT Users.Name, Phone, Img, Description From Users Join  	
               DonatedFurniture where Users.UserId =  DonatedFurniture.UserId'
          $statement = $dba->prepare($query);
          $statement->execute();

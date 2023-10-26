@@ -261,7 +261,11 @@ switch ($action) {
         include('view_reports.php');
         break;
 
-    
+    //
+ case 'view_donations' 
+
+ include('donation_view.php')
+ break;
 
   
 }
