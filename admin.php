@@ -24,10 +24,10 @@ session_start();
         <!--Navigation-->
       <div>
         <?php include './admin/modules/admin_bar.php'; ?>
-      </div>    
-
-
-    <?php include './admin/modules/admin_landing.php'; ?>
+      </div>
+      <div class="container text-center">    
+        <?php include './admin/modules/admin_landing.php'; ?>
+      </div>
     </main>
     <footer>
     
