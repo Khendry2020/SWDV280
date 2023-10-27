@@ -8,28 +8,24 @@ $categories = get_categories();
 <!DOCTYPE html>
     <?php include './modules/head.php'; ?>
     <body>
-        <main>
-            <div>
-                <?php include './modules/header.php'; ?>
-            </div>  
-            <section>
-            <h2>Furniture Categories</h2>
-                <ul>
-                    <!-- display links for all categories -->
-                    <?php foreach ($categories as $category) : ?>
-                    <li>
-                        <a href="<?php echo $app_path . 'controller' . 
-                            '?action=list_products' .
-                            '&amp;category_id=' . $category['CategoryId']; ?>">
-                            <?php echo $category['CategoryType']; ?>
-                        </a>
-                    </li>
-                    <?php endforeach; ?>
-                </ul>
-            </section>
+        <?php include './modules/header.php'; ?>
+        <main> 
+            <div class="container">
+                <h2>Furniture Categories</h2>
+                    <ul>
+                        <!-- display links for all categories -->
+                        <?php foreach ($categories as $category) : ?>
+                        <li>
+                            <a class="text-body" href="<?php echo $app_path . 'controller' . 
+                                '?action=list_products' .
+                                '&amp;category_id=' . $category['CategoryId']; ?>">
+                                <?php echo $category['CategoryType']; ?>
+                            </a>
+                        </li>
+                        <?php endforeach; ?>
+                    </ul>
+            </div>
         </main>
-        <footer>
-            <?php include './modules/footer.php'; ?>
-        </footer>
+        <?php include './modules/footer.php'; ?>
     </body>
 </html>
