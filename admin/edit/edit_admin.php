@@ -64,7 +64,6 @@ if (isset($_POST['edit'])) {
                     <input type="text" value="<?php echo $admin['Password']; ?>" id="password" name="password">
                 </div>
                     <input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>">
-                    <input type="hidden" name="action" value="update_admin" />
                 </div>
                 <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
             </form>
