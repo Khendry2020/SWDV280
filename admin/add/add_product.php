@@ -23,26 +23,17 @@ if (isset($_POST['add'])) {
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
     $category_id = filter_input(INPUT_POST, 'category', FILTER_VALIDATE_INT);
 
-    $image_file = $_FILES["image"];
+    $fileName = basename($_FILES["image"]["name"]); 
+    $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
 
-    // Exit if no file uploaded
-    if (!isset($image_file)) {
-        $error = 'An image is required for the product.';
+    // Allow certain file formats 
+    $allowTypes = array('jpg','png','jpeg'); 
+    if(in_array($fileType, $allowTypes)){ 
+        $img = file_get_contents($_FILES['image']['tmp_name']);
+    } else {
+        $error = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
         include('../../errors/error.php');
-    }
-    
-    // Exit if image file is zero bytes
-    if (filesize($image_file["tmp_name"]) <= 0) {
-        $error = 'Uploaded image has no contents.';
-        include('../../errors/error.php');
-    }
-    
-    // Exit if is not a valid image file
-    $image_type = exif_imagetype($image_file["tmp_name"]);
-    if (!$image_type) {
-        $error = 'The file uploaded was not an image.';
-        include('../../errors/error.php');
-    }
+    } 
     
     if ($name == NULL || $description == NULL ||
             $price == FALSE || $category_id == NULL) {            
@@ -52,23 +43,9 @@ if (isset($_POST['add'])) {
         $error = 'Price of item cannot be 0 or less than 0.';
         include('../../errors/error.php');
     } else {
-        // Get file extension based on file type, to prepend a dot we pass true as the second parameter
-        $image_extension = image_type_to_extension($image_type, true);
-        
-        // Create a unique image name
-        $image_name = bin2hex(random_bytes(16)) . $image_extension;
-
         // Add item to database
-        add_item($category_id, $name, $description, $price, $image_name);
+        add_item($category_id, $name, $description, $price, $img);
 
-        // Move the temp image file to the images directory
-        move_uploaded_file(
-            // Temp image location
-            $image_file["tmp_name"],
-        
-            // New image location
-            "../../images/products/" . $image_name
-        );
         $_POST = [];
 
         $_SESSION['Status Message'] = 'Item added successfully.';
