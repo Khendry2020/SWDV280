@@ -13,10 +13,11 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-center pe-5 " id="navbarResponsive">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-					<li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
-					<li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo $app_path . 'controller' . '?action=view_products'; ?>">View Products</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo $app_path . 'controller' . '?action=view_categories'; ?>">View Categories</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo $app_path . 'controller' . '?action=view_users'; ?>">View Users</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo $app_path . 'controller' . '?action=view_reports'; ?>">View Reports</a></li>
+					<li class="nav-item"><a class="nav-link" href="<?php echo $app_path . 'controller' . '?action=view_donation'; ?>">View Donations</a></li>
 				</ul>
 			</div>			
     	</div>
