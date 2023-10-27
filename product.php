@@ -35,6 +35,8 @@ $list_price = number_format($product['Price'], 2);
     <p><b>Your Price:</b>
     <?php echo '$' . $unit_price_f; ?>
     (You save <?php echo '$' . $discount_amount_f; ?>)</p>
+
+    <p class="fs-5"><?php echo $product_name; ?></p>
 */
 
 }
@@ -49,22 +51,20 @@ $list_price = number_format($product['Price'], 2);
                     if ($product == NULL || $product == 0 || $product === false): ?>
                     <p class="fs-6 text-center">The product you are looking for does not exist. Please hit the back button in your browser. If you believe this is an error, please contact support.</p>
                 <?php else: ?>
-                    <h4 class="fs-4 pb-1">Category Name</h4>
+                    <h4 class="fs-4 pb-1"><?php echo $product_name; ?></h4>
                     <div class="">
                         <img class="img-fluid rounded product-img" src="./images/products/<?php echo $image; ?>" alt="<?php echo $product_name; ?>"/> 
                     </div>
+                    <div class="py-4">
+                        <p class="fs-6 text-justify"><?php echo $description; ?></p>
+                        <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
+                        <form action="." method="post">
+                            <input type="hidden" name="action" value="reserve_item">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                            <input type="submit" value="Reserve Item">
+                        </form>
+                    </div>
                 <?php endif; ?>
-
-                <div class="py-4">
-                    <p class="fs-5"><?php echo $product_name; ?></p>
-                    <p class="fs-6 text-justify"><?php echo $description; ?></p>
-                    <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
-                    <form action="." method="post">
-                        <input type="hidden" name="action" value="reserve_item">
-                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                        <input type="submit" value="Reserve Item">
-                    </form>
-                </div>
             </div>
         </main>
         <?php include './modules/footer.php'; ?>
