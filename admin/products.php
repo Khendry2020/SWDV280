@@ -4,8 +4,7 @@ include('./model/database.php');
 include('./model/products.php');
 $products = get_items();
 
-
-if (isset($_POST['delete'])) {
+if (isset($_POST['product_id'])) {
     $_POST['product_id'] = trim($_POST['product_id']);
 
     $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
@@ -23,7 +22,6 @@ if (isset($_POST['delete'])) {
         header("Location: ./products.php");
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -51,10 +49,11 @@ if (isset($_POST['delete'])) {
 				<li>
 				<?php echo $product['Name']; ?>
 				<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
-				<form action="" method="post">
+				<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
 					<input type="hidden" name="product_id" value="<?php echo $product['ItemId']; ?>" />
-					<input type="hidden" name="action" value="delete_product" />
-					<button type="submit" class="btn btn-primary mt-3" name="delete">Delete</button>
+					<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $product['ItemId']; ?>">
+						Delete
+					</button>
 				</form>
 				</li>
 				<?php endforeach; ?>
@@ -64,5 +63,44 @@ if (isset($_POST['delete'])) {
     <footer>
         <?php include '../modules/footer.php'; ?>
     </footer>
+	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3 id="myModalLabel">Are you sure?</h3>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<p>You are about to delete. Do you want to proceed?</p>
+				</div>
+				<div class="modal-footer">
+					<button id="btnDelete" class="btn btn-danger">Yes</button>
+					<button data-bs-dismiss="modal" aria-hidden="true" class="btn btn-secondary">No</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		$('.confirm-delete').on('click', function(e) {
+			// preven form submit
+			e.preventDefault();
+			
+			// get the current image/form id
+			var id = $(this).attr("id")
+			// assign the current id to the modal
+			$('#myModal').data('id', id).modal('show');
+		});
+
+		$('#btnDelete').click(function() {
+			// handle deletion here
+			var id = $('#myModal').data('id');
+			
+			// submit the form
+			$('#form'+id).submit();
+			
+			// hide modal
+			$('#myModal').modal('hide');
+		});
+	</script>
   </body>
 </html>

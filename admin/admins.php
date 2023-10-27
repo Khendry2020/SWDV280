@@ -27,6 +27,7 @@ $admins = display_admins();
 			<ul>
 				<!-- display links for all categorys -->
 				<?php foreach ($admins as $admin) : ?>
+					<?php if($admin['AdminId'] != 1) ?>
 				<li>
 				<?php echo $admin['UserName']; ?>
 				<form>

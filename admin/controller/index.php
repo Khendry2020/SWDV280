@@ -262,9 +262,9 @@ switch ($action) {
         break;
 
     //
- case 'view_donations' 
+ case 'view_donations' :
 
- include('donation_view.php')
+ include('donation_view.php');
  break;
 
   
