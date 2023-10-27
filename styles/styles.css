@@ -115,7 +115,6 @@ iframe {
 .gmap_canvas {
     overflow: hidden;
     background: none !important;
-
     width: auto;
     height: 30vh;
 }

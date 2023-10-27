@@ -29,8 +29,7 @@
             Send a Message
         </h2>          
         <div class="col-1"></div>
-        <div id="contactForm" class="col-10 mt-3 mb-5">              
-            <span class="text-danger" id="nameErr"></span>
+        <div id="contactForm" class="col-10 mt-3 mb-5">     
             <div class="input-group my-4 mt-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text">First and last name</span>
@@ -39,8 +38,6 @@
                 <input type="text" class="form-control" id="lastName" />                
             </div>
             <!-- Email -->
-                      
-            <span class="text-danger" id="emailErr"></span>
             <div class="input-group my-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Email address</span>
@@ -48,8 +45,7 @@
                 <input type="text" class="form-control" id="inputEmail" />
             </div>      
 
-            <!-- TextArea -->              
-            <span class="text-danger" id="textAreaErr"></span>
+            <!-- TextArea -->      
             <div class="input-group my-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Tell us some more</span>
