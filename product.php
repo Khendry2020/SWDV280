@@ -53,7 +53,7 @@ $list_price = number_format($product['Price'], 2);
                 <?php else: ?>
                     <h4 class="fs-4 pb-1"><?php echo $product_name; ?></h4>
                     <div class="">
-                        <img class="img-fluid rounded product-img" src="./images/products/<?php echo $image; ?>" alt="<?php echo $product_name; ?>"/> 
+                        <img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product_name; ?>" /> 
                     </div>
                     <div class="py-4">
                         <p class="fs-6 text-justify"><?php echo $description; ?></p>
