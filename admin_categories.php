@@ -9,16 +9,16 @@ session_start();
     </h1>   
     <?php include './modules/hero.php'; ?>
     <main>
+
         <!--Navigation-->
       <div>
         <?php include './admin/modules/admin_bar.php'; ?>
       </div>
-      <div class="container text-center">    
-        <?php include './admin/modules/admin_landing.php'; ?>
+      <!--End Navigation-->
+
+      <div>
+        
       </div>
     </main>
-    <footer>
-    
-    </footer>
   </body>
 </html>
