@@ -27,7 +27,7 @@ if (isset($_POST['add'])) {
     $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
 
     // Allow certain file formats 
-    $allowTypes = array('jpg','png','jpeg'); 
+    $allowTypes = array('jpg'); 
     if(in_array($fileType, $allowTypes)){ 
         $img = file_get_contents($_FILES['image']['tmp_name']);
     } else {

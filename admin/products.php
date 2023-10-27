@@ -3,6 +3,27 @@ session_start();
 include('./model/database.php');
 include('./model/products.php');
 $products = get_items();
+
+
+if (isset($_POST['delete'])) {
+    $_POST['product_id'] = trim($_POST['product_id']);
+
+    $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
+
+    if ($product_id == NULL) {            
+        $error = 'Product ID is missing. Please call support.';
+        include('../../errors/error.php');
+    } else {
+        // Update category in database
+        delete_item($product_id);
+
+        $_POST = [];
+        //header("Refresh: 0");
+        $_SESSION['Status Message'] = 'Item deleted successfully.';
+        header("Location: ./products.php");
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,13 +50,11 @@ $products = get_items();
 				<?php foreach ($products as $product) : ?>
 				<li>
 				<?php echo $product['Name']; ?>
-				<form>
-				<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit
-				</form>
-				<form action="./index.php" method="post">
+				<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
+				<form action="" method="post">
 					<input type="hidden" name="product_id" value="<?php echo $product['ItemId']; ?>" />
 					<input type="hidden" name="action" value="delete_product" />
-					<input type="submit" value="Delete">
+					<button type="submit" class="btn btn-primary mt-3" name="delete">Delete</button>
 				</form>
 				</li>
 				<?php endforeach; ?>
