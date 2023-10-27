@@ -1,9 +1,11 @@
 <?php
 function donationFuniture(){
-    global $db;
-    try{
+    global $dba;
+   
     $query = 'SELECT Users.Name, Phone, Img, Description From Users Join  	
-              DonatedFurniture where Users.UserId =  DonatedFurniture.UserId'
+              DonatedFurniture where Users.UserId =  DonatedFurniture.UserId';
+
+try{
          $statement = $dba->prepare($query);
          $statement->execute();
          $result = $statement->fetchAll();
