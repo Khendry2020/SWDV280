@@ -5,7 +5,7 @@ include('./model/admins.php');
 $admins = display_admins();
 
 if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
-    $_POST['admin_id'] = trim($_POST['produadmin_idct_id']);
+    $_POST['admin_id'] = trim($_POST['admin_id']);
 
     $admin_id = filter_input(INPUT_POST, 'admin_id', FILTER_VALIDATE_INT);
 
@@ -14,12 +14,12 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
         include('../../errors/error.php');
     } else {
         // Update category in database
-        delete_item($product_id);
+        delete_admin($admin_id);
 
         $_POST = [];
         //header("Refresh: 0");
         $_SESSION['Status Message'] = 'Admin user deleted successfully.';
-        header("Location: ./products.php");
+        header("Location: ./admins.php");
     }
 }
 
@@ -55,7 +55,7 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 				</a>
 
 				<form action="" method="post" id="form<?php echo $admin['AdminId']; ?>">
-					<input type="hidden" name="product_id" value="<?php echo $admin['AdminId']; ?>" />
+					<input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>" />
 					<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $admin['AdminId']; ?>">
 						Delete
 					</button>
@@ -89,8 +89,8 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 		$('.confirm-delete').on('click', function(e) {
 			// preven form submit
 			e.preventDefault();
-			
-			// get the current image/form id
+
+			// get the current image
 			var id = $(this).attr("id")
 			// assign the current id to the modal
 			$('#myModal').data('id', id).modal('show');
@@ -99,10 +99,10 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 		$('#btnDelete').click(function() {
 			// handle deletion here
 			var id = $('#myModal').data('id');
-			
+
 			// submit the form
 			$('#form'+id).submit();
-			
+
 			// hide modal
 			$('#myModal').modal('hide');
 		});

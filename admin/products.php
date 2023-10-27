@@ -10,7 +10,7 @@ if (isset($_POST['product_id'])) {
     $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
 
     if ($product_id == NULL) {            
-        $error = 'Product ID is missing. Please call support.';
+        $error = 'Product ID is missing or invalid. Please call support.';
         include('../../errors/error.php');
     } else {
         // Update category in database
