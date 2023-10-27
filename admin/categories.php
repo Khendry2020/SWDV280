@@ -21,8 +21,7 @@ $categories = get_categories();
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				<a href="<?php echo 'controller' . 
-						'?action=add_category'; ?>"> Add Category
+				<a href="./add/add_category.php"> Add Category
 				</a>
 
 			<ul>
@@ -31,9 +30,7 @@ $categories = get_categories();
 				<li>
 				<?php echo $category['CategoryType']; ?>
 				<form>
-				<a href="<?php echo 'controller' . 
-						'?action=edit_category' .
-						'&amp;category_id=' . $category['CategoryId']; ?>"> Edit
+				<a href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>"> Edit
 				</a>
 				</form>
 				<form action="./index.php" method="post">

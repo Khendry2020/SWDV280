@@ -21,8 +21,7 @@ $admins = display_admins();
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				<a href="<?php echo 'controller' . 
-						'?action=add_admin'; ?>"> Add Admin User
+				<a href="./add/add_admin.php"> Add Admin User
 				</a>
 
 			<ul>
@@ -31,9 +30,7 @@ $admins = display_admins();
 				<li>
 				<?php echo $admin['UserName']; ?>
 				<form>
-				<a href="<?php echo 'controller' . 
-						'?action=edit_admin' .
-						'&amp;admin_id=' . $admin['AdminId']; ?>"> Edit
+				<a href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>"> Edit
 				</a>
 				</form>
 				<form action="./index.php" method="post">

@@ -2,24 +2,12 @@
 session_start();
 ?>
 <!DOCTYPE html>
-  <?php include'./modules/head.php'; ?>
+  <?php include './modules/head.php'; ?>
   <body>
-    <section id="hero" class="hero">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-md-12">
-          </div>
-          <div class="col-md-12">
-          <img style="height: 200px;" class="mh-100 rounded img-fluid my-2" src="images/scottslogo.png"
-                    alt="Scott's Funiture Barn Logo">
-            <h1>
-              Administration
-            </h1>
-            
-          </div>
-        </div>
-      </div>
-    </section>
+    <h1 class="text-center bg-dark text-light m-0 p-0">
+      Administration
+    </h1>   
+    <?php include './modules/hero.php'; ?>
     <main>
         <!--Navigation-->
       <div>
