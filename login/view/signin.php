@@ -12,19 +12,21 @@
       <div class="modal-body bg-light">
         <!---- Login ---->
         <h3>Login</h3>
-        <form action="./userLogin.php" method="post"> <!-- action added -->
+        <?php if (isset($_GET['error'])) { ?>
+          <p class="error"> <?php echo $_GET['error']; ?> </p>
+        <?php } ?>
+        <form action="login/userLogin.php" method="post"> <!-- action added -->
           <!-- Email -->
           <div class="mb-3 mt-3 text-start">
             <label class="text-start" for="email">
-              <i class="fa-regular fa-envelope" style="color: #f08c00;"></i>
-              Email
+              Username
             </label>
-            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+            <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
           </div>
           <!-- Password -->
           <div class="mt-3 mb-3 text-start">
-            <label class="text-start" for="pwd">Password</label>
-            <input type="text" class="form-control" id="password" placeholder="Enter password" name="password">
+            <label class="text-start" for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
           </div>
           <!-- Submit -->
           <button type="submit" class="btn btn-primary">Log In</button>

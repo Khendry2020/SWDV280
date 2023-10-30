@@ -1,33 +1,45 @@
 <?php
 session_start();
-include "./models/database.php";
+include "../models/database.php";
+$_SESSION['LoggedIn'] = false;
 
-// Checks if information is present in db
-if (!isset($_POST['username'], $_POST['password'])) {
-    exit('Please fill both the username and password fields!');
+function validate($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
 }
-if ($stmt = $con->prepare('SELECT loginId, password FROM login WHERE username = ?')) {
 
-    $stmt->bind_param('s', $_POST['username']);
-    $stmt->execute();
-    $stmt->store_result();
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
-        $stmt->fetch();
-        if (password_verify($_POST['password'], $password)) {
+if (isset($_POST['username']) && isset($_POST['password'])) {
+    $username = validate($_POST['username']);
+    $password = validate($_POST['password']);
 
-            session_regenerate_id();
-            $_SESSION['loggedin'] = TRUE;
-            $_SESSION['name'] = $_POST['username'];
-            $_SESSION['id'] = $id;
-            echo 'Welcome ' . $_SESSION['name'] . '!';
-        } else {
-            // Incorrect password
-            echo 'Incorrect username and/or password!';
-        }
-    } else {
-        // Incorrect username
-        echo 'Incorrect username and/or password!';
+    if (empty($username)) {
+        header("Location: ../index.php?error=A Username is required");
+        exit();
+    } elseif (empty($password)) {
+        header("Location: ../index.php?error=A Password is required");
+        exit();
     }
-    $stmt->close();
+
+    // Use prepared statements to prevent SQL injection
+    $stmt = $db->prepare("SELECT * FROM login WHERE Username = :username AND Password = :password");
+    $stmt->bindParam(':username', $username);
+    $stmt->bindParam(':password', $password);
+    $stmt->execute();
+
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($row) {
+        $_SESSION['LoggedIn'] = true;
+        $_SESSION['Usermame'] = $row['Username'];
+        $_SESSION['FirstName'] = $row['FirstName'];
+        $_SESSION['UserId'] = $row['UserId'];
+        header("Location: ../index.php");
+        exit();
+    } else {
+        header("Location: ../index.php?error=User Name or Password is incorrect");
+        exit();
+    }
 }

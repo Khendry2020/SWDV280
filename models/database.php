@@ -18,4 +18,3 @@ try {
     include('errors/db_error_connect.php');
     exit();
 }
-?>

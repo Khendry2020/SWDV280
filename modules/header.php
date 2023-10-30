@@ -1,5 +1,6 @@
 <header>
     <!-- Navigation -->
+    <!-- <?php session_start(); ?> -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
             <div id="headerBrandname">
@@ -20,20 +21,24 @@
                 </ul>
             </div>
             <!-- Checks to see if user is logged in and displays aproriate action -->
-            <?php if ($_SESSION['loggedIn'] = TRUE) {
-                include './login/logout.php'; ?>
-                <div class="d-flex">
-                    <a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
+            <?php
+
+            if ($_SESSION['LoggedIn'] == true) {
+                include './login/view/logout.php';
+                echo '<div class="d-flex">';
+                /*Need Styling*/
+                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
+                echo '<a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
                         <i class="bi bi-person-circle h3"></i>
-                    </a><?php
-                    } else {
-                        include './login/signin.php';
-                    } ?>
-                <a class="nav-link text-light pe-1 position-relative  rounded" href="#"> <!-- to reserved items page ? -->
-                    <i class="bi bi-cart3 h3"></i>
-                    <div id="cartAmount" class="position-absolute top-0 start-100 translate-middle badge text-light ps-1 pe-1 rounded">0</div>
-                </a>
-                </div>
+                    </a>';
+            } else {
+                include './login/view/signin.php';
+            } ?>
+            <a class="nav-link text-light pe-1 position-relative  rounded" href="#"> <!-- To Account Page -->
+                <i class="bi bi-cart3 h3"></i>
+                <div id="cartAmount" class="position-absolute top-0 start-100 translate-middle badge text-light ps-1 pe-1 rounded">0</div>
+            </a>
+        </div>
         </div>
     </nav>
 
