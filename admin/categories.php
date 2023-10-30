@@ -35,37 +35,37 @@ if (isset($_POST['cat_id'])) {
 		<?php include './modules/admin_bar.php'; ?>
 		<main>
 			<div class="container pt-5">
-			<?php
-				if (isset($_SESSION['Status Message'])) {
-					echo $_SESSION['Status Message'];
-					unset($_SESSION['Status Message']);
-				} 
-			?>
-			<h4 class="pb-4"><a href="./add/add_category.php" class="text-primary"> Add Category</a></h4>
+				<?php
+					if (isset($_SESSION['Status Message'])) {
+						echo $_SESSION['Status Message'];
+						unset($_SESSION['Status Message']);
+					} 
+				?>
+				<h4 class="pb-4"><a href="./add/add_category.php" class=" btn btn-dark"> Add Category</a></h4>
 
-			<table class="table table-bordered align-middle table-sm table-hover table-light w-auto">
-				<tr>
-					<th>Category Name</th>
-					<th class="text-center">Edit Category</th>
-					<th class="text-center">Delete Category</th>
-				</tr>
-				<?php foreach ($categories as $category) : ?>
-				<tr>
-					<td><?php echo $category['CategoryType']; ?></td>
-					<td class="text-center">
-						<a class="btn text-bg-primary" href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>" style="width:80px"> Edit</a>
-					</td>
-					<td class="text-center" >
-						<form action="" method="post" id="form<?php echo $category['CategoryId']; ?>">
-							<input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>" />
-							<button name="delete" class="confirm-delete btn btn-danger" rel="tooltip" title="Remove" id="<?php echo $category['CategoryId']; ?>" style="width:80px">
-								Delete
-							</button>
-						</form>	
-					</td>
-				</tr>
-				<?php endforeach; ?>
-			</table>
+				<table class="table table-bordered align-middle table-sm table-hover table-light w-auto">
+					<tr>
+						<th>Category Name</th>
+						<th class="text-center">Edit Category</th>
+						<th class="text-center">Delete Category</th>
+					</tr>
+					<?php foreach ($categories as $category) : ?>
+					<tr>
+						<td><?php echo $category['CategoryType']; ?></td>
+						<td class="text-center">
+							<a class="btn btn-warning text-light" href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>" style="width:80px"> Edit</a>
+						</td>
+						<td class="text-center" >
+							<form action="" method="post" id="form<?php echo $category['CategoryId']; ?>">
+								<input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>" />
+								<button name="delete" class="confirm-delete btn btn-danger" rel="tooltip" title="Remove" id="<?php echo $category['CategoryId']; ?>" style="width:80px">
+									Delete
+								</button>
+							</form>	
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</table>
 			</div>
 		</main>
 
