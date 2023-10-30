@@ -13,16 +13,11 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-center pe-5 " id="navbarResponsive">
 				<ul class="navbar-nav">
-					<!--<li class="nav-item"><a class="nav-link" href=" php echo $app_path . 'controller' . '?action=view_products'; ?>">View Products</a></li>-->
-					<li class="nav-item"><a class="nav-link" href="admin_products.php">View Products</a></li>
-					<!--<li class="nav-item"><a class="nav-link" href=" php echo $app_path . 'controller' . '?action=view_categories'; ?>">View Categories</a></li>-->
-					<li class="nav-item"><a class="nav-link" href="admin_categories.php">View Categories</a></li>
-					<!--<li class="nav-item"><a class="nav-link" href="php echo $app_path . 'controller' . '?action=view_users'; ?>">View Users</a></li>-->
-					<li class="nav-item"><a class="nav-link" href="admin_users.php">View Users</a></li>
-					<!--<li class="nav-item"><a class="nav-link" href="php echo $app_path . 'controller' . '?action=view_reports'; ?>">View Reports</a></li>-->
-					<li class="nav-item"><a class="nav-link" href="admin_reports.php">View Reports</a></li>
-					<!--<li class="nav-item"><a class="nav-link" href="php echo $app_path . 'controller' . '?action=view_donation'; ?>">View Donations</a></li>-->
-					<li class="nav-item"><a class="nav-link" href="admin_donations.php">View Donations</a></li>
+					<li class="nav-item"><a class="nav-link" href="products.php">View Products</a></li>
+					<li class="nav-item"><a class="nav-link" href="categories.php">View Categories</a></li>
+					<li class="nav-item"><a class="nav-link" href="admins.php">View Users</a></li>
+					<li class="nav-item"><a class="nav-link" href="reports.php">View Reports</a></li>
+					<li class="nav-item"><a class="nav-link" href="donations.php">View Donations</a></li>
 				</ul>
 			</div>			
     	</div>
