@@ -23,20 +23,8 @@ $donations = donationFuniture();
 			?>
 				
 
-			<ul>
-				<!-- display links for all categorys -->
-				<?php foreach ($donations as $donation) : ?>
-				<li>
-				<?php echo $donation['Name']; ?>
-                <?php echo $donation['Phone']; ?>
-                <?php echo $donation['Description']; ?>
-               
-				
-				
-				</li>
-				<?php endforeach; ?>
-			</ul>
-        </div>
+			
+        
 
         <div class="text-center table-bordered border-primary">
                      <table >
@@ -54,6 +42,8 @@ $donations = donationFuniture();
                 </tr>
        <?php endforeach; ?> 
         </table>
+            </div>
+
             </div>
   
     </main>

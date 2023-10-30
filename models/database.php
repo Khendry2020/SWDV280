@@ -19,9 +19,9 @@ try {
     exit();
 }
 
+
 function display_db_error($error_message) {
     global $app_path;
     include './errors/db_error.php';
     exit;
 }
-?>
