@@ -28,38 +28,43 @@ if (isset($_POST['cat_id'])) {
 <!DOCTYPE html>
   <?php include '../modules/head.php'; ?>
   <body>
+  	<h1 class="text-center bg-dark text-light m-0 p-0">
+      Administration
+    </h1>
+	<?php include './modules/hero.php'; ?>
     <main>
         <!--Navigation-->
-      <div>
-        <?php include './modules/admin_bar.php'; ?>
-      </div>
-        <div>
-			<?php 
-			
+		<div>
+			<?php include './modules/admin_bar.php'; ?>
+		</div>
+        <div class="container">
+			<div class="row">
+				<div class="col">
+			<?php
 			if (isset($_SESSION['Status Message'])) {
 					echo $_SESSION['Status Message'];
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				<a href="./add/add_category.php"> Add Category
-				</a>
-
-			<ul>
-				<!-- display links for all categorys -->
-				<?php foreach ($categories as $category) : ?>
-				<li>
-				<?php echo $category['CategoryType']; ?>
-				<a href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>"> Edit
-				</a>
-				<form action="" method="post" id="form<?php echo $category['CategoryId']; ?>">
-					<input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>" />
-					<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $category['CategoryId']; ?>">
-						Delete
-					</button>
-				</form>
-				</li>
-				<?php endforeach; ?>
-			</ul>
+					<a href="./add/add_category.php"> Add Category</a>
+					<ul>
+						<!-- display links for all categorys -->
+						<?php foreach ($categories as $category) : ?>
+						<li>
+						<?php echo $category['CategoryType']; ?>
+						<a href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>"> Edit
+						</a>
+						<form action="" method="post" id="form<?php echo $category['CategoryId']; ?>">
+							<input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>" />
+							<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $category['CategoryId']; ?>">
+								Delete
+							</button>
+						</form>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
         </div>
     </main>
     <footer>

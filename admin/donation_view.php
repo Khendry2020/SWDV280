@@ -8,12 +8,18 @@ $donations = donationFuniture();
 <!DOCTYPE html>
   <?php include '../modules/head.php'; ?>
   <body>
+  	<h1 class="text-center bg-dark text-light m-0 p-0">
+      Administration
+    </h1>
+	<?php include './modules/hero.php'; ?>
     <main>
         <!--Navigation-->
-      <div>
-        <?php include './modules/admin_bar.php'; ?>
-      </div>
-        <div>
+		<div>
+			<?php include './modules/admin_bar.php'; ?>
+		</div>
+        <div class="container">
+			    <div class="row">
+				    <div class="col">
 			<?php 
 			
 			if (isset($_SESSION['Status Message'])) {
@@ -21,14 +27,9 @@ $donations = donationFuniture();
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-				
-
-			
-        
-
-        <div class="text-center table-bordered border-primary">
-                     <table >
-            <h2>Donated Funiture</h2>
+          <div class="text-center table-bordered border-primary">
+            <table >
+              <h2>Donated Funiture</h2>
               <tr>
                 <th>User Name</th>
                 <th>Phone</th>
@@ -41,11 +42,11 @@ $donations = donationFuniture();
                 <td><?php echo $donation['Description']; ?></td>
                 </tr>
        <?php endforeach; ?> 
-        </table>
+              </table>
             </div>
-
-            </div>
-  
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
         <?php include '../modules/footer.php'; ?>
