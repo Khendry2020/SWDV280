@@ -36,9 +36,10 @@ if (isset($_POST['product_id'])) {
 		<div>
 			<?php include './modules/admin_bar.php'; ?>
 		</div>
+		<!--End Navigation-->
         <div class="container">
 			<div class="row">
-				<div class="col">
+				<div class="col-12 container">
 			<?php 
 			
 			if (isset($_SESSION['Status Message'])) {
@@ -47,10 +48,10 @@ if (isset($_POST['product_id'])) {
 			} 
 			?>
 					<a href="./add/add_product.php"> Add Product</a>
-					<ul>
+					<ul class="list-inline justify-content-center">
 						<!-- display links for all products -->
 						<?php foreach ($products as $product) : ?>
-						<li>
+						<li class="list-inline-item">
 						<?php echo $product['Name']; ?>
 						<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
 						<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
@@ -66,9 +67,7 @@ if (isset($_POST['product_id'])) {
 			</div>
         </div>
     </main>
-    <footer>
-        <?php include '../modules/footer.php'; ?>
-    </footer>
+
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
