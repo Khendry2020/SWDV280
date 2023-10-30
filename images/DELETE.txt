@@ -1,1 +1,0 @@
-This does not need to exist other than to allow the images folder to exist.

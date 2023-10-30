@@ -1,38 +1,22 @@
 <?php
 session_start();
-include('./model/database.php');
-include('./model/products.php');
-$products = get_items();
-
-if (isset($_POST['product_id'])) {
-    $_POST['product_id'] = trim($_POST['product_id']);
-
-    $product_id = filter_input(INPUT_POST, 'product_id', FILTER_VALIDATE_INT);
-
-    if ($product_id == NULL) {            
-        $error = 'Product ID is missing or invalid. Please call support.';
-        include('../../errors/error.php');
-    } else {
-        // Update category in database
-        delete_item($product_id);
-
-        $_POST = [];
-        //header("Refresh: 0");
-        $_SESSION['Status Message'] = 'Item deleted successfully.';
-        header("Location: ./products.php");
-    }
-}
 ?>
-
 <!DOCTYPE html>
-  <?php include '../modules/head.php'; ?>
+  <?php include './modules/head.php'; ?>
   <body>
+    <h1 class="text-center bg-dark text-light m-0 p-0">
+      Administration
+    </h1>   
+    <?php include './modules/hero.php'; ?>
     <main>
+
         <!--Navigation-->
       <div>
-        <?php include './modules/admin_bar.php'; ?>
+        <?php include './admin/modules/admin_bar.php'; ?>
       </div>
-        <div>
+      <!--End Navigation-->
+
+      <div>
 			<?php 
 			
 			if (isset($_SESSION['Status Message'])) {
@@ -59,11 +43,7 @@ if (isset($_POST['product_id'])) {
 				<?php endforeach; ?>
 			</ul>
         </div>
-    </main>
-    <footer>
-        <?php include '../modules/footer.php'; ?>
-    </footer>
-	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -102,5 +82,6 @@ if (isset($_POST['product_id'])) {
 			$('#myModal').modal('hide');
 		});
 	</script>
+    </main>
   </body>
 </html>

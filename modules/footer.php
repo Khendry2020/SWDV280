@@ -1,27 +1,29 @@
 <footer class="mb-0 color-brown">
     <div class="text-center mb-0 border-top border-black border-5">
-        <div class="py-2">
+        <div class="pt-2">
             <a href="./index.php">
-                <img style="height: 200px;" class="mh-100 rounded img-fluid my-2" src="favicon/android-chrome-512x512.png"
+                <img style="height: 200px;" class="mh-100 rounded img-fluid my-2" src="images/scottslogo.png"
                     alt="Scott's Funiture Barn Logo">
             </a>
         </div>
-        <div class="color-light">            
+        <div class="color-light text-center">   
+            <hr>  
             <div class="col">
-                <a href="tel:000-000-0000" class="text-decoration-none">
-                    <h4 class="fs-6">Phone: (000)-000-0000</h4>
+                <a href="tel:000-000-0000" class="text-decoration-none text-light">
+                    <i class="bi bi-telephone">&nbsp;(000)-000-0000</i>
                 </a>
             </div>
             <div class="col">
-                <a href="mailto:ScottsFurnitureBarn@gmail.com" class="text-decoration-none">
-                    <h4 class="fs-6">Email: ScottsFurnitureBarn@gmail.com</h4>
+                <a href="mailto:ScottsFurnitureBarn@gmail.com" class="text-decoration-none text-light">
+                    <i class="bi bi-envelope-at">&nbsp;ScottsFurnitureBarn@gmail.com</i>
                 </a>
             </div>
             <div class="col">
-                <a href="" class="text-decoration-none">
-                    <h4 class="fs-6">Address: 3489 N Meridian Rd. Meridian ID 83646</h4>
+                <a href="contact.php" class="text-decoration-none text-light">
+                    <i class="bi bi-pin-map">&nbsp;3489&nbsp;N&nbsp;Meridian&nbsp;Rd.&nbsp;Meridian&nbsp;ID&nbsp;83646</i>
                 </a>
             </div>
+            <hr>
         </div>
         <p class="color-light">&copy
             <?php echo date("Y"); ?> Scott's Furniture Barn inc. All Rights Reserved.

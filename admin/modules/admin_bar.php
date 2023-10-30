@@ -1,19 +1,30 @@
 <header>
-	<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
-		<div class="container-fluid py-2">
-			<a class="navbar-brand " href="#"><img src="../favicon/android-chrome-192x192.png" alt="" style="width:40px;" class="rounded-pill"> Scott's Furniture Barn </a>
-
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+        <div class="container">
+			<div id="headerBrandname">
+				<a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
+			</div>
+			<div id="headerImg">
+				<a class="navbar-brand" href="index.php"><img src="./images/scotts_S.png" alt="" class="img-fluid rounded"></a>
+			</div>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-
-			<div class="collapse navbar-collapse justify-content-center" id="navbarResponsive">
+			<div class="collapse navbar-collapse justify-content-center pe-5 " id="navbarResponsive">
 				<ul class="navbar-nav">
-					<li class="nav-item pe-4"><a class="nav-link" href="#">Home</a></li>
-					<li class="nav-item pe-4"><a class="nav-link" href="#">Gallery</a></li>
-					<li class="nav-item pe-4"><a class="nav-link" href="#">Contact</a></li>
+					<!--<li class="nav-item"><a class="nav-link" href=" php echo $app_path . 'controller' . '?action=view_products'; ?>">View Products</a></li>-->
+					<li class="nav-item"><a class="nav-link" href="admin_products.php">View Products</a></li>
+					<!--<li class="nav-item"><a class="nav-link" href=" php echo $app_path . 'controller' . '?action=view_categories'; ?>">View Categories</a></li>-->
+					<li class="nav-item"><a class="nav-link" href="admin_categories.php">View Categories</a></li>
+					<!--<li class="nav-item"><a class="nav-link" href="php echo $app_path . 'controller' . '?action=view_users'; ?>">View Users</a></li>-->
+					<li class="nav-item"><a class="nav-link" href="admin_users.php">View Users</a></li>
+					<!--<li class="nav-item"><a class="nav-link" href="php echo $app_path . 'controller' . '?action=view_reports'; ?>">View Reports</a></li>-->
+					<li class="nav-item"><a class="nav-link" href="admin_reports.php">View Reports</a></li>
+					<!--<li class="nav-item"><a class="nav-link" href="php echo $app_path . 'controller' . '?action=view_donation'; ?>">View Donations</a></li>-->
+					<li class="nav-item"><a class="nav-link" href="admin_donations.php">View Donations</a></li>
 				</ul>
 			</div>			
-		</div>
-	</nav> 
+    	</div>
+	</nav>
 </header>

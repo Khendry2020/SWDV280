@@ -49,16 +49,18 @@ function add_admin($username, $roles, $password) {
     }
 }
 
-function update_admin($admin_id, $admin_name, $role) {
+function update_admin($admin_name, $role, $password, $admin_id) {
     global $dba;
     $query = '
         UPDATE admin
-        SET UserName = :admin_name, Roles = :role
-        WHERE CategoryId = :admin_id';
+        SET UserName = :admin_name, Roles = :role, Password = :password
+        WHERE AdminId = :admin_id';
     try {
         $statement = $dba->prepare($query);
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':cat_id', $cat_id);
+        $statement->bindValue(':admin_name', $admin_name);
+        $statement->bindValue(':role', $role);
+        $statement->bindValue(':password', $password);
+        $statement->bindValue(':admin_id', $admin_id);
         $statement->execute();
         $statement->closeCursor();
     } catch (PDOException $e) {

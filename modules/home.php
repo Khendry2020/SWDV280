@@ -11,13 +11,13 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                <img src="./favicon/apple-touch-icon.png" class="d-block w-100 img-fluid" alt="...">
+                <img src="./images/scotts_S.png" class="d-block w-100 img-fluid rounded" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="./favicon/apple-touch-icon.png" class="d-block w-100 img-fluid" alt="...">
+                <img src="./images/scotts_S.png" class="d-block w-100 img-fluid rounded" alt="...">
                 </div>
                 <div class="carousel-item">
-                <img src="./favicon/apple-touch-icon.png" class="d-block w-100 img-fluid" alt="...">
+                <img src="./images/scotts_S.png" class="d-block w-100 img-fluid rounded" alt="...">
                 </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -35,7 +35,7 @@
     <div class="container-fluid" id="desktopCards">
         <div class="row py-5 g-2">
             <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
-                <img src="./favicon/android-chrome-512x512.png">
+                <img src="./images/scotts_S.png" class="img-fluid rounded">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
                     <p class="card-text"></p>
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
-                <img src="./favicon/android-chrome-512x512.png">
+                <img src="./images/scotts_S.png" class="img-fluid rounded">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
                     <p class="card-text"></p>
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
-                <img src="./favicon/android-chrome-512x512.png">
+                <img src="./images/scotts_S.png" class="img-fluid rounded">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
                     <p class="card-text"></p>
@@ -71,7 +71,7 @@
                 </div>
             </div>
             <div class="card col-lg-3 col-md-4 col-sm-6 p-3">
-                <img src="./favicon/android-chrome-512x512.png">
+                <img src="./images/scotts_S.png" class="img-fluid rounded">
                 <div class="card-body">
                     <h5 class="card-title text-center"></h5>
                     <p class="card-text"></p>
