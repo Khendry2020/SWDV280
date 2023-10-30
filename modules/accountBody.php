@@ -13,8 +13,7 @@
             <div class=" mb-3 mt-3 text-start">
                 <label class="text-start" for="address">Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="<?php //Get these from the DB. ?>">
-            </div>
-        
+            </div>        
 
             <div class="mt-3 mb-3 text-start">
                 <label class="text-start" for="phone">Phone Number</label>
