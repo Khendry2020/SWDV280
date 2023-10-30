@@ -72,7 +72,16 @@
         </form>
         <div class="modal-footer text-center">
         </div>
+
+      </div>
+
+      <!-- Admin Log In Modal  -->
+      <div class="container-fluid  ">
+        <div class="container clearfix">
+          <button type="button" class="btn btn-link float-end text-dark" data-bs-toggle="modal" data-bs-target="#myModal">
+            Admin Log In
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>

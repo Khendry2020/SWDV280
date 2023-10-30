@@ -27,7 +27,7 @@
                 include './login/view/logout.php';
                 echo '<div class="d-flex">';
                 /*Need Styling*/
-                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
+                echo "<p id='welcome'>Welcome, " . $_SESSION['Username'] . "</p>";
                 echo '<a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
                         <i class="bi bi-person-circle h3"></i>
                     </a>';
@@ -41,49 +41,41 @@
         </div>
         </div>
     </nav>
+    <?php echo $_SESSION['FirstName'] ?>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-    <!-- Admin Log In Modal  -->
-    <div class="container-fluid  ">
-        <div class="container clearfix">
-            <button type="button" class="btn btn-link float-end text-dark" data-bs-toggle="modal" data-bs-target="#myModal">
-                Admin Log In
-            </button>
-        </div>
-
-        <!-- The Modal -->
-        <div class="modal" id="myModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
-
-                    <!-- Modal Header -->
-                    <div class="modal-header">
-                        <h3>Admin Log In</h3>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-
-                    <!-- Modal body -->
-                    <div class="modal-body">
-                        <div class="container my-3">
-                            <form action="#"> <!-- add action php page -->
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control border border-4" id="email" placeholder="Enter email" name="email">
-                                    <label for="email">Email</label>
-                                </div>
-
-                                <div class="form-floating mt-3 mb-3">
-                                    <input type="text" class="form-control border border-4" id="pwd" placeholder="Enter password" name="pswd">
-                                    <label for="pwd">Password</label>
-                                </div>
-
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-dark">Log In</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h3>Admin Log In</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="container my-3">
+                        <form action="#"> <!-- add action php page -->
+                            <div class="form-floating mb-3 mt-3">
+                                <input type="text" class="form-control border border-4" id="email" placeholder="Enter email" name="email">
+                                <label for="email">Email</label>
+                            </div>
+
+                            <div class="form-floating mt-3 mb-3">
+                                <input type="text" class="form-control border border-4" id="pwd" placeholder="Enter password" name="pswd">
+                                <label for="pwd">Password</label>
+                            </div>
+
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-dark">Log In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
             </div>
         </div>
+    </div>
     </div>
 </header>
