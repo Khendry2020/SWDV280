@@ -53,6 +53,7 @@ if (isset($_POST['product_id'])) {
 						<?php foreach ($products as $product) : ?>
 						<li class="list-inline-item">
 						<?php echo $product['Name']; ?>
+						<img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /> 
 						<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
 						<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
 							<input type="hidden" name="product_id" value="<?php echo $product['ItemId']; ?>" />
