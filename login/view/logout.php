@@ -1,3 +1,6 @@
+<head>
+  <link rel="stylesheet" href="login\styles\loginStyles.css">
+</head>
 <button type="button" class="btn btn-light mx-md-4 mx-sm-1" data-bs-toggle="modal" data-bs-target="#logoutModal">
   Logout
 </button>
@@ -10,11 +13,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body text-center bg-light">
-        <h4>Are you sure you want to logout?</h4> 
+        <h4>Are you sure you want to logout?</h4>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Logout</button>
+        <a class="btn btn-primary" href="login/userLogout.php">Logout</a>
       </div>
     </div>
   </div>
