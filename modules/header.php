@@ -26,8 +26,8 @@
             if ($_SESSION['LoggedIn'] == true) {
                 include './login/view/logout.php';
                 echo '<div class="d-flex">';
-                /*Need Styling*/
-                echo "<p id='welcome'>Welcome, " . $_SESSION['Username'] . "</p>";
+                /*Needs Styling*/
+                echo "<p id='welcome'>Welcome, " . $_SESSION['UserName'] . "</p>";
                 echo '<a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
                         <i class="bi bi-person-circle h3"></i>
                     </a>';
@@ -41,7 +41,6 @@
         </div>
         </div>
     </nav>
-    <?php echo $_SESSION['FirstName'] ?>
     <!-- The Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog">
@@ -56,14 +55,14 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container my-3">
-                        <form action="#"> <!-- add action php page -->
+                        <form action="../admin/adminLogin/adminLogin.php">
                             <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control border border-4" id="email" placeholder="Enter email" name="email">
-                                <label for="email">Email</label>
+                                <input type="text" class="form-control border border-4" id="email" placeholder="Enter Username" name="username">
+                                <label for="email">Username</label>
                             </div>
 
                             <div class="form-floating mt-3 mb-3">
-                                <input type="text" class="form-control border border-4" id="pwd" placeholder="Enter password" name="pswd">
+                                <input type="text" class="form-control border border-4" id="pwd" placeholder="Enter password" name="Password">
                                 <label for="pwd">Password</label>
                             </div>
 

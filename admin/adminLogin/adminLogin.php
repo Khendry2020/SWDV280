@@ -23,7 +23,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         exit();
     }
 
-    $stmt = $db->prepare("SELECT * FROM login WHERE UserName = :username AND Password = :password");
+
+    $stmt = $db->prepare("SELECT * FROM login WHERE UserName = :username AND PassWord = :password");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $password);
     $stmt->execute();
@@ -34,7 +35,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['LoggedIn'] = true;
         $_SESSION['UserName'] = $row['UserName'];
         $_SESSION['UserId'] = $row['UserId'];
-        header("Location: ../index.php");
+        header("Location: ../products.php");
         exit();
     } else {
         header("Location: ../index.php?error=User Name or Password is incorrect");

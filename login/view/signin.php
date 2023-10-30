@@ -35,7 +35,8 @@
         <h4>OR</h4>
         <hr>
         <!---- Sign up ---->
-        <h3>Sign Up</h3>
+        <!-- Move to Seperate Page -->
+        <!-- <h3>Sign Up</h3>
         <form action="./userSignup.php" method="post">
           <div class=" mb-3 mt-3 text-start">
             <label class="text-start" for="email">Email</label>
@@ -73,15 +74,15 @@
         <div class="modal-footer text-center">
         </div>
 
-      </div>
+      </div> -->
 
-      <!-- Admin Log In Modal  -->
-      <div class="container-fluid  ">
-        <div class="container clearfix">
-          <button type="button" class="btn btn-link float-end text-dark" data-bs-toggle="modal" data-bs-target="#myModal">
-            Admin Log In
-          </button>
+        <!-- Admin Log In Modal  -->
+        <div class="container-fluid  ">
+          <div class="container clearfix">
+            <button type="button" class="btn btn-link float-end text-dark" data-bs-toggle="modal" data-bs-target="#myModal">
+              Admin Log In
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
