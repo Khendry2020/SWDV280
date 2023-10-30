@@ -28,46 +28,50 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 <!DOCTYPE html>
   <?php include '../modules/head.php'; ?>
   <body>
+  	<h1 class="text-center bg-dark text-light m-0 p-0">
+      Administration
+    </h1>
+	<?php include './modules/hero.php'; ?>
     <main>
         <!--Navigation-->
-      <div>
-        <?php include './modules/admin_bar.php'; ?>
-      </div>
-        <div>
+		<div>
+			<?php include './modules/admin_bar.php'; ?>
+		</div>
+        <div class="container">
+			<div class="row">
+				<div class="col">
 			<?php 
-			
 			if (isset($_SESSION['Status Message'])) {
-					echo $_SESSION['Status Message'];
-					unset($_SESSION['Status Message']);
-			} 
-			?>
-				<a href="./add/add_admin.php"> Add Admin User
-				</a>
+				echo $_SESSION['Status Message'];
+				unset($_SESSION['Status Message']);
+			}?>
+					<a href="./add/add_admin.php"> Add Admin User</a>
 
-			<ul>
-				<!-- display links for all categorys -->
-				<?php foreach ($admins as $admin) : ?>
-					<?php if($admin['AdminId'] != 1) ?>
-				<li>
-				<?php echo $admin['UserName']; ?>
+					<ul>
+						<!-- display links for all categories -->
+						<?php foreach ($admins as $admin) : ?>
+							<?php if($admin['AdminId'] != 1) ?>
+						<li>
+						<?php echo $admin['UserName']; ?>
 
-				<a href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>"> Edit
-				</a>
+						<a href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>"> Edit</a>
 
-				<form action="" method="post" id="form<?php echo $admin['AdminId']; ?>">
-					<input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>" />
-					<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $admin['AdminId']; ?>">
-						Delete
-					</button>
-				</form>
-				</li>
-				<?php endforeach; ?>
-			</ul>
-        </div>
+						<form action="" method="post" id="form<?php echo $admin['AdminId']; ?>">
+							<input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>" />
+							<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $admin['AdminId']; ?>">
+								Delete
+							</button>
+						</form>
+						</li>
+						<?php endforeach; ?>
+					</ul>
+       		 </div>
+		</div>
     </main>
     <footer>
         <?php include '../modules/footer.php'; ?>
     </footer>
+	<!-- Modal for Deletion -->
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">

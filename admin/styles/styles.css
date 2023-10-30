@@ -1,0 +1,111 @@
+/*Colors and styling for background and fonts in pallete*/
+.color-light {
+    color: #FFEFCF;
+}
+
+.bg-color-light {
+    background-color: #FFEFCF;
+    ;
+}
+
+.color-orange {
+    background-color: #FF7A00;
+}
+
+.color-red {
+    background-color: #D44000;
+}
+
+.color-brown {
+    background-color: #864000;
+}
+
+@media only screen and (max-width: 768px) {
+    #desktopCards {
+        display: none;
+        visibility: hidden;
+    }
+
+    #headerImg {
+        width: 40px;
+        display: block;
+        visibility: visible;
+    }
+
+    #headerBrandname {
+        display: none;
+        visibility: hidden;
+    }
+
+}
+
+@media only screen and (min-width: 768px) {
+
+    #desktopCards {
+        display: block;
+        visibility: visible;
+    }
+
+    #headerImg {
+        display: none;
+        visibility: hidden;
+    }
+
+    #headerBrandname {
+        display: block;
+        visibility: visible;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .media {
+        position: relative;
+    }
+}
+
+@media screen and (max-width: 360px) {
+    .media {
+        position: relative;
+    }
+}
+
+#hero img {
+    object-fit: cover;
+    max-height: 165px;
+    width: 100%;
+    max-width: 554px;
+}
+
+/* log in form styles */
+.form-login {
+    background-color: rgba(245, 238, 238, 0.434);
+    padding: 10px;
+    border-radius: 5%;
+}
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+.product-img {
+    width: 500px;
+    height: 300px;
+}
+
+/* This is for the map on the contact page */
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.mapouter {
+    position: relative;
+    text-align: right;
+    width: auto;
+    height: auto;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: auto;
+    height: 30vh;
+}
