@@ -49,21 +49,24 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h3>Admin Log In</h3>
+                    <?php if (isset($_GET['errorAdmin'])) { ?>
+                        <p class="error"> <?php echo $_GET['errorAdmin']; ?> </p>
+                    <?php } ?>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container my-3">
-                        <form action="../admin/adminLogin/adminLogin.php">
+                        <form action="./admin/adminLogin/adminLogin.php" method="post">
                             <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control border border-4" id="email" placeholder="Enter Username" name="username">
-                                <label for="email">Username</label>
+                                <input type="text" class="form-control border border-4" id="username" placeholder="Enter Username" name="username">
+                                <label for="username">Username</label>
                             </div>
 
                             <div class="form-floating mt-3 mb-3">
-                                <input type="text" class="form-control border border-4" id="pwd" placeholder="Enter password" name="Password">
-                                <label for="pwd">Password</label>
+                                <input type="password" class="form-control border border-4" id="password" placeholder="Enter password" name="Password">
+                                <label for="password">Password</label>
                             </div>
 
                             <div class="text-center">

@@ -1,7 +1,9 @@
 <?php
 session_start();
-include "../models/database.php";
+include "../../models/database.php";
 $_SESSION['LoggedIn'] = false;
+//Variable to be used later to check if a user is an admin if needed
+$_SESSION['isAdmin'] = false;
 
 function validate($data)
 {
@@ -24,7 +26,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     }
 
 
-    $stmt = $db->prepare("SELECT * FROM login WHERE UserName = :username AND PassWord = :password");
+    $stmt = $db->prepare("SELECT * FROM admin WHERE UserName = :username AND Password = :password");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $password);
     $stmt->execute();
@@ -33,12 +35,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     if ($row) {
         $_SESSION['LoggedIn'] = true;
+        $_SESSION['isAdmin'] = true;
         $_SESSION['UserName'] = $row['UserName'];
         $_SESSION['UserId'] = $row['UserId'];
-        header("Location: ../products.php");
+        header("Location: ./products.php");
         exit();
     } else {
-        header("Location: ../index.php?error=User Name or Password is incorrect");
+        header("Location: ./index.php?errorAdmin=User Name or Password is incorrect");
+        echo $_SESSION['LoggedIn'];
         exit();
     }
+} else {
+    header("Location: ../index.php?errorAdmin=ULogin Failed. Please Try again");
 }
