@@ -31,6 +31,10 @@
           <!-- Submit -->
           <button type="submit" class="btn btn-primary">Log In</button>
         </form>
+        <hr>
+        <h4>OR</h4>
+        <hr>
+        <a href="./signup.php" class="btn btn-primary">Sign Up</a>
         <!-- <hr>
         <h4>OR</h4>
         <hr>
