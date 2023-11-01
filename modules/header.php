@@ -27,17 +27,17 @@
                 $_SESSION['LoggedIn'] = false;
             }
             if ($_SESSION['LoggedIn'] == true) {
-                include './login/view/logout.php'; ?>
-                <div class="d-flex">
-                <p id='welcome'>Welcome, <?php echo $_SESSION['FirstName']; ?></p>
-                <a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
-                        <i class="bi bi-person-circle h3"></i>
-                    </a> 
-                <?php
+                include './login/view/logout.php';
+                echo '<div class="d-flex">';
+                /*Needs Styling*/
+                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
+                echo '<a class="nav-link text-light pe-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="User Log In">
+                        <i class="bi bi-person-circle h3" ></i>
+                    </a>';
             } else {
                 include './login/view/signin.php';
             } ?>
-            <a class="nav-link text-light pe-1 position-relative  rounded" href="account.php"> <!-- To Account Page -->
+            <a class="nav-link text-light pe-1 position-relative  rounded" href="reserve.php"> <!-- To reserve Page -->
                 <i class="bi bi-cart3 h3"></i>
                 <div id="cartAmount" class="position-absolute top-0 start-100 translate-middle badge text-light ps-1 pe-1 rounded">0</div>
             </a>

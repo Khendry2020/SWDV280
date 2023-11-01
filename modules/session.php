@@ -1,7 +1,6 @@
 <?php
-if(isset($_SESSION)){
-
+if (isset($_SESSION)) {
 } else {
-session_start();
-$_SESSION['LoggedIn'] = false;
+    session_start();
+    $_SESSION['LoggedIn'] = false;
 }
