@@ -22,15 +22,18 @@
             </div>
             <!-- Checks to see if user is logged in and displays aproriate action -->
             <?php
-
+            // Logic to ensure $_SESSION['LoggedIn'] is not missing.
+            if (!isset($_SESSION["LoggedIn"])) {
+                $_SESSION['LoggedIn'] = false;
+            }
             if ($_SESSION['LoggedIn'] == true) {
-                include './login/view/logout.php';
-                echo '<div class="d-flex">';
-                /*Needs Styling*/
-                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
-                echo '<a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
+                include './login/view/logout.php'; ?>
+                <div class="d-flex">
+                <p id='welcome'>Welcome, <?php echo $_SESSION['FirstName']; ?></p>
+                <a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
                         <i class="bi bi-person-circle h3"></i>
-                    </a>';
+                    </a> 
+                <?php
             } else {
                 include './login/view/signin.php';
             } ?>
