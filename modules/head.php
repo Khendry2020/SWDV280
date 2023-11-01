@@ -1,6 +1,6 @@
 <head>
     <!-- Required meta tags -->
-    <?php include "modules/session.php" ?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] .'/modules/session.php'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="SWDV280">

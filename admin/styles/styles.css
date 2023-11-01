@@ -109,3 +109,8 @@ iframe {
     width: auto;
     height: 30vh;
 }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+  }

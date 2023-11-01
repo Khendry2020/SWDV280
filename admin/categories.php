@@ -25,11 +25,10 @@ if (isset($_POST['cat_id'])) {
 ?>
 
 <!DOCTYPE html>
-  <?php include '../modules/head.php'; ?>
-  <body>
-		<h1 class="text-center bg-dark text-light m-0 p-0">
-		Administration
-		</h1>
+  	
+	  <?php include( $_SERVER['DOCUMENT_ROOT'] .'/modules/head.php'); ?>
+  	<body>
+		<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
 		<?php include './modules/hero.php'; ?>
 		<?php include './modules/admin_bar.php'; ?>
 		<main>
@@ -42,7 +41,7 @@ if (isset($_POST['cat_id'])) {
 				?>
 				<h4 class="pb-4"><a href="./add/add_category.php" class=" btn btn-dark"> Add Category</a></h4>
 
-				<table class="table table-bordered align-middle table-sm table-hover table-light w-auto">
+				<table class="table table-bordered align-middle table-sm table-hover table-light center">
 					<tr>
 						<th>Category Name</th>
 						<th class="text-center">Edit Category</th>
@@ -109,5 +108,5 @@ if (isset($_POST['cat_id'])) {
 				$('#myModal').modal('hide');
 			});
 		</script>
-  </body>
+	</body>
 </html>

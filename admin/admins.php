@@ -24,52 +24,52 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 ?>
 
 <!DOCTYPE html>
-  <?php include '../modules/head.php'; ?>
-  <body>
-  	<h1 class="text-center bg-dark text-light m-0 p-0">
-      Administration
-    </h1>
+<?php include '../modules/head.php'; ?>
+<body>
+  	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
 	<?php include './modules/hero.php'; ?>
+	<?php include './modules/admin_bar.php'; ?>
     <main>
-        <!--Navigation-->
-		<div>
-			<?php include './modules/admin_bar.php'; ?>
-		</div>
-        <div class="container">
-			<div class="row">
-				<div class="col">
+        <div class="container pt-5">
 			<?php 
-			if (isset($_SESSION['Status Message'])) {
-				echo $_SESSION['Status Message'];
-				unset($_SESSION['Status Message']);
-			}?>
-					<a href="./add/add_admin.php"> Add Admin User</a>
+				if (isset($_SESSION['Status Message'])) {
+					echo $_SESSION['Status Message'];
+					unset($_SESSION['Status Message']);
+				}
+			?>
+			<h4 class="pb-4"><a href="./add/add_admin.php" class=" btn btn-dark"> Add Admin User</a></h4>
 
-					<ul>
-						<!-- display links for all categories -->
-						<?php foreach ($admins as $admin) : ?>
-							<?php if($admin['AdminId'] != 1) ?>
-						<li>
-						<?php echo $admin['UserName']; ?>
+			<table class="table table-bordered align-middle table-sm table-hover table-light center">
+				<tr>
+					<th>Admin Username</th>
+					<th class="text-center">Edit Admin</th>
+					<th class="text-center">Delete Admin</th>
+				</tr>
 
-						<a href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>"> Edit</a>
+				<?php foreach ($admins as $admin) : ?>
+					<?php if($admin['AdminId'] != 1) ?>
+
+				<tr>
+					<td><?php echo $admin['UserName']; ?></td>
+					<td class="text-center">
+						<a class="btn btn-warning text-light" href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>" style="width:80px"> Edit</a>
+					</td>
+					<td class="text-center">
 						<?php if($error != '') {echo $error;} ?>
 						<form action="" method="post" id="form<?php echo $admin['AdminId']; ?>">
 							<input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>" />
-							<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $admin['AdminId']; ?>">
+							<button name="delete" class="confirm-delete btn btn-danger" rel="tooltip" title="Remove" id="<?php echo $admin['AdminId']; ?>" style="width:80px">
 								Delete
 							</button>
 						</form>
-						</li>
-						<?php endforeach; ?>
-					</ul>
-       		 </div>
+					</td>
+				</tr>
+				<?php endforeach; ?>
+			</table>
 		</div>
     </main>
-    <footer>
-        <?php include '../modules/footer.php'; ?>
-    </footer>
-	<!-- Modal for Deletion -->
+
+	<!-- Modal for Admin Users Deletion -->
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -109,5 +109,5 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 			$('#myModal').modal('hide');
 		});
 	</script>
-  </body>
+</body>
 </html>
