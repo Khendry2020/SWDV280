@@ -2,7 +2,8 @@
 session_start();
 include './models/database.php';
 include './models/users.php';
-$_SESSION['UserId'] = 1;
+//This is temporarily hardcoded, will need to get it from $_SESSION in the future.
+$_SESSION['UserId'] = 2;
 $_SESSION['isAdmin'] = false;
 $_SESSION['LoggedIn'] = true;
 $_SESSION['Status Message'] = '';
@@ -62,7 +63,7 @@ if (isset($_POST['update'])) {
       <?php include './modules/header.php'; ?>
     </div>
     <div class="container">
-<h3 class="my-3">Edit <?php echo $user['Name'] ?>'s profile</h3>
+<h3 class="my-3">Edit <?php echo $user['FirstName'] ?>'s profile</h3>
         <?php if ($_SESSION['Status Message']) {
             echo $_SESSION['Status Message'];
             unset($_SESSION['Status Message']);
