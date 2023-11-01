@@ -2,7 +2,6 @@
 session_start();
 include './models/database.php';
 include './models/users.php';
-var_dump($_SESSION);
 $_SESSION['UserId'] = 1;
 $_SESSION['isAdmin'] = false;
 $_SESSION['LoggedIn'] = true;
