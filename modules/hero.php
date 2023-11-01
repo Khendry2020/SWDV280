@@ -1,4 +1,4 @@
 <!-- ======= Hero Section =======  -->
-<section id="hero" class="hero text-center bg-secondary">      
+<div id="hero" class="scotts-brown hero text-center">      
   <img src="./images/scottslogo.png" alt="" class="img-fluid">
-</section><!-- End Hero -->
+</div><!-- End Hero -->
