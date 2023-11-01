@@ -62,7 +62,7 @@ if (isset($_POST['update'])) {
       <?php include './modules/header.php'; ?>
     </div>
     <div class="container">
-<h3>Edit <?php echo $user['Name'] ?>'s profile</h3>
+<h3 class="my-3">Edit <?php echo $user['Name'] ?>'s profile</h3>
         <?php if ($_SESSION['Status Message']) {
             echo $_SESSION['Status Message'];
             unset($_SESSION['Status Message']);
@@ -72,27 +72,27 @@ if (isset($_POST['update'])) {
         <?php } ?>
         <!-- Let's create an action page for this, I'm thinking this page will get all the DB data and display it, allow changes in the input fields, send all the data (changed or unchanged) to the action page, and update the user in the DB-->
         <form action="" method="post">
-            <div class="mt-3 mb-3 text-start">
+            <div class="my-3 text-start">
                 <label class="text-start" for="pwd">Password</label>
                 <input type="text" class="form-control" id="pwd" name="pswd" value="<?php echo $user['Password']; ?>">
             </div>    
-            <div class="mt-3 mb-3 text-start">
+            <div class="my-3 text-start">
                 <label class="text-start" for="phone">Phone Number</label>
                 <input type="tel" class="form-control" id="phone" name="phone" value="<?php echo $user['Phone']; ?>">
             </div>
-            <div class=" mb-3 mt-3 text-start">
+            <div class="my-3 text-start">
                 <label class="text-start" for="address">Street Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="<?php echo $user['Streetaddress']; ?>">
             </div>   
-            <div class=" mb-3 mt-3 text-start">
+            <div class="my-3 text-start">
                 <label class="text-start" for="city">City</label>
                 <input type="text" class="form-control" id="city" name="city" value="<?php echo $user['city']; ?>">
             </div>   
-            <div class=" mb-3 mt-3 text-start">
+            <div class="my-3 text-start">
                 <label class="text-start" for="state">State</label>
                 <input type="text" class="form-control" id="state" name="state" value="<?php echo $user['State']; ?>">
             </div>   
-            <div class=" mb-3 mt-3 text-start">
+            <div class="my-3 text-start">
                 <label class="text-start" for="zip">Zip</label>
                 <input type="text" class="form-control" id="zip" name="zip" value="<?php echo $user['Zip']; ?>">
             </div>
