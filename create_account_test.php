@@ -3,6 +3,12 @@ session_start();
 include('models/database.php');
 include('models/users.php');
 $error = '';
+
+function validateDate($date, $format = 'm-d-Y'){
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) === $date;
+}
+
 if (isset($_POST['create'])) {
     // Trim inputs
     $_POST['name'] = trim($_POST['name']);
@@ -13,6 +19,7 @@ if (isset($_POST['create'])) {
     $_POST['city'] = trim($_POST['city']);
     $_POST['state'] = trim($_POST['state']);
     $_POST['zip'] = trim($_POST['zip']);
+    $_POST['birthday'] = trim($_POST['birthday']);
 
     $name = filter_input(INPUT_POST, 'name');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
@@ -23,7 +30,11 @@ if (isset($_POST['create'])) {
     $state = filter_input(INPUT_POST, 'state');
     $zip = filter_input(INPUT_POST, 'zip');
 
-    if ($name == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
+    $birthday = filter_input(INPUT_POST, 'birthday');
+
+    $birth_valid = validateDate($birthday);
+
+    if ($name == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL || $birth_valid != NULL) {            
         $error = 'Invalid user data. Check all fields and try again.';
     } else {
 
@@ -34,7 +45,7 @@ if (isset($_POST['create'])) {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
-            //add_user($name, $email, $phone, $last_id, $password);
+            add_user($name, $email, $phone, $last_id, $password, $birthday);
             $_POST = [];
             $_SESSION['Status Message'] = 'Your account has been successfully created.';
             header("Location: account.php");
