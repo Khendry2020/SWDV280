@@ -3,7 +3,7 @@ session_start();
 include('./model/database.php');
 include('./model/admins.php');
 $admins = display_admins();
-
+$error = '';
 if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
     $_POST['admin_id'] = trim($_POST['admin_id']);
 
@@ -11,11 +11,9 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 
     if ($admin_id == NULL) {            
         $error = 'Admin ID is missing. Please call support.';
-        include('../../errors/error.php');
     } else {
         // Update category in database
         delete_admin($admin_id);
-
         $_POST = [];
         //header("Refresh: 0");
         $_SESSION['Status Message'] = 'Admin user deleted successfully.';
@@ -55,7 +53,7 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 						<?php echo $admin['UserName']; ?>
 
 						<a href="<?php echo './edit/edit_admin.php?admin_id=' . $admin['AdminId']; ?>"> Edit</a>
-
+						<?php if($error != '') {echo $error;} ?>
 						<form action="" method="post" id="form<?php echo $admin['AdminId']; ?>">
 							<input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>" />
 							<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $admin['AdminId']; ?>">

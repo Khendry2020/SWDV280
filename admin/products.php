@@ -3,7 +3,7 @@ session_start();
 include('./model/database.php');
 include('./model/products.php');
 $products = get_items();
-
+$error = '';
 if (isset($_POST['product_id'])) {
 	$_POST['product_id'] = trim($_POST['product_id']);
 
@@ -11,7 +11,6 @@ if (isset($_POST['product_id'])) {
 
 	if ($product_id == NULL) {
 		$error = 'Product ID is missing or invalid. Please call support.';
-		include('../../errors/error.php');
 	} else {
 		// Update category in database
 		delete_item($product_id);
@@ -54,6 +53,7 @@ if (isset($_POST['product_id'])) {
 							<li>
 								<?php echo $product['Name']; ?>
 								<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
+								<?php if($error != '') {echo $error;} ?>
 								<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
 									<input type="hidden" name="product_id" value="<?php echo $product['ItemId']; ?>" />
 									<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $product['ItemId']; ?>">

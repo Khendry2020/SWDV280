@@ -3,7 +3,7 @@ session_start();
 include('./model/database.php');
 include('./model/categories.php');
 $categories = get_categories();
-
+$error = '';
 if (isset($_POST['cat_id'])) {
     $_POST['cat_id'] = trim($_POST['cat_id']);
 
@@ -11,7 +11,6 @@ if (isset($_POST['cat_id'])) {
 
     if ($cat_id == NULL) {            
         $error = 'Category ID is missing or invalid. Please call support.';
-        include('../../errors/error.php');
     } else {
         // Update category in database
         delete_category($cat_id);
@@ -56,6 +55,7 @@ if (isset($_POST['cat_id'])) {
 							<a class="btn btn-warning text-light" href="<?php echo './edit/edit_category.php?cat_id=' . $category['CategoryId']; ?>" style="width:80px"> Edit</a>
 						</td>
 						<td class="text-center" >
+							<?php if($error != '') {echo $error;} ?>
 							<form action="" method="post" id="form<?php echo $category['CategoryId']; ?>">
 								<input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>" />
 								<button name="delete" class="confirm-delete btn btn-danger" rel="tooltip" title="Remove" id="<?php echo $category['CategoryId']; ?>" style="width:80px">
