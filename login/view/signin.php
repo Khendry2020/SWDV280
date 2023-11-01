@@ -34,7 +34,6 @@
         <!-- <hr>
         <h4>OR</h4>
         <hr>
-        -- Sign up --
         Move to Seperate Page
         <h3>Sign Up</h3>
         <form action="./userSignup.php" method="post">
