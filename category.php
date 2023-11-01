@@ -34,7 +34,7 @@ $products = get_items_by_category($category['CategoryId']);
                     <ul>
                         <?php foreach ($products as $product) : ?>
                         <li>
-                            <a class="text-body" href="?action=view_product&amp;product_id=<?php
+                            <a class="text-body" href="product.php?product_id=<?php
                                     echo $product['ItemId']; ?>">
                                 <?php echo $product['Name']; ?>
                             </a>
