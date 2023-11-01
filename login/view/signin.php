@@ -19,7 +19,7 @@
           <!-- Email -->
           <div class="mb-3 mt-3 text-start">
             <label class="text-start" for="email">
-              Username
+              Username or Email
             </label>
             <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
           </div>
