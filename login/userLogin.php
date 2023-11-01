@@ -1,8 +1,6 @@
 <?php
 session_start();
 include "../models/database.php";
-$_SESSION['LoggedIn'] = false;
-
 function validate($data)
 {
     $data = trim($data);
