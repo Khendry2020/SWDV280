@@ -5,7 +5,8 @@ include('models/users.php');
 $error = '';
 if (isset($_POST['create'])) {
     // Trim inputs
-    $_POST['name'] = trim($_POST['name']);
+    $_POST['firstname'] = trim($_POST['firstname']);
+    $_POST['lastname'] = trim($_POST['lastname']);
     $_POST['email'] = trim($_POST['email']);
     $_POST['password'] = trim($_POST['password']);
     $_POST['phone'] = trim($_POST['phone']);
@@ -14,7 +15,8 @@ if (isset($_POST['create'])) {
     $_POST['state'] = trim($_POST['state']);
     $_POST['zip'] = trim($_POST['zip']);
 
-    $name = filter_input(INPUT_POST, 'name');
+    $firstname = filter_input(INPUT_POST, 'firstname');    
+    $lastname = filter_input(INPUT_POST, 'lastname');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = filter_input(INPUT_POST, 'password');
     $phone = filter_input(INPUT_POST, 'phone');
@@ -23,7 +25,7 @@ if (isset($_POST['create'])) {
     $state = filter_input(INPUT_POST, 'state');
     $zip = filter_input(INPUT_POST, 'zip');
 
-    if ($name == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
+    if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
         $error = 'Invalid user data. Check all fields and try again.';
     } else {
 
@@ -34,7 +36,7 @@ if (isset($_POST['create'])) {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
-            add_user($name, $email, $phone, $last_id, $password);
+            add_user($firstname, $lastname, $email, $phone, $last_id, $password);
             $_POST = [];
             $_SESSION['Status Message'] = 'Your account has been successfully created.';
             header("Location: account.php");
