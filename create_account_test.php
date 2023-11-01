@@ -7,7 +7,7 @@ if (isset($_POST['create'])) {
     // Trim inputs
     $_POST['name'] = trim($_POST['name']);
     $_POST['email'] = trim($_POST['email']);
-    $_POST['password'] = trim($_POST['password']);
+    $_POST['account-password'] = trim($_POST['account-password']);
     $_POST['phone'] = trim($_POST['phone']);
     $_POST['street'] = trim($_POST['street']);
     $_POST['city'] = trim($_POST['city']);
@@ -16,7 +16,7 @@ if (isset($_POST['create'])) {
 
     $name = filter_input(INPUT_POST, 'name');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $password = filter_input(INPUT_POST, 'password');
+    $password = filter_input(INPUT_POST, 'account-password');
     $phone = filter_input(INPUT_POST, 'phone');
     $street = filter_input(INPUT_POST, 'street');
     $city = filter_input(INPUT_POST, 'city');
@@ -53,46 +53,53 @@ if (isset($_POST['create'])) {
     <div>
       <?php include './modules/header.php'; ?>
     </div>
-    <?php if(isset($error)) { echo $error; } ?>
-    <form action="" method="post">
-        <div class="mb-3">
-            <label for="name" class="form-label">Name</label>
-            <input type="text" class="form-control" id="name" name="name">
+    <section>
+        <div class="row">
+            <div class="col">
+                <form action="" method="post" id="account">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="verify-email" class="form-label">Verify Email</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="verify-email" name="verify-email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                    </div>
+                    <div class="mb-3">
+                        <label for="account-password" class="form-label">Password</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="account-password" name="account-password">
+                    </div>
+                    <div class="mb-3">
+                        <label for="street" class="form-label">Street Address</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="street" name="street">
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="city" name="city">
+                    </div>
+                    <div class="mb-3">
+                        <label for="state" class="form-label">State</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="state" name="state">
+                    </div>
+                    <div class="mb-3">
+                        <label for="zip" class="form-label">Zip</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="zip" name="zip">
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3" name="create" id="submit">Create Account</button>
+                </form>
+            </div>
         </div>
-        <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="text" class="form-control" id="email" name="email">
-        </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Password</label>
-            <input type="text" class="form-control" id="password" name="password">
-        </div>
-        <div class="mb-3">
-            <label for="phone" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="phone" name="phone">
-        </div>
-        <div class="mb-3">
-            <label for="street" class="form-label">Street Address</label>
-            <input type="text" class="form-control" id="street" name="street">
-        </div>
-        <div class="mb-3">
-            <label for="city" class="form-label">City</label>
-            <input type="text" class="form-control" id="city" name="city">
-        </div>
-        <div class="mb-3">
-            <label for="state" class="form-label">State</label>
-            <input type="text" class="form-control" id="state" name="state">
-        </div>
-        <div class="mb-3">
-            <label for="zip" class="form-label">Zip</label>
-            <input type="text" class="form-control" id="zip" name="zip">
-        </div>
-        <button type="submit" class="btn btn-primary mt-3" name="create">Create Account</button>
-    </form>
+    </section>
   </main>
-  <footer>
     <?php include './modules/footer.php'; ?>
-  </footer>
+  <script src="scripts/create-account-validator.js"></script>
 </body>
-
 </html>
