@@ -55,42 +55,42 @@ if (isset($_POST['create'])) {
     </div>
     <?php if(isset($error)) { echo $error; } ?>
     <div class="container">
-        <h3 class="my-3">Sign Up</h3>
+        <h3 class="my-2">Sign Up</h3>
         <form action="" method="post">
-            <div class="my-3 text-start">
+            <div class="my-2 text-start">
                 <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name">
             </div>
-            <div class="my-3 text-start">
+            <div class="my-2 text-start">
                 <label for="email" class="form-label">Email</label>
                 <input type="text" class="form-control" id="email" name="email">
             </div>
-            <div class="my-3 text-start">
+            <div class="my-2 text-start">
                 <label for="password" class="form-label">Password</label>
                 <input type="text" class="form-control" id="password" name="password">
             </div>
-            <div class="my-3">
+            <div class="my-2">
                 <label for="phone" class="form-label">Phone</label>
                 <input type="text" class="form-control" id="phone" name="phone">
             </div>
-            <div class="my-3">
+            <div class="my-2">
                 <label for="street" class="form-label">Street Address</label>
                 <input type="text" class="form-control" id="street" name="street">
             </div>
-            <div class="my-3">
+            <div class="my-2">
                 <label for="city" class="form-label">City</label>
                 <input type="text" class="form-control" id="city" name="city">
             </div>
-            <div class="my-3">
+            <div class="my-2">
                 <label for="state" class="form-label">State</label>
                 <input type="text" class="form-control" id="state" name="state">
             </div>
-            <div class="my-3">
+            <div class="my-2">
                 <label for="zip" class="form-label">Zip</label>
                 <input type="text" class="form-control" id="zip" name="zip">
             </div>
 
-            <button type="submit" class="btn btn-primary my-3" name="create">Create Account</button>
+            <button type="submit" class="btn btn-primary my-2" name="create">Create Account</button>
         </form>
     </div>
   </main>
