@@ -1,4 +1,4 @@
-<footer class="mb-0 color-brown">
+<footer class="mb-0 scotts-brown">
     <div class="text-center mb-0 border-top border-black border-5">
         <div class="pt-2">
             <a href="./index.php">
