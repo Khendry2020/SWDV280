@@ -2,11 +2,12 @@
 session_start();
 include('models/database.php');
 include('models/users.php');
-
+$error = '';
 if (isset($_POST['create'])) {
     // Trim inputs
     $_POST['name'] = trim($_POST['name']);
     $_POST['email'] = trim($_POST['email']);
+    $_POST['password'] = trim($_POST['password']);
     $_POST['phone'] = trim($_POST['phone']);
     $_POST['street'] = trim($_POST['street']);
     $_POST['city'] = trim($_POST['city']);
@@ -15,29 +16,26 @@ if (isset($_POST['create'])) {
 
     $name = filter_input(INPUT_POST, 'name');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+    $password = filter_input(INPUT_POST, 'password');
     $phone = filter_input(INPUT_POST, 'phone');
     $street = filter_input(INPUT_POST, 'street');
     $city = filter_input(INPUT_POST, 'city');
     $state = filter_input(INPUT_POST, 'state');
     $zip = filter_input(INPUT_POST, 'zip');
 
-    if ($name == NULL || $email == NULL || $phone == FALSE || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
+    if ($name == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
         $error = 'Invalid user data. Check all fields and try again.';
-        include('errors/error.php');
     } else {
 
         $email_check = check_email($email);
-        var_dump($email_check);
         if($email_check != NULL || $email_check != FALSE || $email_check != 0) {
             $error = 'This email address is already in use. Please try another email address.';
-            include('errors/error.php');
         } else {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
-            add_user($name, $email, $phone, $last_id);
+            add_user($name, $email, $phone, $last_id, $password);
             $_POST = [];
-
             $_SESSION['Status Message'] = 'Your account has been successfully created.';
             header("Location: account.php");
         }
@@ -55,6 +53,7 @@ if (isset($_POST['create'])) {
     <div>
       <?php include './modules/header.php'; ?>
     </div>
+    <?php if(isset($error)) { echo $error; } ?>
     <form action="" method="post">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
@@ -63,6 +62,10 @@ if (isset($_POST['create'])) {
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="text" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control" id="password" name="password">
         </div>
         <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>

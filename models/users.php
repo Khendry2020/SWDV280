@@ -1,13 +1,13 @@
 <?php
 function get_user($user_id) {
     global $db;
-    $query = 'SELECT * FROM users
+    $query = 'SELECT * FROM users JOIN address ON users.AddressId = address.AddressId
               WHERE UserId = :user_id';
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':user_id', $user_id);
         $statement->execute();
-        $result = $statement->fetchAll();
+        $result = $statement->fetch(PDO::FETCH_ASSOC);
         $statement->closeCursor();
         return $result;
     } catch (PDOException $e) {
@@ -15,16 +15,17 @@ function get_user($user_id) {
     }
 }
 
-function add_user($name, $email, $phone, $address_id) {
+function add_user($name, $email, $phone, $address_id, $password) {
     global $db;
-    $query = 'INSERT INTO users (Name, Email, Phone, AddressId)
-              VALUES (:name, :email, :phone, :address_id)';
+    $query = 'INSERT INTO users (Name, Email, Phone, AddressId, Password)
+              VALUES (:name, :email, :phone, :address_id, :password)';
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':name', $name);
         $statement->bindValue(':email', $email);
         $statement->bindValue(':phone', $phone);
         $statement->bindValue(':address_id', $address_id);
+        $statement->bindValue(':password', $password);
         $statement->execute();
         $statement->closeCursor();
 
@@ -34,16 +35,19 @@ function add_user($name, $email, $phone, $address_id) {
     }
 }
 
-function update_user($cat_id, $name) {
+function update_user($phone, $password, $user_id) {
     global $db;
     $query = '
-        UPDATE categories
-        SET CategoryType = :name
-        WHERE CategoryId = :cat_id';
+        UPDATE users
+        SET 
+            Phone = :phone,
+            Password = :password
+        WHERE UserId = :user_id';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue(':name', $name);
-        $statement->bindValue(':cat_id', $cat_id);
+        $statement->bindValue(':phone', $phone);
+        $statement->bindValue(':password', $password);
+        $statement->bindValue(':user_id', $user_id);
         $statement->execute();
         $statement->closeCursor();
     } catch (PDOException $e) {
@@ -88,5 +92,27 @@ function add_address($street, $city, $state, $zip) {
         display_db_error($error_message);
     }
 }
-
+function update_address($street, $city, $zip, $state, $address_id) {
+    global $db;
+    $query = 'UPDATE address
+        SET 
+            Streetaddress = :street,
+            city = :city,
+            Zip = :zip,
+            State = :state
+        WHERE AddressId = :address_id';
+    try {
+        $statement = $db->prepare($query);
+        $statement->bindValue(':street', $street);
+        $statement->bindValue(':city', $city);
+        $statement->bindValue(':zip', $zip);
+        $statement->bindValue(':state', $state);
+        $statement->bindValue(':address_id', $address_id);
+        $statement->execute();
+        $statement->closeCursor();
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
+}
 ?>
