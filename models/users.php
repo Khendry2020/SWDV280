@@ -15,13 +15,14 @@ function get_user($user_id) {
     }
 }
 
-function add_user($name, $email, $phone, $address_id, $password) {
+function add_user($firstname, $lastname, $email, $phone, $address_id, $password) {
     global $db;
-    $query = 'INSERT INTO users (Name, Email, Phone, AddressId, Password)
-              VALUES (:name, :email, :phone, :address_id, :password)';
+    $query = 'INSERT INTO users (FirstName, LastName, Email, Phone, AddressId, Password)
+              VALUES (:firstname, :lastname, :email, :phone, :address_id, :password)';
     try {
         $statement = $db->prepare($query);
-        $statement->bindValue(':name', $name);
+        $statement->bindValue(':firstname', $firstname);
+        $statement->bindValue(':lastname', $lastname);
         $statement->bindValue(':email', $email);
         $statement->bindValue(':phone', $phone);
         $statement->bindValue(':address_id', $address_id);

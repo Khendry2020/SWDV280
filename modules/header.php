@@ -22,7 +22,10 @@
             </div>
             <!-- Checks to see if user is logged in and displays aproriate action -->
             <?php
-
+            // Logic to ensure $_SESSION['LoggedIn'] is not missing.
+            if (!isset($_SESSION["LoggedIn"])) {
+                $_SESSION['LoggedIn'] = false;
+            }
             if ($_SESSION['LoggedIn'] == true) {
                 include './login/view/logout.php';
                 echo '<div class="d-flex">';
