@@ -58,8 +58,13 @@ if (isset($_POST['create'])) {
         <h3 class="my-2">Sign Up</h3>
         <form action="" method="post">
             <div class="my-2 text-start">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <label for="firstname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="firstname" name="firstname">
+            </div>
+            
+            <div class="my-2 text-start">
+                <label for="lastname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lastname" name="lastname">
             </div>
             <div class="my-2 text-start">
                 <label for="email" class="form-label">Email</label>
