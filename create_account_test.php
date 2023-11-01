@@ -45,7 +45,7 @@ if (isset($_POST['create'])) {
 ?>
 <!DOCTYPE html>
 <?php include './modules/head.php'; ?>
-
+<link rel="stylesheet" href="scripts/jquery-ui-1.13.2.custom/jquery-ui.min.css">
 <body>
   <?php include './modules/hero.php'; ?>
   <main>
@@ -78,6 +78,12 @@ if (isset($_POST['create'])) {
                         <input type="text" class="form-control" id="account-password" name="account-password">
                     </div>
                     <div class="mb-3">
+                        <label for="birthday">Birthday</label>
+                        <input type="text" class="form-control" id="birthday" placeholder="Your Birthday" aria-describedby="aptDateHelp">
+                        <div id="aptDateHelp" class="form-text">Example: 02/13/2020</div>
+                    </div>
+                    </div>
+                    <div class="mb-3">
                         <label for="street" class="form-label">Street Address</label> <span class="error"></span>
                         <input type="text" class="form-control" id="street" name="street">
                     </div>
@@ -100,6 +106,13 @@ if (isset($_POST['create'])) {
     </section>
   </main>
     <?php include './modules/footer.php'; ?>
+  <script src="scripts/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
   <script src="scripts/create-account-validator.js"></script>
+  <script>
+			$( "#birthday" ).datepicker({
+                changeMonth: true,
+                changeYear: true
+			});
+		</script>
 </body>
 </html>

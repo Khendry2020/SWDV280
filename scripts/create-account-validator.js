@@ -22,7 +22,7 @@ $("#account #submit").click( evt => {
 
 	let isValid = true;
 	// validate the name entry 
-	const name = $("#name").val();
+	const name = $("#name").val().trim();
 	if (name == "") {
 		$("label[for='name']").next().text("Name field is required.");
 		isValid = false;
@@ -38,7 +38,7 @@ $("#account #submit").click( evt => {
 	}
     $("#name").val(name);
 
-	const phone = $("#phone").val();
+	const phone = $("#phone").val().trim();
 
 	if (phone == "") {
 		$("label[for='phone']").next().text("Phone field is required.");
@@ -54,7 +54,7 @@ $("#account #submit").click( evt => {
 
 	// validate the email addresses
 
-	const email = $("#email").val();
+	const email = $("#email").val().trim();
 	
 	const parts = email.split("@");
 
@@ -80,7 +80,7 @@ $("#account #submit").click( evt => {
 	$("#email").val(email);
    
 
-	const emailtest = $("#verify-email").val();
+	const emailtest = $("#verify-email").val().trim();
 
 	if (emailtest == "") { 
 		$("label[for='verify-email']").next().text("Verify Email Address field is required.");
@@ -102,7 +102,7 @@ $("#account #submit").click( evt => {
 	}
     $("#password").val(password);
 
-	const street = $("#street").val();
+	const street = $("#street").val().trim();
 	if (street == "") {
 		$("label[for='street']").next().text("Street Address field is required.");
 		isValid = false;
@@ -111,7 +111,7 @@ $("#account #submit").click( evt => {
 	}
     $("#street").val(street);
 
-	const city = $("#city").val();
+	const city = $("#city").val().trim();
 	if (city == "") {
 		$("label[for='city']").next().text("City field is required.");
 		isValid = false;
@@ -120,7 +120,7 @@ $("#account #submit").click( evt => {
 	}
     $("#city").val(city);
 
-	const state = $("#state").val();
+	const state = $("#state").val().trim();
 	if (state == "") {
 		$("label[for='state']").next().text("State field is required.");
 		isValid = false;
@@ -129,7 +129,7 @@ $("#account #submit").click( evt => {
 	}
     $("#state").val(state);
 
-	const zip = $("#zip").val();
+	const zip = $("#zip").val().trim();
 	if (zip == "") {
 		$("label[for='zip']").next().text("ZIP field is required.");
 		isValid = false;
