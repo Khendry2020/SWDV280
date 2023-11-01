@@ -3,7 +3,7 @@ include './models/database.php';
 include './models/users.php';
 
 
-$_SESSION['UserId'] = 7;
+$_SESSION['UserId'] = false;
 $_SESSION['isAdmin'] = false;
 $_SESSION['LoggedIn'] = true;
 $number_test = is_numeric($_SESSION['UserId']);
@@ -12,7 +12,13 @@ if ($number_test == 1 && $_SESSION['LoggedIn'] === true) {
     $user_id = $_SESSION['UserId'];
     $user = get_user($user_id);
 } else {
-  echo 'You are not logged in.';
+?> <div class="text-center border py-2">
+        <h2>You are not logged in.</h2>
+        <a href="index.php" class="btn btn-primary text-center">Back to Home</a>
+    </div>
+<?php 
+  include('./modules/footer.php');
+  die();
 }
 
 
@@ -47,8 +53,6 @@ if (isset($_POST['update'])) {
         $_SESSION['Status Message'] = 'User updated successfully.';
     }
 }
-
-
 ?>
 <div class="container">
 <h3>Edit <?php echo $user['Name'] ?> profile</h3>
