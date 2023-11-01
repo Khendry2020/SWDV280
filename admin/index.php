@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-  <?php include '../modules/head.php'; ?>
+  <?php include( $_SERVER['DOCUMENT_ROOT'] .'/swdv280/modules/head.php'); ?>
   <body>
   	<h1 class="text-center bg-dark text-light m-0 p-0">
       Administration
