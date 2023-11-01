@@ -3,7 +3,7 @@ session_start();
 include './models/database.php';
 include './models/users.php';
 var_dump($_SESSION);
-$_SESSION['UserId'] = 7;
+$_SESSION['UserId'] = 1;
 $_SESSION['isAdmin'] = false;
 $_SESSION['LoggedIn'] = true;
 $_SESSION['Status Message'] = '';
@@ -14,6 +14,7 @@ if ($number_test == 1 && $_SESSION['LoggedIn'] === true) {
     $user = get_user($user_id);
 } else {
   echo 'You are not logged in.';
+  header('Location: index.php');
 }
 
 if (isset($_POST['update'])) {
@@ -62,7 +63,7 @@ if (isset($_POST['update'])) {
       <?php include './modules/header.php'; ?>
     </div>
     <div class="container">
-<h3>Edit <?php echo $user['Name'] ?> profile</h3>
+<h3>Edit <?php echo $user['Name'] ?>'s profile</h3>
         <?php if ($_SESSION['Status Message']) {
             echo $_SESSION['Status Message'];
             unset($_SESSION['Status Message']);
