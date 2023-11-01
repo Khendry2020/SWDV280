@@ -1,6 +1,7 @@
 <head>
     <!-- Required meta tags -->
-    <?php include( $_SERVER['DOCUMENT_ROOT'] .'/modules/session.php'); ?>
+    <!-- Jake needs it to include /swdv280/ for it to work. Is this a Jake problem? Does this cause other people problems? -->
+    <?php include( $_SERVER['DOCUMENT_ROOT'] .'/swdv280/modules/session.php'); ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="SWDV280">
