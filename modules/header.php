@@ -27,7 +27,7 @@
                 include './login/view/logout.php';
                 echo '<div class="d-flex">';
                 /*Needs Styling*/
-                echo "<p id='welcome'>Welcome, " . $_SESSION['UserName'] . "</p>";
+                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
                 echo '<a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
                         <i class="bi bi-person-circle h3"></i>
                     </a>';

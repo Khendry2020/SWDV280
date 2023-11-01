@@ -1,3 +1,4 @@
 <?php
-session_start();
-$_SESSION['LoggedIn'] = false;
+if (!isset($_SESSION['LoggedIn'])) {
+    $_SESSION['LoggedIn'] = false;
+}
