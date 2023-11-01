@@ -12,7 +12,8 @@ $products = get_items_by_category($category['CategoryId']);
 ?>
 <!DOCTYPE html>
     <?php include './modules/head.php'; ?>
-    <body>
+    <body>        
+        <?php include './modules/hero.php'; ?>
         <?php include './modules/header.php'; ?>
         <main> 
             <div class="container">
