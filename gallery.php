@@ -15,6 +15,7 @@ function urlize($text)
 <!DOCTYPE html>
     <?php include './modules/head.php'; ?>
     <body>
+        <?php include './modules/hero.php'; ?>
         <?php include './modules/header.php'; ?>
         <main> 
             <div class="container text-center">
