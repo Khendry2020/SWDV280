@@ -34,7 +34,7 @@ if (isset($_POST['create'])) {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
-            add_user($name, $email, $phone, $last_id, $password);
+            //add_user($name, $email, $phone, $last_id, $password);
             $_POST = [];
             $_SESSION['Status Message'] = 'Your account has been successfully created.';
             header("Location: account.php");
