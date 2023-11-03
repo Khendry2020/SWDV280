@@ -20,28 +20,32 @@
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                 </ul>
             </div>
-            <!-- Checks to see if user is logged in and displays aproriate action -->
+            <!-- Checks to see if user is logged in and displays aproriate action -->            
             <?php
             // Logic to ensure $_SESSION['LoggedIn'] is not missing.
             if (!isset($_SESSION["LoggedIn"])) {
                 $_SESSION['LoggedIn'] = false;
             }
             if ($_SESSION['LoggedIn'] == true) {
-                include './login/view/logout.php';
-                echo '<div class="d-flex">';
-                /*Needs Styling*/
-                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
-                echo '<a class="nav-link text-light pe-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="User Log In">
-                        <i class="bi bi-person-circle h3" ></i>
-                    </a>';
+                include './login/view/logout.php';                    
             } else {
                 include './login/view/signin.php';
             } ?>
-            <a class="nav-link text-light pe-1 position-relative  rounded" href="reserve.php"> <!-- To reserve Page -->
-                <i class="bi bi-cart3 h3"></i>
-                <div id="cartAmount" class="position-absolute top-0 start-100 translate-middle badge text-light ps-1 pe-1 rounded">0</div>
-            </a>
-        </div>
+            <div class="d-flex justify-content-center">
+                <?php 
+                if ($_SESSION['LoggedIn'] == true) {
+                /* The styling for this is is really difficult to get set up */
+                // echo "<a id='welcome' class='pt-2 pe-4 text-decoration-none'>Welcome, " . $_SESSION['FirstName'] . "</a>";
+                echo '<a class="text-light pe-1 pt-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="User Log In">
+                        <i class="bi bi-person-circle h1" ></i>
+                    </a>';
+                }
+                ?>
+                <a class="nav-link text-light pe-1 position-relative rounded pt-1" href="reserve.php"> <!-- To reserve Page -->
+                    <i class="bi bi-cart3 h1"></i>
+                    <div id="cartAmount" class=" translate-middle badge text-light ps-1 pe-1 rounded">0</div>
+                </a>
+            </div>
         </div>
     </nav>
     <!-- The Modal -->
