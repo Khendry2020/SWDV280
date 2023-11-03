@@ -40,13 +40,13 @@ if (isset($_POST['create'])) {
     $zip = filter_input(INPUT_POST, 'zip');
 
 
-    if ($firstname == NULL || $lastname == NULL || $user_name == NULL ||$email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
+    if ($firstname == NULL || $lastname == NULL || $user_name == NULL ||$email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL || $birthday_insert == NULL) {            
         $error = 'Invalid user data. Check all fields and try again.';
     } else {
 
         $email_check = check_email($email);
         if($email_check != NULL || $email_check != FALSE || $email_check != 0) {
-            $error = 'This email address is already in use. Please try another email address.';
+            $error = 'The email address is already in use. Please try another email address.';
         } else {
             // Add item to database
             add_address($street, $city, $state, $zip);
@@ -71,69 +71,72 @@ if (isset($_POST['create'])) {
       <?php include './modules/header.php'; ?>
     </div>
     <section>
-        <div class="row">
-            <div class="col">
-                <?php if($error != '') { echo $error; }; ?>
-                <form action="" method="post" id="account">
-                <div class="mb-3">
-                        <label for="fname" class="form-label">First Name</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="fname" name="fname">
-                    </div>
-                    <div class="mb-3">
-                        <label for="lname" class="form-label">Last Name</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="lname" name="lname">
-                    </div>
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Username</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="user_name" name="user_name">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="email" name="email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="verify-email" class="form-label">Verify Email</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="verify-email" name="verify-email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Phone</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="phone" name="phone">
-                    </div>
-                    <div class="mb-3">
-                        <label for="account-password" class="form-label">Password</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="account-password" name="account-password">
-                    </div>
-                    <div class="mb-3">
-                        <label for="birthday">Birthday</label>
-                        <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Your Birthday" aria-describedby="aptDateHelp">
-                        <div id="aptDateHelp" class="form-text">Example: 02/13/2020 (February 13th, 2020)</div>
-                    </div>
-                    </div>
-                    <div class="mb-3">
-                        <label for="street" class="form-label">Street Address</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="street" name="street">
-                    </div>
-                    <div class="mb-3">
-                        <label for="city" class="form-label">City</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="city" name="city">
-                    </div>
-                    <div class="mb-3">
-                        <label for="state" class="form-label">State</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="state" name="state">
-                    </div>
-                    <div class="mb-3">
-                        <label for="zip" class="form-label">Zip</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="zip" name="zip">
-                    </div>
-                    <button type="submit" class="btn btn-primary mt-3" name="create" id="submit">Create Account</button>
-                </form>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <?php if($error != '') { echo $error; }; ?>
+                    <form action="" method="post" id="account">
+                        <div class="mb-3">
+                            <label for="fname" class="form-label">First Name</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="fname" name="fname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lname" class="form-label">Last Name</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="lname" name="lname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="user_name" class="form-label">Username</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="user_name" name="user_name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="email" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="verify-email" class="form-label">Verify Email</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="verify-email" name="verify-email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="phone" name="phone">
+                        </div>
+                        <div class="mb-3">
+                            <label for="account-password" class="form-label">Password</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="account-password" name="account-password">
+                        </div>
+                        <div class="mb-3">
+                            <label for="birthday">Birthday</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Your Birthday" aria-describedby="aptDateHelp">
+                            <div id="aptDateHelp" class="form-text">Example: 02/13/2020 (February 13th, 2020)</div>
+                        </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="street" class="form-label">Street Address</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="street" name="street">
+                        </div>
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="city" name="city">
+                        </div>
+                        <div class="mb-3">
+                            <label for="state" class="form-label">State</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="state" name="state">
+                        </div>
+                        <div class="mb-3">
+                            <label for="zip" class="form-label">Zip</label> <span class="error"></span>
+                            <input type="text" class="form-control" id="zip" name="zip">
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3" name="create" id="submit">Create Account</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
   </main>
     <?php include './modules/footer.php'; ?>
+    <script src="scripts/create-account-validator.js"></script>
+
   <script src="scripts/jquery-ui-1.13.2.custom/jquery-ui.min.js"></script>
-  <script src="scripts/create-account-validator.js"></script>
   <script>
 			$( "#birthday" ).datepicker({
                 changeMonth: true,
