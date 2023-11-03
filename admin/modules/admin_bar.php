@@ -1,7 +1,7 @@
 <header>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
-        <div class="container">
+	<!-- Navigation -->
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark ">
+		<div class="container">
 			<div id="headerBrandname">
 				<a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
 			</div>
@@ -19,7 +19,10 @@
 					<li class="nav-item"><a class="nav-link" href="reports.php">View Reports</a></li>
 					<li class="nav-item"><a class="nav-link" href="donations.php">View Donations</a></li>
 				</ul>
-			</div>			
-    	</div>
+			</div>
+			<?php
+			include './adminLogin/view/logout.php';
+			?>
+		</div>
 	</nav>
 </header>

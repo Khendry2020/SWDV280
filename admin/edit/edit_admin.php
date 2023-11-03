@@ -10,7 +10,7 @@ $admin_name = '';
 $role = '';
 $password;
 $admin_id;
-
+$error = '';
 if (isset($_POST['edit'])) {
     $_POST['adminname'] = trim($_POST['adminname']);
     $_POST['role'] = trim($_POST['role']);
@@ -24,7 +24,6 @@ if (isset($_POST['edit'])) {
 
     if ($admin_name == NULL) {            
         $error = 'Admins requires a name, please try again.';
-        include('../../errors/error.php');
     } else {
         // Update category in database
         update_admin($admin_name, $role, $password, $admin_id);
@@ -50,6 +49,7 @@ if (isset($_POST['edit'])) {
             <?php else: ?>
             <h1>Update Admin User</h1>
             <h2>Updating <?php echo $admin['UserName']; ?></h2>
+            <?php if($error != '') {echo $error;} ?>
             <form action="" method="post">
                 <div class="mb-3">
                     <label for="adminname">Admin Name</label>

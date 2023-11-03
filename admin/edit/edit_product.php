@@ -12,6 +12,7 @@ $description = '';
 $price = 0;
 $cat_id = '';
 $item_id = 0;
+$errors = [];
 if (isset($_POST['edit'])) {
     $_POST['name'] = trim($_POST['name']);
     $_POST['description'] = trim($_POST['description']);
@@ -27,13 +28,13 @@ if (isset($_POST['edit'])) {
 
     if ($name == NULL || $description == NULL ||
             $price == FALSE || $cat_id == NULL) {            
-        $error = 'Invalid product data. Check all fields and try again.';
+        $errors[] = 'Invalid product data. Check all fields and try again.';
         include('../../errors/error.php');
     } else if ($price <= 0) {
-        $error = 'Price of item cannot be 0 or less than 0.';
+        $errors[] = 'Price of item cannot be 0 or less than 0.';
         include('../../errors/error.php');
     } else if ($item_id <= 0) {
-        $error = 'ID of item cannot be 0 or less than 0.';
+        $errors[] = 'ID of item cannot be 0 or less than 0.';
         include('../../errors/error.php');
     } else {
         // Update item to database
@@ -60,6 +61,13 @@ if (isset($_POST['edit'])) {
             <?php else: ?>
             <h1>Update Product</h1>
             <h2>Updating <?php echo $product['Name']; ?></h2>
+            <?php if($errors != []) {
+                foreach ($errors as $error) {
+                    echo <<<EOL
+            <span class="d-block error">{$error}</span>
+EOL;
+                }
+            } ?>
             <form action="" method="post">
                 <div class="mb-3">
                     <label for="name">Name of Product</label>

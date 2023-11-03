@@ -7,6 +7,7 @@ FILTER_VALIDATE_INT);
 $category = get_category($cat_id);
 $name = '';
 $cat_id = '';
+$error = '';
 if (isset($_POST['edit'])) {
     $_POST['categorytype'] = trim($_POST['categorytype']);
     $_POST['cat_id'] = trim($_POST['cat_id']);
@@ -16,7 +17,7 @@ if (isset($_POST['edit'])) {
 
     if ($name == NULL) {            
         $error = 'Category requires a name, please try again.';
-        include('../../errors/error.php');
+        //include('../../errors/error.php');
     } else {
         // Update category in database
         update_category($name, $cat_id);
@@ -43,6 +44,7 @@ if (isset($_POST['edit'])) {
             <?php else: ?>
             <h1>Update Category</h1>
             <h2>Updating <?php echo $category['CategoryType']; ?></h2>
+            <?php if($error != '') {echo $error;} ?>
             <form action="" method="post">
             <div class="mb-3">
                     <label for="categorytype">Category Name</label>

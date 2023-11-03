@@ -10,7 +10,7 @@ $name = '';
 $description = '';
 $price = '';
 $category_id = '';
-
+$errors = [];
 if (isset($_POST['add'])) {
     // Trim inputs
     $_POST['name'] = trim($_POST['name']);
@@ -31,17 +31,14 @@ if (isset($_POST['add'])) {
     if(in_array($fileType, $allowTypes)){ 
         $img = file_get_contents($_FILES['image']['tmp_name']);
     } else {
-        $error = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
-        include('../../errors/error.php');
+        $errors[] = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
     } 
     
     if ($name == NULL || $description == NULL ||
             $price == FALSE || $category_id == NULL) {            
-        $error = 'Invalid product data. Check all fields and try again.';
-        include('../../errors/error.php');
+        $errors[] = 'Invalid product data. Check all fields and try again.';
     } else if ($price <= 0) {
-        $error = 'Price of item cannot be 0 or less than 0.';
-        include('../../errors/error.php');
+        $errors[] = 'Price of item cannot be 0 or less than 0.';
     } else {
         // Add item to database
         add_item($category_id, $name, $description, $price, $img);
@@ -64,6 +61,13 @@ if (isset($_POST['add'])) {
         <?php include '../modules/admin_bar.php'; ?>
       </div>
         <div>
+            <?php if($errors != []) {
+                foreach ($errors as $error) {
+                    echo <<<EOL
+            <span class="d-block error">{$error}</span>
+EOL;
+                }
+            } ?>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>

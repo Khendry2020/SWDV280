@@ -4,7 +4,7 @@ include('./../model/database.php');
 include('./../model/categories.php');
 
 $categorytype = '';
-
+$error = '';
 if (isset($_POST['add'])) {
     // Trim inputs
     $_POST['categorytype'] = trim($_POST['categorytype']);
@@ -13,14 +13,13 @@ if (isset($_POST['add'])) {
 
     if ($categorytype == NULL) {            
         $error = 'Category requires a name. Please try again.';
-        include('./../errors/error.php');
     } else {
 
         // Add category to database
         add_category($categorytype);
         $_POST = [];
         $_SESSION['Status Message'] = 'Category added successfully.';
-        header("Refresh: 0");
+        //header("Refresh: 0");
         header("Location: ../categories.php"); 
     }
 }
@@ -36,6 +35,7 @@ if (isset($_POST['add'])) {
         <?php include '../modules/admin_bar.php'; ?>
       </div>
         <div>
+            <?php if($error != '') {echo $error;} ?>
             <form action="" method="post" enctype="post">
                 <div class="mb-3">
                     <label for="categorytype" class="form-label">Category Name</label>

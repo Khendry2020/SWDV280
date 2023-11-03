@@ -7,7 +7,7 @@ include('./../model/admins.php');
 $username = '';
 $roles = '';
 $password = '';
-
+$error = '';
 if (isset($_POST['add'])) {
     // Trim inputs
     $_POST['username'] = trim($_POST['username']);
@@ -20,7 +20,6 @@ if (isset($_POST['add'])) {
 
     if ($username == NULL || $roles == NULL || $password == NULL) {            
         $error = 'All user data is required for entry. Please try again.';
-        include('../../errors/error.php');
     } else {
         // Add category to database
         add_admin($username, $roles, $password);
@@ -41,6 +40,7 @@ if (isset($_POST['add'])) {
         <?php include '../modules/admin_bar.php'; ?>
       </div>
         <div>
+            <?php if($error != '') {echo $error;} ?>
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="mb-3">
                     <label for="username" class="form-label">Name</label>

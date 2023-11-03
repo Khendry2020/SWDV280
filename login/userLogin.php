@@ -1,8 +1,6 @@
 <?php
 session_start();
 include "../models/database.php";
-$_SESSION['LoggedIn'] = false;
-
 function validate($data)
 {
     $data = trim($data);
@@ -23,7 +21,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         exit();
     }
 
-    $stmt = $db->prepare("SELECT * FROM login WHERE UserName = :username AND Password = :password");
+    $stmt = $db->prepare("SELECT * FROM users WHERE UserName = :username OR Email = :username AND Password = :password");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $password);
     $stmt->execute();
@@ -34,7 +32,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['LoggedIn'] = true;
         $_SESSION['UserName'] = $row['UserName'];
         $_SESSION['UserId'] = $row['UserId'];
+        $_SESSION['FirstName'] = $row['FirstName'];
         header("Location: ../index.php");
+
         exit();
     } else {
         header("Location: ../index.php?error=User Name or Password is incorrect");

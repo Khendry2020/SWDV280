@@ -8,6 +8,10 @@
     ;
 }
 
+.scotts-brown {
+    background-image: linear-gradient(#762F0A, #905739, #762F0A);
+}
+
 .color-orange {
     background-color: #FF7A00;
 }

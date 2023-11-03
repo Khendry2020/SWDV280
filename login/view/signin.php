@@ -15,11 +15,11 @@
         <?php if (isset($_GET['error'])) { ?>
           <p class="error"> <?php echo $_GET['error']; ?> </p>
         <?php } ?>
-        <form action="login/userLogin.php" method="post"> <!-- action added -->
+        <form action="login/userLogin.php" method="post">
           <!-- Email -->
           <div class="mb-3 mt-3 text-start">
             <label class="text-start" for="email">
-              Username
+              Username or Email
             </label>
             <input type="text" class="form-control" id="username" placeholder="Enter Username" name="username">
           </div>
@@ -34,9 +34,12 @@
         <hr>
         <h4>OR</h4>
         <hr>
-        <!---- Sign up ---->
-        <!-- Move to Seperate Page -->
-        <!-- <h3>Sign Up</h3>
+        <a href="./signup.php" class="btn btn-primary">Sign Up</a>
+        <!-- <hr>
+        <h4>OR</h4>
+        <hr>
+        Move to Seperate Page
+        <h3>Sign Up</h3>
         <form action="./userSignup.php" method="post">
           <div class=" mb-3 mt-3 text-start">
             <label class="text-start" for="email">Email</label>

@@ -2,11 +2,9 @@
 session_start();
 ?>
 <!DOCTYPE html>
-  <?php include '../modules/head.php'; ?>
+  <?php include( $_SERVER['DOCUMENT_ROOT'] .'/swdv280/modules/head.php'); ?>
   <body>
-  	<h1 class="text-center bg-dark text-light m-0 p-0">
-      Administration
-    </h1>
+    <h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
 	  <?php include './modules/hero.php'; ?>
     <main>
         <!--Navigation-->
@@ -27,8 +25,5 @@ session_start();
           </div>
         </div>
     </main>
-    <footer>
-        <?php include './../modules/footer.php'; ?>
-    </footer>
   </body>
 </html>

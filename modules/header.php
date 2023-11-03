@@ -16,25 +16,28 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                 </ul>
             </div>
             <!-- Checks to see if user is logged in and displays aproriate action -->
             <?php
-
+            // Logic to ensure $_SESSION['LoggedIn'] is not missing.
+            if (!isset($_SESSION["LoggedIn"])) {
+                $_SESSION['LoggedIn'] = false;
+            }
             if ($_SESSION['LoggedIn'] == true) {
                 include './login/view/logout.php';
                 echo '<div class="d-flex">';
                 /*Needs Styling*/
-                echo "<p id='welcome'>Welcome, " . $_SESSION['UserName'] . "</p>";
-                echo '<a class="nav-link text-light pe-1 rounded me-2" href="login.php" data-bs-toggle="tooltip" title="User Log In">
-                        <i class="bi bi-person-circle h3"></i>
+                echo "<p id='welcome'>Welcome, " . $_SESSION['FirstName'] . "</p>";
+                echo '<a class="nav-link text-light pe-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="User Log In">
+                        <i class="bi bi-person-circle h3" ></i>
                     </a>';
             } else {
                 include './login/view/signin.php';
             } ?>
-            <a class="nav-link text-light pe-1 position-relative  rounded" href="account.php"> <!-- To Account Page -->
+            <a class="nav-link text-light pe-1 position-relative  rounded" href="reserve.php"> <!-- To reserve Page -->
                 <i class="bi bi-cart3 h3"></i>
                 <div id="cartAmount" class="position-absolute top-0 start-100 translate-middle badge text-light ps-1 pe-1 rounded">0</div>
             </a>
@@ -49,21 +52,24 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h3>Admin Log In</h3>
+                    <?php if (isset($_GET['errorAdmin'])) { ?>
+                        <p class="error"> <?php echo $_GET['errorAdmin']; ?> </p>
+                    <?php } ?>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
 
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container my-3">
-                        <form action="../admin/adminLogin/adminLogin.php">
+                        <form action="./admin/adminLogin/adminLogin.php" method="post">
                             <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control border border-4" id="email" placeholder="Enter Username" name="username">
-                                <label for="email">Username</label>
+                                <input type="text" class="form-control border border-4" id="username" placeholder="Enter Username" name="username">
+                                <label for="username">Username</label>
                             </div>
 
                             <div class="form-floating mt-3 mb-3">
-                                <input type="text" class="form-control border border-4" id="pwd" placeholder="Enter password" name="Password">
-                                <label for="pwd">Password</label>
+                                <input type="password" class="form-control border border-4" id="password" placeholder="Enter password" name="Password">
+                                <label for="password">Password</label>
                             </div>
 
                             <div class="text-center">
