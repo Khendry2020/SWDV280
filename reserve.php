@@ -13,6 +13,7 @@ session_start();
         </div>
         <div class="container">
             <?php
+            include "./reserve/models/reserveCart.php";
             echo $_SESSION['UserID'];
             echo $_SESSION['itemID'];
             echo $_SESSION['itemDescription'];
