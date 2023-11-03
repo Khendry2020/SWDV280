@@ -10,7 +10,7 @@ const focusAndSelect = (selector) => {
 
 const phonePattern = /^\d{3}-\d{3}-\d{4}$/;
 /* https://andrewwoods.net/blog/2018/name-validation-regex/*/
-const namePattern = /^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*$/;
+//const namePattern = /^[A-Za-z][A-Za-z\'\-]+([\ A-Za-z][A-Za-z\'\-]+)*$/;
 /* email validation */
 
 // validate the email addresses - https://www.w3resource.com/javascript/form/email-validation.php
@@ -18,27 +18,51 @@ const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{
 
 
 
-$("#account #submit").click( evt => {
-
+$("form#account").submit( evt => {
 	let isValid = true;
-	// validate the name entry 
-	const name = $("#name").val().trim();
-	if (name == "") {
-		$("label[for='name']").next().text("Name field is required.");
+	// validate the name entry
+	
+	const fname = $("#fname").val().trim();
+	if (fname == "") {
+		$("label[for='fname']").next().text("First Name field is required.");
 		isValid = false;
-	} else if(name.length > 50) {
-		$("label[for='name']").next().text('Too many characters in Name field');
+	} else if(fname.length > 50) {
+		$("label[for='fname']").next().text('Too many characters in Name field');
 		isValid = false;
-	} else if (!namePattern.test(name)) {
-		$("label[for='name']").next().text("Name field may not contain numbers or special character.");
-		isValid = false;
-	}
+	} 
 	else {
-		$("label[for='name']").next().text("");
+		$("label[for='fname']").next().text("");
 	}
-    $("#name").val(name);
+    $("#fname").val(fname);
 
-	const phone = $("#phone").val().trim();
+	const lname = $("#lname").val().trim();
+	if (lname == "") {
+		$("label[for='lname']").next().text("Last Name field is required.");
+		isValid = false;
+	} else if(lname.length > 50) {
+		$("label[for='lname']").next().text('Too many characters in Last Name field');
+		isValid = false;
+	} 
+	else {
+		$("label[for='lname']").next().text("");
+	}
+    $("#lname").val(lname);
+
+	const user_name = $("#user_name").val().trim();
+	if (user_name == "") {
+		$("label[for='user_name']").next().text("Username field is required.");
+		isValid = false;
+	} else if(user_name.length > 50) {
+		$("label[for='user_name']").next().text('User Name has too many characters');
+		isValid = false;
+	} 
+	else {
+		$("label[for='user_name']").next().text("");
+	}
+    $("#user_name").val(user_name);
+
+
+	const phone = $("#phone").val();
 
 	if (phone == "") {
 		$("label[for='phone']").next().text("Phone field is required.");
@@ -54,7 +78,7 @@ $("#account #submit").click( evt => {
 
 	// validate the email addresses
 
-	const email = $("#email").val().trim();
+	const email = $("#email").val();
 	
 	const parts = email.split("@");
 
@@ -80,7 +104,7 @@ $("#account #submit").click( evt => {
 	$("#email").val(email);
    
 
-	const emailtest = $("#verify-email").val().trim();
+	const emailtest = $("#verify-email").val();
 
 	if (emailtest == "") { 
 		$("label[for='verify-email']").next().text("Verify Email Address field is required.");
@@ -102,7 +126,7 @@ $("#account #submit").click( evt => {
 	}
     $("#password").val(password);
 
-	const street = $("#street").val().trim();
+	const street = $("#street").val();
 	if (street == "") {
 		$("label[for='street']").next().text("Street Address field is required.");
 		isValid = false;
@@ -111,7 +135,7 @@ $("#account #submit").click( evt => {
 	}
     $("#street").val(street);
 
-	const city = $("#city").val().trim();
+	const city = $("#city").val();
 	if (city == "") {
 		$("label[for='city']").next().text("City field is required.");
 		isValid = false;
@@ -120,7 +144,7 @@ $("#account #submit").click( evt => {
 	}
     $("#city").val(city);
 
-	const state = $("#state").val().trim();
+	const state = $("#state").val();
 	if (state == "") {
 		$("label[for='state']").next().text("State field is required.");
 		isValid = false;
@@ -129,7 +153,7 @@ $("#account #submit").click( evt => {
 	}
     $("#state").val(state);
 
-	const zip = $("#zip").val().trim();
+	const zip = $("#zip").val();
 	if (zip == "") {
 		$("label[for='zip']").next().text("ZIP field is required.");
 		isValid = false;
@@ -139,26 +163,23 @@ $("#account #submit").click( evt => {
     $("#zip").val(zip);
 
 
-/*
+
 	let date = $("#birthday").val();
 	const datePattern =  /^\d{2}\/\d{2}\/\d{4}$/;
 	if (date == "") {
-		$("#birthday").next().text("Birthday is required.");
-		$("#birthday").addClass("warning-red");
+		$("label[for='birthday']").next().text("Birthday is required.");
 		isValid = false;
 	} else if (!datePattern.test(date)) {
 		date = '';
-		$("#birthday").next().text("Use date format mm/dd/yyyy.");
-		$("#birthday").addClass("warning-red");
+		$("label[for='birthday']").next().text("Use date format mm/dd/yyyy.");
 		isValid = false;
 	}
 	else {
-		$("#birthday").next().text("* Birthday");
-		$("#birthday").removeClass("warning-red");
+		$("label[for='birthday']").next().text("");
 	}
 	
 	$("#birthday").val(date);
-   */
+   
 	if (isValid == false) {
 		evt.preventDefault();
 	}

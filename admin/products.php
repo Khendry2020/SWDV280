@@ -58,14 +58,15 @@ if (isset($_POST['product_id'])) {
 					echo $_SESSION['Status Message'];
 					unset($_SESSION['Status Message']);
 					}?>
-			<h4 class="pb-4"><a href="./add/add_product.php" class=" btn btn-dark"> Add Product</a></h4>
-			<?php     for($page = 1; $page<= $number_of_page; $page++) {  
-        		echo '<a href = "?page=' . $page . '">' . $page . ' </a>';  
+			<h2 class="text-center pb-5"><a href="./add/add_product.php" class=" btn btn-secondary btn-lg btn-block text-light"> Add Product</a></h2>
+			<h3 class="text-center"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
+        		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp; </a>';  
     		}?>
+			</h3>
 			<table class="table table-bordered align-middle table-sm table-hover table-light center">
 			<!-- display links for all products -->
 			<?php foreach ($products as $product) : ?>
-			<tr>
+			<tr class="text-center">
 				<th>Name</th>
 				<th>Image</th>
 				<th></th>
@@ -73,7 +74,7 @@ if (isset($_POST['product_id'])) {
 			</tr>
 			<tr>
 				<td><?php echo $product['Name']; ?></th>
-				<td><img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /></td>
+				<td class="text-center"><img class="img-fluid mx-auto mx-lg-0 h-100 col-8 col-sm-6 col-md-4 col-lg-2 my-auto" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /></td>
 				<td class="text-center"><a class="btn btn-warning text-light" href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
 				<td class="text-center"><?php if($error != '') {echo $error;} ?>
 					<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
@@ -86,9 +87,10 @@ if (isset($_POST['product_id'])) {
 			</tr>
 			<?php endforeach; ?>
 			</table>
-			<?php     for($page = 1; $page<= $number_of_page; $page++) {  
-        		echo '<a href = "?page=' . $page . '">' . $page . ' </a>';  
+			<h3 class="text-center pb-5"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
+        		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp;</a>';  
     		}?>
+			</h3>
 		</div>
 	</main>
 	
