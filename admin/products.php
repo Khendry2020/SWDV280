@@ -59,6 +59,9 @@ if (isset($_POST['product_id'])) {
 					unset($_SESSION['Status Message']);
 					}?>
 			<h4 class="pb-4"><a href="./add/add_product.php" class=" btn btn-dark"> Add Product</a></h4>
+			<?php     for($page = 1; $page<= $number_of_page; $page++) {  
+        		echo '<a href = "?page=' . $page . '">' . $page . ' </a>';  
+    		}?>
 			<table class="table table-bordered align-middle table-sm table-hover table-light center">
 			<!-- display links for all products -->
 			<?php foreach ($products as $product) : ?>
@@ -70,7 +73,7 @@ if (isset($_POST['product_id'])) {
 			</tr>
 			<tr>
 				<td><?php echo $product['Name']; ?></th>
-				<td></td>
+				<td><img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /></td>
 				<td class="text-center"><a class="btn btn-warning text-light" href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
 				<td class="text-center"><?php if($error != '') {echo $error;} ?>
 					<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
@@ -82,6 +85,10 @@ if (isset($_POST['product_id'])) {
 				</td>	
 			</tr>
 			<?php endforeach; ?>
+			</table>
+			<?php     for($page = 1; $page<= $number_of_page; $page++) {  
+        		echo '<a href = "?page=' . $page . '">' . $page . ' </a>';  
+    		}?>
 		</div>
 	</main>
 	
