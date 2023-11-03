@@ -13,17 +13,17 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
-    <link rel="manifest" href="./favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/SWDV280/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/SWDV280/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/SWDV280/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/SWDV280/favicon/site.webmanifest">
 
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <!-- style sheet css here -->
-    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="/SWDV280/styles/styles.css">
 
     <!-- JavaScript here-->
-    <script src="./scripts/script.js"></script>
+    <script src="/SWDV280/scripts/script.js"></script>
 </head>
