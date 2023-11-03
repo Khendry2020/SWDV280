@@ -2,8 +2,27 @@
 session_start();
 include('./model/database.php');
 include('./model/products.php');
-$products = get_items();
+
+// Pagination
+if (!isset ($_GET['page']) ) {  
+    $page = 1;  
+} else {  
+    $page = $_GET['page'];  
+}  
+
+// Get number per page, set first page, count products, create number of pages
+$results_per_page = 10;  
+$page_first_result = ($page-1) * $results_per_page;
+
+$count = get_product_count();
+$number_of_page = ceil ($count / $results_per_page);  
+
+
+$products = get_items_paginated($page_first_result, $results_per_page);
 $error = '';
+
+
+// Deletion
 if (isset($_POST['product_id'])) {
 	$_POST['product_id'] = trim($_POST['product_id']);
 
@@ -59,6 +78,13 @@ if (isset($_POST['product_id'])) {
 								</form>
 							</li>
 						<?php endforeach; ?>
+						<?php for($page = 1; $page<= $number_of_page; $page++) {  
+       						 echo <<<EOL
+						<div class="pagination">
+							<a href="?page={$page}">{$page}</a>
+						</div>
+EOL;
+   						} ?>
 					</ul>
 				</div>
 			</div>

@@ -32,6 +32,21 @@ function get_items() {
     }
 }
 
+function get_items_paginated($start, $end) {
+    global $dba;
+    $query = sprintf('SELECT * FROM items ORDER BY ItemId LIMIT %d, %d', $start, $end);
+    try {
+        $statement = $dba->prepare($query);
+        $statement->execute();
+        $result = $statement->fetchAll();
+        $statement->closeCursor();
+        return $result;
+    } catch (PDOException $e) {
+        $error_message = $e->getMessage();
+        display_db_error($error_message);
+    }
+}
+
 function get_item($product_id) {
     global $dba;
     $query = 'SELECT *
@@ -113,5 +128,18 @@ function delete_item($item_id) {
         $error_message = $e->getMessage();
         display_db_error($error_message);
     }
+}
+
+function get_product_count() {
+    global $dba;
+    $query = 'SELECT COUNT(*) AS count
+              FROM items';
+    $statement = $dba->prepare($query);
+    $statement->execute();
+    $result = $statement->fetchAll();
+    $statement->closeCursor();
+
+    $product_count = $result[0]['count'];
+    return $product_count;
 }
 ?>
