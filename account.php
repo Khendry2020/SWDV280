@@ -63,7 +63,7 @@ if (isset($_POST['update'])) {
             <?php include './modules/header.php'; ?>
         </div>
         <div class="container">
-            <h3 class="my-3">Edit <?php echo $user['FirstName'] ?>'s profile</h3>
+            <h3 class="my-3">Edit <?php echo $user['Name'] ?>'s profile</h3>
             <?php if ($_SESSION['Status Message']) {
                 echo $_SESSION['Status Message'];
                 unset($_SESSION['Status Message']);
@@ -73,6 +73,10 @@ if (isset($_POST['update'])) {
             <?php } ?>
             <!-- Let's create an action page for this, I'm thinking this page will get all the DB data and display it, allow changes in the input fields, send all the data (changed or unchanged) to the action page, and update the user in the DB-->
             <form action="" method="post">
+            <div class="my-3 text-start">
+                    <label class="text-start" for="pwd">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" value="<?php echo $user['UserName']; ?>">
+                </div>    
                 <div class="my-3 text-start">
                     <label class="text-start" for="pwd">Password</label>
                     <input type="text" class="form-control" id="pwd" name="pswd" value="<?php echo $user['Password']; ?>">
@@ -98,7 +102,7 @@ if (isset($_POST['update'])) {
                     <input type="text" class="form-control" id="zip" name="zip" value="<?php echo $user['Zip']; ?>">
                 </div>
                 <input type="hidden" name="user_id" value="<?php echo $user['UserId']; ?>">  
-                <input type="hidden" name="address_id" value="<?php echo $user['AddressId']; ?>">  
+                <input type="hidden" name="address_id" value="<?php echo $user['userAddressId']; ?>">  
                 <button type="submit" name="update" class="btn btn-primary mb-3">Save Changes</button>
             </form>
         </div>

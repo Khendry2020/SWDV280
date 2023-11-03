@@ -11,7 +11,9 @@ function validateDate($date, $format = 'm-d-Y'){
 
 if (isset($_POST['create'])) {
     // Trim inputs
-    $_POST['name'] = trim($_POST['name']);
+    $_POST['fname'] = trim($_POST['fname']);
+    $_POST['lname'] = trim($_POST['lname']);
+    $_POST['user_name'] = trim($_POST['user_name']);
     $_POST['email'] = trim($_POST['email']);
     $_POST['account-password'] = trim($_POST['account-password']);
     $_POST['phone'] = trim($_POST['phone']);
@@ -21,20 +23,24 @@ if (isset($_POST['create'])) {
     $_POST['zip'] = trim($_POST['zip']);
     $_POST['birthday'] = trim($_POST['birthday']);
 
-    $name = filter_input(INPUT_POST, 'name');
+    $firstname = filter_input(INPUT_POST, 'fname');
+    $lastname = filter_input(INPUT_POST, 'lname');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $password = filter_input(INPUT_POST, 'account-password');
     $phone = filter_input(INPUT_POST, 'phone');
+    $user_name = filter_input(INPUT_POST, 'user_name');
+    $password = filter_input(INPUT_POST, 'account-password');
+    $birthday = filter_input(INPUT_POST, 'birthday');
+    
+    $birthday = strtotime($birthday);
+    $birthday_insert = date('Y-m-d', $birthday);
+
     $street = filter_input(INPUT_POST, 'street');
     $city = filter_input(INPUT_POST, 'city');
     $state = filter_input(INPUT_POST, 'state');
     $zip = filter_input(INPUT_POST, 'zip');
 
-    $birthday = filter_input(INPUT_POST, 'birthday');
 
-    $birth_valid = validateDate($birthday);
-
-    if ($name == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL || $birth_valid != NULL) {            
+    if ($firstname == NULL || $lastname == NULL || $user_name == NULL ||$email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
         $error = 'Invalid user data. Check all fields and try again.';
     } else {
 
@@ -45,7 +51,7 @@ if (isset($_POST['create'])) {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
-            add_user($name, $email, $phone, $last_id, $password, $birthday);
+            add_user($firstname, $lastname, $email, $phone, $last_id, $user_name, $password, $birthday_insert);
             $_POST = [];
             $_SESSION['Status Message'] = 'Your account has been successfully created.';
             header("Location: account.php");
@@ -67,10 +73,19 @@ if (isset($_POST['create'])) {
     <section>
         <div class="row">
             <div class="col">
+                <?php if($error != '') { echo $error; }; ?>
                 <form action="" method="post" id="account">
+                <div class="mb-3">
+                        <label for="fname" class="form-label">First Name</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="fname" name="fname">
+                    </div>
                     <div class="mb-3">
-                        <label for="name" class="form-label">Name</label> <span class="error"></span>
-                        <input type="text" class="form-control" id="name" name="name">
+                        <label for="lname" class="form-label">Last Name</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="lname" name="lname">
+                    </div>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Username</label> <span class="error"></span>
+                        <input type="text" class="form-control" id="user_name" name="user_name">
                     </div>
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label> <span class="error"></span>
@@ -90,8 +105,8 @@ if (isset($_POST['create'])) {
                     </div>
                     <div class="mb-3">
                         <label for="birthday">Birthday</label>
-                        <input type="text" class="form-control" id="birthday" placeholder="Your Birthday" aria-describedby="aptDateHelp">
-                        <div id="aptDateHelp" class="form-text">Example: 02/13/2020</div>
+                        <input type="text" class="form-control" id="birthday" name="birthday" placeholder="Your Birthday" aria-describedby="aptDateHelp">
+                        <div id="aptDateHelp" class="form-text">Example: 02/13/2020 (February 13th, 2020)</div>
                     </div>
                     </div>
                     <div class="mb-3">

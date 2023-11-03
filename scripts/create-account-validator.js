@@ -18,10 +18,11 @@ const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{
 
 
 
-$("#account #submit").click( evt => {
+$("#create #submit").click( evt => {
 
 	let isValid = true;
-	// validate the name entry 
+	// validate the name entry
+	/*
 	const name = $("#name").val().trim();
 	if (name == "") {
 		$("label[for='name']").next().text("Name field is required.");
@@ -35,6 +36,19 @@ $("#account #submit").click( evt => {
 	}
 	else {
 		$("label[for='name']").next().text("");
+	}
+    $("#name").val(name);
+*/
+
+	const username = $("#username").val().trim();
+	if (username == "") {
+		$("label[for='username']").next().text("Username field is required.");
+		isValid = false;
+	} else if(username.length > 50) {
+		$("label[for='username']").next().text('Too many characters in Name field');
+		isValid = false;
+	} else {
+		$("label[for='username']").next().text("");
 	}
     $("#name").val(name);
 
