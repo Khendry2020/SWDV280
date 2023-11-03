@@ -58,17 +58,17 @@ if (isset($_POST['product_id'])) {
 					echo $_SESSION['Status Message'];
 					unset($_SESSION['Status Message']);
 					}?>
-			<h4 class="pb-4"><a href="./add/add_product.php" class=" btn btn-dark"> Add Product</a></h4>
-			<div class="text-center"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
-        		echo '<a href = "?page=' . $page . '">' . $page . ' </a>';  
+			<h2 class="text-center pb-5"><a href="./add/add_product.php" class=" btn btn-secondary btn-lg btn-block text-light"> Add Product</a></h2>
+			<h3 class="text-center"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
+        		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp; </a>';  
     		}?>
-			</div>
+			</h3>
 			<table class="table table-bordered align-middle table-sm table-hover table-light center">
 			<!-- display links for all products -->
 			<?php foreach ($products as $product) : ?>
-			<tr>
-				<th>Name</th>
-				<th>Image</th>
+			<tr class="text-center">
+				<th></th>
+				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -87,10 +87,10 @@ if (isset($_POST['product_id'])) {
 			</tr>
 			<?php endforeach; ?>
 			</table>
-			<div class="text-center"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
-        		echo '<a href = "?page=' . $page . '">' . $page . ' </a>';  
+			<h3 class="text-center pb-5"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
+        		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp;</a>';  
     		}?>
-			</div>
+			</h3>
 		</div>
 	</main>
 	

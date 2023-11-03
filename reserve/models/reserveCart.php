@@ -1,6 +1,5 @@
 <?php
 include "././models/database.php";
-
 $user = $_SESSION['UserId'];
 
 $stmt = $db->prepare("SELECT * FROM reserved WHERE UserID = :user");
