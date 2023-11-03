@@ -52,6 +52,7 @@ if (isset($_POST['update'])) {
 }
 
 ?>
+<!DOCTYPE html>
 <?php include './modules/head.php'; ?>
 
 <body>
@@ -106,3 +107,5 @@ if (isset($_POST['update'])) {
         <?php include './modules/footer.php'; ?>
     </footer>
 </body>
+
+</html>
