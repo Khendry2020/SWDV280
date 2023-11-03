@@ -27,7 +27,7 @@ if (isset($_POST['add'])) {
 ?>
 
 <!DOCTYPE html>
-  <?php include '../../modules/head.php'; ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
   <body>
     <main>
         <!--Navigation-->
@@ -45,8 +45,5 @@ if (isset($_POST['add'])) {
             </form>
         </div>
     </main>
-    <footer>
-        <?php include '../../modules/footer.php'; ?>
-    </footer>
   </body>
 </html>
