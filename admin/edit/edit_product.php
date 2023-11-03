@@ -47,7 +47,7 @@ if (isset($_POST['edit'])) {
 }
 ?>
 <!DOCTYPE html>
-<?php include '../../modules/head.php'; ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
   <body>
     <main>
         <!--Navigation-->
@@ -105,8 +105,5 @@ EOL;
             <?php endif; ?>
         </div>
     </main>
-    <footer>
-        <?php include '../../modules/footer.php'; ?>
-    </footer>
   </body>
 </html>

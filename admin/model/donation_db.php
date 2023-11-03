@@ -2,7 +2,7 @@
 function donationFuniture(){
     global $dba;
    
-    $query = 'SELECT Users.Name, Phone, Img, Description From Users Join  	
+    $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name, Phone, Img, Description From Users Join  	
               DonatedFurniture where Users.UserId =  DonatedFurniture.UserId';
 
 try{
