@@ -64,9 +64,6 @@ if (isset($_POST['product_id'])) {
 			</div>
 		</div>
 	</main>
-	<footer>
-		<?php include '../modules/footer.php'; ?>
-	</footer>
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
