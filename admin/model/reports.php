@@ -22,8 +22,8 @@ function availableFuniture(){
 function reservedFuniture(){
      global $dba;
      try{
-     $query = 'SELECT Users.Name, Users.Phone, ReservedDate, PickupDate, Tax, Total From  	
-               reserved Join users WHERE Users.UserId = Reserved.UserId'; 
+          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name, Phone, ReservedDate, PickupDate, Tax, Total FROM  	
+               reserved JOIN users WHERE Users.UserId = Reserved.UserId'; 
          
           $statement = $dba->prepare($query);
           $statement->execute();

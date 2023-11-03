@@ -24,9 +24,10 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 ?>
 
 <!DOCTYPE html>
-<?php include '../modules/head.php'; ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
 <body>
-  	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
+  	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4>
+	<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
 	<?php include './modules/hero.php'; ?>
 	<?php include './modules/admin_bar.php'; ?>
     <main>
@@ -47,7 +48,7 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 				</tr>
 
 				<?php foreach ($admins as $admin) : ?>
-					<?php if($admin['AdminId'] != 1) ?>
+					<?php if($admin['AdminId'] != 1) : ?>
 
 				<tr>
 					<td><?php echo $admin['UserName']; ?></td>
@@ -64,6 +65,7 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 						</form>
 					</td>
 				</tr>
+					<?php endif; ?>
 				<?php endforeach; ?>
 			</table>
 		</div>

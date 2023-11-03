@@ -24,8 +24,7 @@ if (isset($_POST['product_id'])) {
 ?>
 
 <!DOCTYPE html>
-<?php include '../modules/head.php'; ?>
-
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
 <body>
 	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
 	<?php include './modules/hero.php'; ?>
