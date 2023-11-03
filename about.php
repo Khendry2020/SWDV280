@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <?php include'./modules/head.php'; ?>
+  <?php include './modules/head.php'; ?>
   <body>
      <?php include './modules/hero.php'; ?>
     <main>
