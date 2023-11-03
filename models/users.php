@@ -1,7 +1,7 @@
 <?php
 function get_user($user_id) {
     global $db;
-    $query = 'SELECT * FROM users JOIN address ON users.AddressId = address.AddressId
+    $query = 'SELECT UserId, CONCAT_WS(" ", FirstName, LastName) AS Name, Phone, users.AddressId AS userAddressId, UserName, Password, Streetaddress, city, State, Zip FROM users JOIN address ON users.AddressId = address.AddressId
               WHERE UserId = :user_id';
     try {
         $statement = $db->prepare($query);
@@ -15,10 +15,10 @@ function get_user($user_id) {
     }
 }
 
-function add_user($firstname, $lastname, $email, $phone, $address_id, $password) {
+function add_user($firstname, $lastname, $email, $phone, $address_id, $user_name, $password, $birthday) {
     global $db;
-    $query = 'INSERT INTO users (FirstName, LastName, Email, Phone, AddressId, Password)
-              VALUES (:firstname, :lastname, :email, :phone, :address_id, :password)';
+    $query = 'INSERT INTO users (FirstName, LastName, Email, Phone, AddressId, UserName, Password, Birthday)
+              VALUES (:firstname, :lastname, :email, :phone, :address_id, :user_name, :password, :birthday)';
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':firstname', $firstname);
@@ -26,7 +26,9 @@ function add_user($firstname, $lastname, $email, $phone, $address_id, $password)
         $statement->bindValue(':email', $email);
         $statement->bindValue(':phone', $phone);
         $statement->bindValue(':address_id', $address_id);
+        $statement->bindValue(':user_name', $user_name);
         $statement->bindValue(':password', $password);
+        $statement->bindValue(':birthday', $birthday);
         $statement->execute();
         $statement->closeCursor();
 
@@ -36,17 +38,19 @@ function add_user($firstname, $lastname, $email, $phone, $address_id, $password)
     }
 }
 
-function update_user($phone, $password, $user_id) {
+function update_user($phone, $user_name, $password, $user_id) {
     global $db;
     $query = '
         UPDATE users
         SET 
             Phone = :phone,
+            UserName = :user_name,
             Password = :password
         WHERE UserId = :user_id';
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':phone', $phone);
+        $statement->bindValue(':user_name', $user_name);
         $statement->bindValue(':password', $password);
         $statement->bindValue(':user_id', $user_id);
         $statement->execute();
