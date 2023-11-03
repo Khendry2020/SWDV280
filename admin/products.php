@@ -52,7 +52,6 @@ if (isset($_POST['product_id'])) {
 		<div>
 			<?php include './modules/admin_bar.php'; ?>
 		</div>
-<<<<<<< HEAD
 		<div class="container pt-5">
 			<?php
 				if (isset($_SESSION['Status Message'])) {
@@ -86,46 +85,6 @@ if (isset($_POST['product_id'])) {
 		</div>
 	</main>
 	
-=======
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<?php
-
-					if (isset($_SESSION['Status Message'])) {
-						echo $_SESSION['Status Message'];
-						unset($_SESSION['Status Message']);
-					}
-					?>
-					<a href="./add/add_product.php"> Add Product</a>
-					<ul class="list-inline justify-content-center">
-						<!-- display links for all products -->
-						<?php foreach ($products as $product) : ?>
-							<li>
-								<?php echo $product['Name']; ?>
-								<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
-								<?php if($error != '') {echo $error;} ?>
-								<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
-									<input type="hidden" name="product_id" value="<?php echo $product['ItemId']; ?>" />
-									<button name="delete" class="confirm-delete" rel="tooltip" title="Remove" id="<?php echo $product['ItemId']; ?>">
-										Delete
-									</button>
-								</form>
-							</li>
-						<?php endforeach; ?>
-						<?php for($page = 1; $page<= $number_of_page; $page++) {  
-       						 echo <<<EOL
-						<div class="pagination">
-							<a href="?page={$page}">{$page}</a>
-						</div>
-EOL;
-   						} ?>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</main>
->>>>>>> 5f1bb38e3d3f3612fafef512dbe85f8b2a3d0af1
 	<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
