@@ -2,7 +2,6 @@
 session_start();
 include './models/database.php';
 include './models/users.php';
-include('modules/statesSnippet.php');
 var_dump($_SESSION);
 // $_SESSION['UserId'] = 1;
 $_SESSION['isAdmin'] = false;
@@ -96,23 +95,11 @@ if (isset($_POST['update'])) {
                 <div class="my-3 text-start">
                     <label class="text-start" for="city">City</label>
                     <input type="text" class="form-control" id="city" name="city" value="<?php echo $user['city']; ?>">
-                </div>
-                <div class="mb-3">
-                    <label for="state" class="form-label">State</label> <span class="error"></span>
-                    <select name="state" id="state" class="form-select" aria-label="State">>
-                    <?php foreach($states as $state) {
-                        if ($state['code'] == $user['State']) {
-                            echo PHP_EOL . <<<EOL
-                        <option value="{$state['code']}" selected>{$state['name']}</option>
-EOL;             
-                        } else {
-                            echo PHP_EOL . <<<EOL
-                        <option value="{$state['code']}">{$state['name']}</option>
-EOL;
-                        } 
-                    } ?>
-                    </select>
-                </div>
+                </div>   
+                <div class="my-3 text-start">
+                    <label class="text-start" for="state">State</label>
+                    <input type="text" class="form-control" id="state" name="state" value="<?php echo $user['State']; ?>">
+                </div>   
                 <div class="my-3 text-start">
                     <label class="text-start" for="zip">Zip</label>
                     <input type="text" class="form-control" id="zip" name="zip" value="<?php echo $user['Zip']; ?>">
