@@ -39,7 +39,7 @@ if (isset($_POST['product_id'])) {
 		<!--End Navigation-->
         <div class="container">
 			<div class="row">
-				<div class="col-12 container">
+				<div class="text-center mb-0 border-black border-5">
 			<?php 
 			
 			if (isset($_SESSION['Status Message'])) {
@@ -47,12 +47,12 @@ if (isset($_POST['product_id'])) {
 					unset($_SESSION['Status Message']);
 			} 
 			?>
-					<a href="./add/add_product.php"> Add Product</a>
-					<ul class="list-inline justify-content-center">
+					<h1 class="text-center"><a href="./add/add_product.php"> Add Product</a></h1>
+					<ul class="list-group-horizontal mx-auto justify-content-center">
 						<!-- display links for all products -->
 						<?php foreach ($products as $product) : ?>
-						<li class="list-inline-item">
-						<?php echo $product['Name']; ?>
+						<li class="list-group-item">
+						<h2><?php echo $product['Name']; ?></h2>
 						<img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /> 
 						<a href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a>
 						<form action="" method="post" id="form<?php echo $product['ItemId']; ?>">
