@@ -67,8 +67,8 @@ if (isset($_POST['product_id'])) {
 			<!-- display links for all products -->
 			<?php foreach ($products as $product) : ?>
 			<tr class="text-center">
-				<th>Name</th>
-				<th>Image</th>
+				<th></th>
+				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
