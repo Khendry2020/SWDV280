@@ -20,7 +20,8 @@ $products = get_items_by_category($category['CategoryId']);
                 <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
                     if ($category == NULL || $category == 0 || $category === false): ?>
                     <div>The category you are looking for does not exist. Please hit the back button in your browser. If you believe this is an error, please contact support.</div>
-                <?php else: ?>
+                    <?php else: ?>
+                    <a class="link-dark" href="gallery.php"><p class="py-3 my-0 fs-6 fw-light">Back to Categories</p></a> 
                     <h2>
                         <?php echo $category['CategoryType']; ?>
                     </h2>
@@ -31,6 +32,8 @@ $products = get_items_by_category($category['CategoryId']);
                     </ul>
 
                     <?php else: ?>
+
+                     
 
                     <ul>
                         <?php foreach ($products as $product) : ?>

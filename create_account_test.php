@@ -3,6 +3,7 @@ session_start();
 include('models/database.php');
 include('models/users.php');
 $error = '';
+include('modules/statesSnippet.php');
 
 function validateDate($date, $format = 'm-d-Y'){
     $d = DateTime::createFromFormat($format, $date);
@@ -120,7 +121,19 @@ if (isset($_POST['create'])) {
                         </div>
                         <div class="mb-3">
                             <label for="state" class="form-label">State</label> <span class="error"></span>
-                            <input type="text" class="form-control" id="state" name="state">
+                            <select name="state" id="state" class="form-select" aria-label="State">>
+                            <?php foreach($states as $state) {
+                                if ($state['name'] == 'Idaho') {
+                                    echo PHP_EOL . <<<EOL
+                                <option value="{$state['code']}" selected>{$state['name']}</option>
+EOL;             
+                                } else {
+                                    echo PHP_EOL . <<<EOL
+                                <option value="{$state['code']}">{$state['name']}</option>
+EOL;
+                                } 
+                            } ?>
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label for="zip" class="form-label">Zip</label> <span class="error"></span>
