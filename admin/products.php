@@ -63,6 +63,7 @@ if (isset($_POST['product_id'])) {
         		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp; </a>';  
     		}?>
 			</h3>
+			
 			<table class="table table-bordered align-middle table-sm table-hover table-light center">
 			<!-- display links for all products -->
 			<?php foreach ($products as $product) : ?>
