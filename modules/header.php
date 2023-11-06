@@ -1,6 +1,8 @@
 <header>
-    <!-- Navigation -->
-    <!-- <?php session_start(); ?> -->
+<?php 
+include("./modules/notification.php");
+?>
+    
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
             <div id="headerBrandname">

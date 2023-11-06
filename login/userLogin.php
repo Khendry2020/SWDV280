@@ -14,10 +14,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $password = validate($_POST['password']);
 
     if (empty($username)) {
+        $_SESSION["notification"] .= "A Username is required. \n";
         header("Location: ../index.php?error=A Username is required");
-        exit();
-    } elseif (empty($password)) {
+    } 
+    if (empty($password)) {
+        $_SESSION["notification"] .= "A Password is required. \n";
         header("Location: ../index.php?error=A Password is required");
+    } 
+    if (empty($username) || empty($password)) {        
         exit();
     }
 
@@ -33,10 +37,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['UserName'] = $row['UserName'];
         $_SESSION['UserId'] = $row['UserId'];
         $_SESSION['FirstName'] = $row['FirstName'];
+        $_SESSION["notification"] .= $_SESSION['FirstName'] . " has logged in! \n";
         header("Location: ../index.php");
 
         exit();
-    } else {
+    } else {        
+        $_SESSION["notification"] .= "User Name or Password is incorrect. \n";
         header("Location: ../index.php?error=User Name or Password is incorrect");
         exit();
     }
