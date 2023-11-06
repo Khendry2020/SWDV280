@@ -29,7 +29,7 @@
             <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
           </div>
           <!-- Submit -->
-          <button type="submit" class="btn btn-primary">Log In</button>
+          <button type="submit" class="btn btn-dark">Log In</button>
         </form>
         <hr>
         <h4>OR</h4>
