@@ -14,3 +14,4 @@ session_start();
 $_SESSION['userLoginError'] = false;
 $_SESSION['adminLoginError'] = false;
 $_SESSION['notification'] = $oldFirstName . " has logged out. \n";
+$oldFirstName = "";
