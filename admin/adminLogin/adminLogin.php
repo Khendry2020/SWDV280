@@ -4,6 +4,7 @@ include "../../models/database.php";
 $_SESSION['LoggedIn'] = false;
 //Variable to be used later to check if a user is an admin if needed
 $_SESSION['isAdmin'] = false;
+$_SESSION['adminLoginError'] = false;
 
 function validate($data)
 {
@@ -18,9 +19,11 @@ if (isset($_POST['adminUsername']) && isset($_POST['adminPassword'])) {
     $password = validate($_POST['adminPassword']);
 
     if (empty($username)) {
+        $_SESSION['adminLoginError'] = true;
         header("Location: ../../index.php?errorAdmin=A Username is required");
         exit();
     } elseif (empty($password)) {
+        $_SESSION['adminLoginError'] = true;
         header("Location: ../../index.php?errorAdmin=A Password is required");
         exit();
     }
@@ -41,10 +44,12 @@ if (isset($_POST['adminUsername']) && isset($_POST['adminPassword'])) {
         header("Location: ../index.php");
         exit();
     } else {
+
+        $_SESSION['adminLoginError'] = true;
         header("Location: ../../index.php?errorAdmin=User Name or Password is incorrect");
-        echo $_SESSION['LoggedIn'];
         exit();
     }
 } else {
+    $_SESSION['adminLoginError'] = true;
     header("Location: ../../index.php?errorAdmin=Login Failed. Please Try again");
 }
