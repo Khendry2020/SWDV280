@@ -4,18 +4,25 @@ include './models/database.php';
 include './models/users.php';
 //var_dump($_SESSION);
 // $_SESSION['UserId'] = 1;
-$_SESSION['isAdmin'] = false;
-$_SESSION['LoggedIn'] = true;
+// $_SESSION['isAdmin'] = false;
+// $_SESSION['LoggedIn'] = true;
 $_SESSION['Status Message'] = '';
-$number_test = is_numeric($_SESSION['UserId']);
 
-if ($number_test == 1 && $_SESSION['LoggedIn'] === true) {
+if ($_SESSION['LoggedIn']) {
+$number_test = is_numeric($_SESSION['UserId']);
+} else {
+$number_test = false;
+}
+
+if ($number_test) {
     $user_id = $_SESSION['UserId'];
     $user = get_user($user_id);
     $username = $_SESSION['UserName'];
 } else {
+    $_SESSION["notification"] .= "That page could not be accessed because you are not logged in. \n";
     echo 'You are not logged in.';
     header('Location: index.php');
+    exit();
 }
 
 if (isset($_POST['update'])) {
