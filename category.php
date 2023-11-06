@@ -54,7 +54,7 @@ $products = get_items_by_category($category['CategoryId']);
 
                 <?php endif; ?>
 
-            </div>
+            </div><br>
 
         </main>
         <?php include './modules/footer.php'; ?>
