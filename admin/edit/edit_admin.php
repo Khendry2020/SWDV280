@@ -33,11 +33,17 @@ if (isset($_POST['edit'])) {
         header("Location: ../admins.php");
     }
 }
+
 ?>
 <!DOCTYPE html>
-<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
-  <body>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+<body>
+    <h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4>
+    <?php include '../modules/hero.php'; ?>
+	<?php include '../modules/admin_bar.php'; ?>
+
     <main>
+        <div class="container pt-5">
         <!--Navigation-->
       <div>
       <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
@@ -45,31 +51,40 @@ if (isset($_POST['edit'])) {
       </div>
         <div>
             <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
-                 if ($admin == NULL || $admin == 0 || $admin === false): ?>
+            if ($admin == NULL || $admin == 0 || $admin === false): ?>
                 <div>The admin user you are looking for does not exist. If you believe this to be an error, please contact our support team.</div>
             <?php else: ?>
-            <h1>Update Admin User</h1>
-            <h2>Updating <?php echo $admin['UserName']; ?></h2>
+
+            <h2 class="pb-3">Update Admin User</h2>
+
+            <h5>Updating <?php echo $admin['UserName']; ?></h5>
+
             <?php if($error != '') {echo $error;} ?>
-            <form action="" method="post">
-                <div class="mb-3">
-                    <label for="adminname">Admin Name</label>
-                    <input type="text" value="<?php echo $admin['UserName']; ?>" id="username" name="adminname">
+
+            <form action="" method="post" class="row gy-2 gx-3 align-items-center pt-4">
+                <div class="col-auto">
+                    <label for="adminname" class="fw-bold">Admin Name:</label>
+                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['UserName']; ?>" id="username" name="adminname">
                 </div>
-                <div class="mb-3">
-                    <label for="roles">Roles</label>
-                    <input type="text" value="<?php echo $admin['Roles']; ?>" id="role" name="role">
+
+                <div class="col-auto">
+                    <label for="roles" class="fw-bold">Role:</label>
+                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['Roles']; ?>" id="role" name="role">
                 </div>
-                <div class="mb-3">
-                    <label for="password">Password</label>
-                    <input type="text" value="<?php echo $admin['Password']; ?>" id="password" name="password">
+
+                <div class="col-auto">
+                    <label for="password" class="fw-bold">Password:</label>
+                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['Password']; ?>" id="password" name="password">
                 </div>
-                    <input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>">
+
+                <input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>">
+                
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
                 </div>
-                <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
             </form>
             <?php endif; ?>
         </div>
     </main>
-  </body>
+</body>
 </html>
