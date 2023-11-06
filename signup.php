@@ -44,10 +44,28 @@ if (isset($_POST['create'])) {
             $last_id = $db->lastInsertId();
             add_user($firstname, $lastname, $email, $phone, $last_id, $username, $password, $birthday);
             $_POST = [];
-            $_SESSION['Status Message'] = 'Your account has been successfully created.';            
-            $_SESSION['notification'] .= $firstname . " " . $lastname . "'s account has been successfully created " .  ". \n";
-            header("Location: index.php");
-            exit();
+            $_SESSION['Status Message'] = 'Your account has been successfully created.';   
+            
+            // This is to actually log in the user after
+            $stmt = $db->prepare("SELECT * FROM users WHERE UserName = :username OR Email = :username AND Password = :password");
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);  
+
+            if ($row) {
+                $_SESSION['LoggedIn'] = true;
+                $_SESSION['UserName'] = $row['UserName'];
+                $_SESSION['UserId'] = $row['UserId'];
+                $_SESSION['FirstName'] = $row['FirstName'];
+                $_SESSION['notification'] .= $firstname . " " . $lastname . "'s account has been successfully created. \n";
+                header("Location: index.php");
+                exit();
+            }
+            else {
+                $_SESSION['notification'] .= "An error has occurred with the server. Please contact support for help creating an account.";
+            } 
+            
         }
     }
 }
@@ -63,7 +81,9 @@ if (isset($_POST['create'])) {
     <div>
       <?php include './modules/header.php'; ?>
     </div>
-    <?php if(isset($error)) { echo $error; } ?>
+    <?php if(isset($error)) { ?>
+    <h4 class="text-center text-danger mt-2">*<?php echo $error; ?></h4> 
+    <?php } ?>
     <div class="container">
         <h3 class="my-2">Sign Up</h3>
         <form action="" method="post">
@@ -111,7 +131,7 @@ if (isset($_POST['create'])) {
                 <label for="birthday" class="form-label">Birthday</label>
                 <input type="text" class="form-control" id="birthday" name="birthday">
             </div>
-            <button type="submit" class="btn btn-primary my-2" name="create">Create Account</button>
+            <button type="submit" class="btn btn-primary my-2 mb-5" name="create">Create Account</button>
         </form>
     </div>
   </main>
