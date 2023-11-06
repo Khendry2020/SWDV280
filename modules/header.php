@@ -1,8 +1,8 @@
 <header>
-<?php 
-include ("./modules/notification.php");
-?>
-    
+    <?php
+    include("./modules/notification.php");
+    ?>
+
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
             <div id="headerBrandname">
@@ -51,7 +51,7 @@ include ("./modules/notification.php");
         </div>
     </nav>
     <!-- The Modal -->
-    <div class="modal" id="myModal">
+    <div class="modal" id="adminLoginModal">
         <div class="modal-dialog">
             <div class="modal-content">
 

@@ -39,17 +39,11 @@ if (isset($_POST['edit'])) {
     <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
 <body>
     <h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4>
-    <?php include '../modules/hero.php'; ?>
-	<?php include '../modules/admin_bar.php'; ?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
+    <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
 
     <main>
         <div class="container pt-5">
-        <!--Navigation-->
-      <div>
-      <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
-        <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
-      </div>
-        <div>
             <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
             if ($admin == NULL || $admin == 0 || $admin === false): ?>
                 <div>The admin user you are looking for does not exist. If you believe this to be an error, please contact our support team.</div>

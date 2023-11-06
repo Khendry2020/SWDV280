@@ -46,8 +46,10 @@ if (isset($_POST['update'])) {
 
     if ($password == NULL || $phone == NULL) {
         $error = 'Password and phone number are both required.';
+        $_SESSION['notification'] .= "Password and phone number are both required. \n";
     } else if ($user_id == NULL || $address_id == NULL) {
         $error = 'The user ID or address ID are missing.';
+        $_SESSION['notification'] .= "The user ID or address ID are missing. \n";        
     } else {
         // Update category in database
         update_user($phone, $username, $password, $user_id);
@@ -55,6 +57,7 @@ if (isset($_POST['update'])) {
         $_POST = [];
         $user = get_user($user_id);
         $_SESSION['Status Message'] = 'User data updated successfully.';
+        $_SESSION['notification'] .= "User data updated successfully. \n";
         //header("Refresh: 0");
 
         //header("Location: account.php");
