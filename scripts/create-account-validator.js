@@ -18,10 +18,10 @@ const emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{
 
 
 
-$("form#account").submit( evt => {
+$("#submit-form").click( evt => {
 	let isValid = true;
 	// validate the name entry
-	
+
 	const fname = $("#fname").val().trim();
 	if (fname == "") {
 		$("label[for='fname']").next().text("First Name field is required.");
@@ -179,8 +179,8 @@ $("form#account").submit( evt => {
 	}
 	
 	$("#birthday").val(date);
-   
-	if (isValid == false) {
+
+	if (isValid != true) {
 		evt.preventDefault();
 	}
 });

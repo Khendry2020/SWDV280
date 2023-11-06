@@ -8,6 +8,7 @@ $product = get_item($product_id);
 if ($product != NULL || $product != 0 || $product !== false) {
 
     $category_id = $product['CategoryId'];
+    $category_name = $product['CategoryType'];
     $product_name = $product['Name'];
     $image = $product['ImageName'];
     //$product_name = 'Placeholder';  
@@ -46,16 +47,17 @@ if ($product != NULL || $product != 0 || $product !== false) {
 <body>
     <?php include './modules/header.php'; ?>
     <main>
-        <div class="container mx-auto text-center">
+        <div class="container mx-auto text-center pt-2">
             <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
             if ($product == NULL || $product == 0 || $product === false) : ?>
                 <p class="fs-6 text-center">The product you are looking for does not exist. Please hit the back button in your browser. If you believe this is an error, please contact support.</p>
             <?php else : ?>
+                    
                 <h4 class="fs-4 pb-1"><?php echo $product_name; ?></h4>
                 <div class="">
                     <img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product_name; ?>" />
                 </div>
-                <div class="py-4">
+                <div class="py-2">
                     <p class="fs-6 text-justify"><?php echo $description; ?></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
                     <?php if ($_SESSION['LoggedIn'] = true) { ?>
@@ -68,6 +70,8 @@ if ($product != NULL || $product != 0 || $product !== false) {
                         <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve an item</a>
                     <?php } ?>
                 </div>
+                    <!-- check this functionality -->
+                    <a class="link-dark" href="category.php?cat_id=<?php echo $category_id; ?>"><p class="py-1 my-0 fs-6 fw-light">Back to <?php echo $category_name; ?></p></a> 
             <?php endif; ?>
         </div>
     </main>
