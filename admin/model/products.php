@@ -32,15 +32,11 @@ function get_items() {
     }
 }
 
-function get_items_paginated($sort_by_type, $sort_arrangement, $start, $end) {
+function get_items_paginated($start, $end) {
     global $dba;
-    $query = 'SELECT * FROM items ORDER BY ? ? LIMIT ?, ?';
+    $query = sprintf('SELECT * FROM items ORDER BY ItemId LIMIT %d, %d', $start, $end);
     try {
         $statement = $dba->prepare($query);
-        $statement->bindParam(1, $sort_by_type, PDO::PARAM_STR);
-        $statement->bindParam(2, $sort_arrangement, PDO::PARAM_STR);
-        $statement->bindParam(3, $start, PDO::PARAM_INT);
-        $statement->bindParam(4, $end, PDO::PARAM_INT);
         $statement->execute();
         $result = $statement->fetchAll();
         $statement->closeCursor();
