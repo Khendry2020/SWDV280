@@ -14,10 +14,7 @@ session_start();
         <div class="container">
             <?php
             include "./reserve/models/reserveCart.php";
-            echo $_SESSION['UserID'];
-            echo $_SESSION['itemID'];
-            echo $_SESSION['itemDescription'];
-            echo $_SESSION['itemPrice'];
+            include "./reserve/view/reserveView.php"
             ?>
         </div>
     </main>

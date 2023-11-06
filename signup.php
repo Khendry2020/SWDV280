@@ -6,7 +6,8 @@ $error = '';
 if (isset($_POST['create'])) {
     // Trim inputs
     $_POST['firstname'] = trim($_POST['firstname']);
-    $_POST['lastname'] = trim($_POST['lastname']);
+    $_POST['lastname'] = trim($_POST['lastname']);    
+    $_POST['username'] = trim($_POST['username']);
     $_POST['email'] = trim($_POST['email']);
     $_POST['password'] = trim($_POST['password']);
     $_POST['phone'] = trim($_POST['phone']);
@@ -14,9 +15,11 @@ if (isset($_POST['create'])) {
     $_POST['city'] = trim($_POST['city']);
     $_POST['state'] = trim($_POST['state']);
     $_POST['zip'] = trim($_POST['zip']);
+    $_POST['birthday'] = trim($_POST['birthday']);
 
     $firstname = filter_input(INPUT_POST, 'firstname');    
-    $lastname = filter_input(INPUT_POST, 'lastname');
+    $lastname = filter_input(INPUT_POST, 'lastname');        
+    $username = filter_input(INPUT_POST, 'username');
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $password = filter_input(INPUT_POST, 'password');
     $phone = filter_input(INPUT_POST, 'phone');
@@ -24,22 +27,45 @@ if (isset($_POST['create'])) {
     $city = filter_input(INPUT_POST, 'city');
     $state = filter_input(INPUT_POST, 'state');
     $zip = filter_input(INPUT_POST, 'zip');
+    $birthday = filter_input(INPUT_POST, 'birthday');
 
     if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
-        $error = 'Invalid user data. Check all fields and try again.';
+        $error = 'Invalid user data. Check all fields and try again.';        
+        $_SESSION['notification'] .= "Invalid user data. Check all fields and try again. \n";
     } else {
 
         $email_check = check_email($email);
         if($email_check != NULL || $email_check != FALSE || $email_check != 0) {
-            $error = 'This email address is already in use. Please try another email address.';
+            $error = 'This email address is already in use. Please try another email address.';            
+            $_SESSION['notification'] .= "This email address is already in use. Please try another email address. \n";
         } else {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
-            add_user($firstname, $lastname, $email, $phone, $last_id, $password);
+            add_user($firstname, $lastname, $email, $phone, $last_id, $username, $password, $birthday);
             $_POST = [];
-            $_SESSION['Status Message'] = 'Your account has been successfully created.';
-            header("Location: account.php");
+            $_SESSION['Status Message'] = 'Your account has been successfully created.';   
+            
+            // This is to actually log in the user after
+            $stmt = $db->prepare("SELECT * FROM users WHERE UserName = :username OR Email = :username AND Password = :password");
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);  
+
+            if ($row) {
+                $_SESSION['LoggedIn'] = true;
+                $_SESSION['UserName'] = $row['UserName'];
+                $_SESSION['UserId'] = $row['UserId'];
+                $_SESSION['FirstName'] = $row['FirstName'];
+                $_SESSION['notification'] .= $firstname . " " . $lastname . "'s account has been successfully created. \n";
+                header("Location: index.php");
+                exit();
+            }
+            else {
+                $_SESSION['notification'] .= "An error has occurred with the server. Please contact support for help creating an account.";
+            } 
+            
         }
     }
 }
@@ -55,18 +81,23 @@ if (isset($_POST['create'])) {
     <div>
       <?php include './modules/header.php'; ?>
     </div>
-    <?php if(isset($error)) { echo $error; } ?>
+    <?php if(isset($error)) { ?>
+    <h4 class="text-center text-danger mt-2">*<?php echo $error; ?></h4> 
+    <?php } ?>
     <div class="container">
         <h3 class="my-2">Sign Up</h3>
         <form action="" method="post">
             <div class="my-2 text-start">
                 <label for="firstname" class="form-label">First Name</label>
                 <input type="text" class="form-control" id="firstname" name="firstname">
-            </div>
-            
+            </div>            
             <div class="my-2 text-start">
                 <label for="lastname" class="form-label">Last Name</label>
                 <input type="text" class="form-control" id="lastname" name="lastname">
+            </div>                  
+            <div class="my-2 text-start">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
             </div>
             <div class="my-2 text-start">
                 <label for="email" class="form-label">Email</label>
@@ -95,9 +126,12 @@ if (isset($_POST['create'])) {
             <div class="my-2">
                 <label for="zip" class="form-label">Zip</label>
                 <input type="text" class="form-control" id="zip" name="zip">
+            </div>            
+            <div class="my-2">
+                <label for="birthday" class="form-label">Birthday</label>
+                <input type="text" class="form-control" id="birthday" name="birthday">
             </div>
-
-            <button type="submit" class="btn btn-primary my-2" name="create">Create Account</button>
+            <button type="submit" class="btn btn-primary my-2 mb-5" name="create">Create Account</button>
         </form>
     </div>
   </main>

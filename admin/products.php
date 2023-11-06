@@ -10,6 +10,18 @@ if (!isset ($_GET['page']) ) {
     $page = $_GET['page'];  
 }  
 
+if (!isset ($_GET['sort-by-type']) ) {  
+    $sort_by_type = 'Name';  
+} else {  
+    $sort_by_type = $_GET['sort-by-type'];  
+} 
+if (!isset ($_GET['sort-arrangement']) ) {  
+    $sort_arrangement = 'desc';  
+} else {  
+    $sort_arrangement = $_GET['sort-arrangement'];  
+} 
+
+
 // Get number per page, set first page, count products, create number of pages
 $results_per_page = 10;  
 $page_first_result = ($page-1) * $results_per_page;
@@ -18,7 +30,7 @@ $count = get_product_count();
 $number_of_page = ceil ($count / $results_per_page);  
 
 
-$products = get_items_paginated($page_first_result, $results_per_page);
+$products = get_items_paginated($sort_by_type, $sort_arrangement, $page_first_result, $results_per_page);
 $error = '';
 
 
@@ -63,16 +75,25 @@ if (isset($_POST['product_id'])) {
         		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp; </a>';  
     		}?>
 			</h3>
-			
+			<form>
+				Sort by Name
+				<input type="submit" name="name-sort" value="Asc">
+				<input type="submit" name="name-sort" value="Desc">
+			</form>
+			<form>
+				Sort by Price
+				<input type="submit" name="price-sort" value="Asc">
+				<input type="submit" name="price-sort" value="Desc">
+			</form>
 			<table class="table table-bordered align-middle table-sm table-hover table-light center">
-			<!-- display links for all products -->
-			<?php foreach ($products as $product) : ?>
 			<tr class="text-center">
 				<th></th>
 				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
+			<!-- display links for all products -->
+			<?php foreach ($products as $product) : ?>
 			<tr>
 				<td><?php echo $product['Name']; ?></th>
 				<td class="text-center"><img class="img-fluid mx-auto mx-lg-0 h-100 col-8 col-sm-6 col-md-4 col-lg-2 my-auto" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /></td>
@@ -88,9 +109,18 @@ if (isset($_POST['product_id'])) {
 			</tr>
 			<?php endforeach; ?>
 			</table>
-			<h3 class="text-center pb-5"><?php     for($page = 1; $page<= $number_of_page; $page++) {  
-        		echo '<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href = "?page=' . $page . '">&nbsp;&nbsp;' . $page . '&nbsp;&nbsp;</a>';  
-    		}?>
+			<h3 class="text-center pb-5">
+<?php for($page = 1; $page<= $number_of_page; $page++) {
+	if(isset($sort_by_type)) {
+		$sort_by_type_url = '&sort-by-type=' . $sort_by_type;
+	}
+	if(isset($sort_arrangement)) {
+		$sort_arrangement_url = '&sort-arrangement=' . $sort_arrangement;
+	}
+	echo <<<EOL
+	<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href="?page={$page}{$sort_by_type_url}{$sort_arragenemnt}">&nbsp;&nbsp{$page}&nbsp;&nbsp;</a>
+EOL;
+}?>
 			</h3>
 		</div>
 	</main>

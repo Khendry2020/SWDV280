@@ -52,7 +52,8 @@ if (isset($_POST['edit'])) {
     <main>
         <!--Navigation-->
       <div>
-        <?php include '../modules/admin_bar.php'; ?>
+      <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
+        <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
       </div>
         <div>
         <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed

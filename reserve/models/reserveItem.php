@@ -1,26 +1,26 @@
 <?php
 session_start();
-include "././models/database.php";
+include "../../models/database.php";
+
 $_SESSION['isReserved'] = false;
-$Date = date('Y-M-D');
+$Date = date('Y-m-d');
+$ReturnDate = date('Y-m-d', strtotime($Date . '+ 5 days'));
 
 if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
 
     $productId = (int)$_POST['product_id'];
 
     $sql = $db->prepare('SELECT * FROM items WHERE ItemId = ?');
-    $sql->execute([$_POST['product_id']]);
+    $sql->execute([$productId]);
 
     $product = $sql->fetch(PDO::FETCH_ASSOC);
 
+    if ($product && $product['ItemId'] == $productId && isset($_SESSION['UserId']) && $_SESSION['UserId'] > 0) {
+        $_SESSION['isReserved'] = true;
+        $sql = $db->prepare('INSERT INTO reserved (UserId, ItemId, ReservedDate, PickupDate) 
+        VALUES (?, ?, ?, ?)');
 
-
-
-    if ($product > 0) {
-        if ($product['ItemId'] == $productId) {
-            $_SESSION['isReserved'] = true;
-            $sql = $db->prepare('INSERT INTO items (UserId, ItemId, ReservedDate, PickupDate) 
-            VALUES (' + $_SESSION["UserId"] + ', ' + $productId + ',' +  $Date + ')');
-        }
+        $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
+        header("Location: ../../product.php");
     }
 }

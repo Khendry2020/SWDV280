@@ -13,22 +13,22 @@ function validate($data)
     return $data;
 }
 
-if (isset($_POST['username']) && isset($_POST['password'])) {
-    $username = validate($_POST['username']);
-    $password = validate($_POST['password']);
+if (isset($_POST['adminUsername']) && isset($_POST['adminPassword'])) {
+    $username = validate($_POST['adminUsername']);
+    $password = validate($_POST['adminPassword']);
 
     if (empty($username)) {
-        header("Location: ../index.php?error=A Username is required");
+        header("Location: ../../index.php?errorAdmin=A Username is required");
         exit();
     } elseif (empty($password)) {
-        header("Location: ../index.php?error=A Password is required");
+        header("Location: ../../index.php?errorAdmin=A Password is required");
         exit();
     }
 
 
-    $stmt = $db->prepare("SELECT * FROM admin WHERE UserName = :username AND Password = :password");
-    $stmt->bindParam(':username', $username);
-    $stmt->bindParam(':password', $password);
+    $stmt = $db->prepare("SELECT * FROM admin WHERE UserName = :adminUsername AND Password = :adminPassword");
+    $stmt->bindParam(':adminUsername', $username);
+    $stmt->bindParam(':adminPassword', $password);
     $stmt->execute();
 
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -37,14 +37,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['LoggedIn'] = true;
         $_SESSION['isAdmin'] = true;
         $_SESSION['UserName'] = $row['UserName'];
-        $_SESSION['UserId'] = $row['UserId'];
-        header("Location: ./products.php");
+        $_SESSION['AdminId'] = $row['AdminId'];
+        header("Location: ../index.php");
         exit();
     } else {
-        header("Location: ./index.php?errorAdmin=User Name or Password is incorrect");
+        header("Location: ../../index.php?errorAdmin=User Name or Password is incorrect");
         echo $_SESSION['LoggedIn'];
         exit();
     }
 } else {
-    header("Location: ../index.php?errorAdmin=ULogin Failed. Please Try again");
+    header("Location: ../../index.php?errorAdmin=Login Failed. Please Try again");
 }

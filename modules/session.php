@@ -4,3 +4,7 @@ if (isset($_SESSION)) {
     session_start();
     $_SESSION['LoggedIn'] = false;
 }
+
+// if ($_SESSION['LoggedIn'] = false) {
+//     $_SESSION['UserId'] = 0;
+// }
