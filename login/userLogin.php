@@ -1,6 +1,8 @@
 <?php
 session_start();
 include "../models/database.php";
+$_SESSION['userLoginError'] = false;
+
 function validate($data)
 {
     $data = trim($data);
@@ -14,14 +16,14 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $password = validate($_POST['password']);
 
     if (empty($username)) {
-        $_SESSION["notification"] .= "A Username is required. \n";
+        $_SESSION['userLoginError'] = true;
         header("Location: ../index.php?error=A Username is required");
-    } 
+    }
     if (empty($password)) {
-        $_SESSION["notification"] .= "A Password is required. \n";
+        $_SESSION['userLoginError'] = true;
         header("Location: ../index.php?error=A Password is required");
-    } 
-    if (empty($username) || empty($password)) {        
+    }
+    if (empty($username) || empty($password)) {
         exit();
     }
 
@@ -41,8 +43,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header("Location: ../index.php");
 
         exit();
-    } else {        
-        $_SESSION["notification"] .= "User Name or Password is incorrect. \n";
+    } else {
+        $_SESSION['userLoginError'] = true;
         header("Location: ../index.php?error=User Name or Password is incorrect");
         exit();
     }

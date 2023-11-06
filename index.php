@@ -1,5 +1,7 @@
 <?php
 session_start();
+$_SESSION['userLoginError'];
+$_SESSION['adminLoginError'];
 /* 
      
     Code to spit out categories
@@ -17,6 +19,16 @@ session_start();
           <?php endforeach; ?>
       </ul>*/
 ?>
+<?php if ($_SESSION['adminLoginError'] == true) { ?>
+  <script src="admin/adminLogin/scripts/adminLoginError.js">
+  </script>
+<?php }
+if ($_SESSION['userLoginError'] == true) { ?>
+  <script src="login/scripts/userLoginError.js">
+  </script>
+<?php }
+$_SESSION['adminLoginError'] = false;
+$_SESSION['userLoginError'] = false; ?>
 <!DOCTYPE html>
 <?php include './modules/head.php'; ?>
 
