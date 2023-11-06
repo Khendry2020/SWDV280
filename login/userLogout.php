@@ -1,5 +1,6 @@
 <?php
 session_start();
+$oldFirstName = $_SESSION["FirstName"];
 session_unset();
 session_destroy();
 $_SESSION['loggedIn'] = false;
@@ -9,3 +10,6 @@ echo 'logged in: ' . $_SESSION['loggedIn'];
 var_dump($_SESSION);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+session_start();
+$_SESSION['notification'] = $oldFirstName . " has logged out. \n";
+?>
