@@ -21,7 +21,7 @@
 				</ul>
 			</div>
 			<?php
-			include './adminLogin/view/logout.php';
+				include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/adminLogin/view/logout.php');
 			?>
 		</div>
 	</nav>
