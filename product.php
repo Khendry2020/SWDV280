@@ -8,6 +8,7 @@ $product = get_item($product_id);
 if ($product != NULL || $product != 0 || $product !== false) {
 
     $category_id = $product['CategoryId'];
+    $category_name = $product['CategoryType'];
     $product_name = $product['Name'];
     $image = $product['ImageName'];
     //$product_name = 'Placeholder';  
@@ -66,7 +67,7 @@ if ($product != NULL || $product != 0 || $product !== false) {
                     </form>
                 </div>
                     <!-- check this functionality -->
-                    <a class="link-dark" href="category.php"><p class="py-1 my-0 fs-6 fw-light">Back to Products</p></a> 
+                    <a class="link-dark" href="category.php?cat_id=<?php echo $category_id; ?>"><p class="py-1 my-0 fs-6 fw-light">Back to <?php echo $category_name; ?></p></a> 
             <?php endif; ?>
         </div>
     </main>
