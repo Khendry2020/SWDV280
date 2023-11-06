@@ -30,20 +30,24 @@ if (isset($_POST['create'])) {
     $birthday = filter_input(INPUT_POST, 'birthday');
 
     if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
-        $error = 'Invalid user data. Check all fields and try again.';
+        $error = 'Invalid user data. Check all fields and try again.';        
+        $_SESSION['notification'] .= "Invalid user data. Check all fields and try again. \n";
     } else {
 
         $email_check = check_email($email);
         if($email_check != NULL || $email_check != FALSE || $email_check != 0) {
-            $error = 'This email address is already in use. Please try another email address.';
+            $error = 'This email address is already in use. Please try another email address.';            
+            $_SESSION['notification'] .= "This email address is already in use. Please try another email address. \n";
         } else {
             // Add item to database
             add_address($street, $city, $state, $zip);
             $last_id = $db->lastInsertId();
             add_user($firstname, $lastname, $email, $phone, $last_id, $username, $password, $birthday);
             $_POST = [];
-            $_SESSION['Status Message'] = 'Your account has been successfully created.';
-            header("Location: account.php");
+            $_SESSION['Status Message'] = 'Your account has been successfully created.';            
+            $_SESSION['notification'] .= $firstname . " " . $lastname . "'s account has been successfully created " .  ". \n";
+            header("Location: index.php");
+            exit();
         }
     }
 }
@@ -107,7 +111,6 @@ if (isset($_POST['create'])) {
                 <label for="birthday" class="form-label">Birthday</label>
                 <input type="text" class="form-control" id="birthday" name="birthday">
             </div>
-
             <button type="submit" class="btn btn-primary my-2" name="create">Create Account</button>
         </form>
     </div>
