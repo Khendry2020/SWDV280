@@ -139,7 +139,7 @@ EOL;
                             <label for="zip" class="form-label">Zip</label> <span class="error"></span>
                             <input type="text" class="form-control" id="zip" name="zip">
                         </div>
-                        <button type="submit" class="btn btn-primary mt-3" name="create" id="submit">Create Account</button>
+                        <button type="submit" class="btn btn-primary mt-3" name="create" id="submit-form">Create Account</button>
                     </form>
                 </div>
             </div>
