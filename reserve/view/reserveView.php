@@ -5,6 +5,7 @@
             <div class="ms-2 me-auto">
                 <div class="fw-bold"><?php echo $_SESSION["itemName"] ?></div>
                 <?php echo $_SESSION["itemDescription"] ?> Price: <?php echo $_SESSION['itemPrice'] ?>
+                <button class="btn-danger" href>Remove</button>
             </div>
         </li>
     </ol>

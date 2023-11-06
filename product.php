@@ -58,11 +58,15 @@ if ($product != NULL || $product != 0 || $product !== false) {
                 <div class="py-4">
                     <p class="fs-6 text-justify"><?php echo $description; ?></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
-                    <form action="/reserve/models/reserveItem.php" method="post">
-                        <input type="hidden" name="action" value="reserve_item">
-                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                        <input type="submit" value="Reserve Item">
-                    </form>
+                    <?php if ($_SESSION['LoggedIn'] = true) { ?>
+                        <form action="./reserve/models/reserveItem.php" method="post">
+                            <input type="hidden" name="action" value="reserve_item">
+                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                            <input class="btn btn-dark" type="submit" value="Reserve Item">
+                        </form>
+                    <?php } else { ?>
+                        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve an item</a>
+                    <?php } ?>
                 </div>
             <?php endif; ?>
         </div>
