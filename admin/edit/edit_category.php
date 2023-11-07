@@ -29,34 +29,40 @@ if (isset($_POST['edit'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
-  <body>
+<body>
+  <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
+  <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
     <main>
-        <!--Navigation-->
-      <div>
-      <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
-        <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
-      </div>
-        <div>
-        <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
-                 if ($category == NULL || $category == 0 || $category === false): ?>
-                <div>The category you are looking for does not exist. If you believe this to be an error, please contact our support team.</div>
-            <?php else: ?>
-            <h1>Update Category</h1>
-            <h2>Updating <?php echo $category['CategoryType']; ?></h2>
-            <?php if($error != '') {echo $error;} ?>
-            <form action="" method="post">
-            <div class="mb-3">
-                    <label for="categorytype">Category Name</label>
-                    <input type="text" value="<?php echo $category['CategoryType']; ?>" id="categorytype" name="categorytype">
-                    <input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>">
-                    <input type="hidden" name="action" value="update_category" />
-                </div>
-                <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
-            </form>
+        <div class="container pt-5">
+            <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
+                if ($category == NULL || $category == 0 || $category === false): ?>
+                    <div>The category you are looking for does not exist. If you believe this to be an error, please contact our support team.</div>
+                <?php else: ?>
+
+                <h3 class="pb-3">Update Category</h3>
+                <h5>Updating <?php echo $category['CategoryType']; ?></h5>
+
+                <?php if($error != '') {echo $error;} ?>
+
+                <form action="" method="post" class="row gy-2 gx-3 align-items-center pt-4">
+                    <div class="col-auto">
+                        <label for="categorytype" class="fw-bold">Category Name:</label>
+                        <input type="text" class="form-control border border-3 rounded" value="<?php echo $category['CategoryType']; ?>" id="categorytype" name="categorytype">
+                        <input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>">
+                        <input type="hidden" name="action" value="update_category" />
+                    </div>
+
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
+                    </div>
+
+                </form>
+
             <?php endif; ?>
         </div>
     </main>
-  </body>
+</body>
 </html>

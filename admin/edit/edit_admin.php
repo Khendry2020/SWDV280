@@ -49,7 +49,7 @@ if (isset($_POST['edit'])) {
                 <div>The admin user you are looking for does not exist. If you believe this to be an error, please contact our support team.</div>
             <?php else: ?>
 
-            <h2 class="pb-3">Update Admin User</h2>
+            <h3 class="pb-3">Update Admin User</h3>
 
             <h5>Updating <?php echo $admin['UserName']; ?></h5>
 
