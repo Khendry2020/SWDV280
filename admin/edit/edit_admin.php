@@ -74,7 +74,7 @@ if (isset($_POST['edit'])) {
                 <input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>">
                 
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
+                    <button type="submit" class="btn btn-primary mt-4" name="edit">Update</button> <a href="/swdv280/admin/admins.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                 </div>
             </form>
             <?php endif; ?>
