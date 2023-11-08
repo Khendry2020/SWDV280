@@ -34,11 +34,11 @@ $products = get_items_by_category($category['CategoryId']);
                     <?php else: ?>
 
                      <!--Cards for products listed in 2 columns per row-->
-                    <div class="row row-cols-2 g-3">
+                    <div class="row row-cols-2 g-4">
                     <?php foreach ($products as $product) : ?>
                         <div class="col">                        
-                            <div class="card">                               
-                                    <img class="text-center img-fluid mx-auto mx-lg-0 h-100 col-8 col-sm-6 col-md-4 col-lg-2 my-auto " src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
+                            <div class="card img-fluid mx-auto h-100 col-8 col-sm-6 col-md-4 col-lg-4 my-auto">                               
+                                    <img class="rounded" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
                                     <div class="card-body">
                                         <a class="card-title" href="product.php?product_id=<?php
                                                 echo $product['ItemId']; ?>">
