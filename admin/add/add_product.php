@@ -31,7 +31,7 @@
         if(in_array($fileType, $allowTypes)){ 
             $img = file_get_contents($_FILES['image']['tmp_name']);
         } else {
-            $errors[] = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.';
+            $errors[] = 'Sorry, only JPG, JPEG, files are allowed to upload.';
         } 
         
         if ($name == NULL || $description == NULL ||

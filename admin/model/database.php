@@ -16,7 +16,7 @@ try {
 
 function display_db_error($error_message) {
     global $app_path;
-    include 'errors/db_error.php';
+    include '../errors/db_error.php';
     exit;
 }
 
