@@ -3,7 +3,8 @@ function get_items_by_category($cat_id) {
     global $db;
     $query = 'SELECT * FROM items
               WHERE CategoryId = :cat_id
-              ORDER BY ItemId';
+              AND ItemId NOT IN (SELECT ItemID FROM reserved)
+              ORDER BY Name';
     try {
         $statement = $db->prepare($query);
         $statement->bindValue(':cat_id', $cat_id);
@@ -16,10 +17,10 @@ function get_items_by_category($cat_id) {
         display_db_error($error_message);
     }
 }
-
+// Get items not reserved
 function get_items() {
     global $db;
-    $query = 'SELECT * FROM items ORDER BY ItemId';
+    $query = 'SELECT * FROM items WHERE ItemId NOT IN (SELECT ItemID FROM reserved) ORDER BY Name';
     try {
         $statement = $db->prepare($query);
         $statement->execute();
@@ -34,7 +35,7 @@ function get_items() {
 
 function get_item($product_id) {
     global $db;
-    $query = 'SELECT *
+    $query = 'SELECT ItemId, Name, items.Img, items.CategoryId, CategoryType, Description, Price
               FROM items
               JOIN category ON items.CategoryId = category.CategoryId
               WHERE ItemId = :product_id';

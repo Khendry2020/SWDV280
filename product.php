@@ -1,15 +1,19 @@
 <?php
 session_start();
 include './models/database.php';
-include './models/categories_db.php';
 include './models/products_db.php';
+$product = [];
 $product_id = filter_input(INPUT_GET, 'product_id', FILTER_VALIDATE_INT);
 $product = get_item($product_id);
-if ($product != NULL || $product != 0 || $product !== false) {
+
+if ($product != NULL || $product_id != 0 || $product !== false) {
 
     $category_id = $product['CategoryId'];
     $category_name = $product['CategoryType'];
     $product_name = $product['Name'];
+
+    $product_image = $product['Img'];
+
     //$image = $product['ImageName'];
     //$product_name = 'Placeholder';  
     $description = $product['Description'];
@@ -56,7 +60,7 @@ if ($product != NULL || $product != 0 || $product !== false) {
                     
                 <h4 class="fs-4 pb-1"><?php echo $product_name; ?></h4>
                 <div class="">
-                    <img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product_name; ?>" />
+                    <img class="img-fluid rounded product-img" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product_image); ?>" alt="<?php echo $product_name; ?>" />
                 </div>
                 <div class="py-2">
                     <p class="fs-6 text-justify"><?php echo $description; ?></p>
