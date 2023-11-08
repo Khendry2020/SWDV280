@@ -101,7 +101,7 @@
                 </div>
 
                 <div class="row-auto">
-                    <button type="submit" class="btn btn-primary mt-3" name="add">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-3" name="add">Submit</button> <a href="/swdv280/admin/products.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
                 </div>
             </form>
 

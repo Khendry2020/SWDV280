@@ -111,7 +111,7 @@
 
                     <input type="hidden" name="item_id" value="<?php echo $product['ItemId']; ?>">
                     <div class="row-auto">
-                        <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
+                        <button type="submit" class="btn btn-primary mt-4" name="edit">Update</button> <a href="/swdv280/admin/products.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                     </div>
                 </form>
 

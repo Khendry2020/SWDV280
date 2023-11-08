@@ -56,7 +56,7 @@ if (isset($_POST['edit'])) {
                     </div>
 
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mt-3" name="edit">Update</button>
+                        <button type="submit" class="btn btn-primary mt-4" name="edit">Update</button> <a href="/swdv280/admin/categories.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                     </div>
 
                 </form>
