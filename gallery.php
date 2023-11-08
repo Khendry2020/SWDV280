@@ -28,12 +28,12 @@ function urlize($text)
 
                         <div class="col-lg-3 col-6 pb-3">
 
-                            <div class="card pb-0 ">
+                            <div class="card pb-0">
                                 <a class="text-body text-decoration-none" href="<?php echo 
                                     'category.php?cat_id=' . $category['CategoryId']; ?>">
                                     
                                     <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($category['Img']); ?>" alt="<?php echo $category['CategoryType']; ?>" 
-                                    class="img-fluid rounded card-img-top ">
+                                    class="img-fluid rounded card-img-top" style="width: 15vw; height: 15vw;">
                                     
                                     <div class="card-footer pt-3">
 
