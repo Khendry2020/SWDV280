@@ -1,5 +1,4 @@
 <?php
-session_start();
 $oldFirstName = $_SESSION["FirstName"];
 session_unset();
 session_destroy();

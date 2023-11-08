@@ -1,6 +1,5 @@
-<head>
-  <link rel="stylesheet" href="login\styles\loginStyles.css">
-</head>
+<link rel="stylesheet" href="login\styles\loginStyles.css">
+
 <button type="button" class="btn btn-light mx-md-4 mx-sm-1" data-bs-toggle="modal" data-bs-target="#logoutModal">
   Logout
 </button>

@@ -23,4 +23,6 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
         $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
         header("Location: ../../product.php");
     }
+} else {
+    echo "Failed";
 }
