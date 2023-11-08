@@ -6,7 +6,7 @@
         </a>
     </p>
     <ul class="download">
-        <h2>Donation Drop-off:</h2>
+        <h2>Donation Drop-off hours:</h2>
         <li>Monday: 1-5pm</li>
         <li>Tuesday: 1-5pm</li>
         <li>Wednesday: 1-5pm</li>
