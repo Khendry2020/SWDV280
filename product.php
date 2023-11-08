@@ -10,7 +10,7 @@ if ($product != NULL || $product != 0 || $product !== false) {
     $category_id = $product['CategoryId'];
     $category_name = $product['CategoryType'];
     $product_name = $product['Name'];
-    $image = $product['ImageName'];
+    //$image = $product['ImageName'];
     //$product_name = 'Placeholder';  
     $description = $product['Description'];
     $list_price = number_format($product['Price'], 2);
@@ -45,6 +45,7 @@ if ($product != NULL || $product != 0 || $product !== false) {
 <?php include './modules/head.php'; ?>
 
 <body>
+    <?php include './modules/hero.php'; ?>
     <?php include './modules/header.php'; ?>
     <main>
         <div class="container mx-auto text-center pt-2">
@@ -61,7 +62,7 @@ if ($product != NULL || $product != 0 || $product !== false) {
                     <p class="fs-6 text-justify"><?php echo $description; ?></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
                     <?php if ($_SESSION['LoggedIn'] = true) { ?>
-                        <form action="./reserve/models/reserveItem.php" method="post">
+                        <form action="reserve/models/reserveItem.php" method="post">
                             <input type="hidden" name="action" value="reserve_item">
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                             <input class="btn btn-dark" type="submit" value="Reserve Item">
