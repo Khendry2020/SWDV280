@@ -71,6 +71,8 @@ if ($statement = $dba->prepare($query)) {
 	?>
 <!DOCTYPE html>
 <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
 <body>
 	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
 	<?php include './modules/hero.php'; ?>
@@ -88,15 +90,15 @@ if ($statement = $dba->prepare($query)) {
 			<h2 class="text-center pb-5"><a href="./add/add_product.php" class=" btn btn-secondary btn-lg btn-block text-light"> Add Product</a></h2>
 			<h3 class="text-center"><?php for($page = 1; $page<= $number_of_page; $page++) {
         		echo <<<EOL
-				<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href="test-products.php?page={$page}&column={$column}&order={$order}">&nbsp;&nbsp;{$page}&nbsp;&nbsp;</a>
+				<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href="products.php?page={$page}&column={$column}&order={$order}">&nbsp;&nbsp;{$page}&nbsp;&nbsp;</a>
 EOL;
     		}?>
 			</h3>
 			<?php if($error != '') {echo $error;} ?>
 			<table class="table table-bordered align-middle table-sm table-hover table-light center">
 				<tr class="text-center">
-					<th><a href="test-products.php?column=name&order=<?php echo $asc_or_desc; ?>">Name<i class="fas fa-sort<?php echo $column == 'name' ? '-' . $up_or_down : ''; ?>"></i></a></th>
-					<th><a href="test-products.php?column=price&order=<?php echo $asc_or_desc; ?>">Price<i class="fas fa-sort<?php echo $column == 'price' ? '-' . $up_or_down : ''; ?>"></i></a></th>
+					<th><a href="products.php?column=name&order=<?php echo $asc_or_desc; ?>">Name<i style="display: inline-block; line-height: 1rem; margin-left: 6px;" class="fas fa-sort<?php echo $column == 'name' ? '-' . $up_or_down : ''; ?>"></i></a></th>
+					<th style="width: 80px;"><a href="products.php?column=price&order=<?php echo $asc_or_desc; ?>">Price<i style="display: inline-block; line-height: 1rem; margin-left: 6px;" class="fas fa-sort<?php echo $column == 'price' ? '-' . $up_or_down : ''; ?>"></i></a></th>
 					<th>Image</th>
 					<th></th>
 					<th></th>
@@ -120,7 +122,7 @@ EOL;
 			</table>
 			<h3 class="text-center"><?php for($page = 1; $page<= $number_of_page; $page++) {
         		echo <<<EOL
-				<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href="test-products.php?page={$page}&column={$column}&order={$order}">&nbsp;&nbsp;{$page}&nbsp;&nbsp;</a>
+				<a class="link-offset-2 link-offset-3-hover link-opacity-25-hover" href="products.php?page={$page}&column={$column}&order={$order}">&nbsp;&nbsp;{$page}&nbsp;&nbsp;</a>
 EOL;
     		}?>
 			</h3>
