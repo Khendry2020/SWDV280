@@ -6,8 +6,9 @@
                 <div class="fw-bold">
                     <?php echo $_SESSION['itemID'] ?>
                     <?php echo $_SESSION["itemName"] ?>
-                    Price: <?php echo $_SESSION['itemPrice'] ?></div>
-                <button class="btn btn-danger" href>Remove</button>
+                    Price: $<?php echo $_SESSION['itemPrice'] ?>
+                    <button class="btn btn-danger" href>Remove</button>
+                </div>
             </div>
         </li>
     </ol>
