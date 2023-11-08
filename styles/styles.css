@@ -24,6 +24,9 @@
     background-color: #864000;
 }
 
+.download{
+    text-decoration: none;
+}
 @media only screen and (max-width: 768px) {
     #mobileCarousel {
         display: block;
