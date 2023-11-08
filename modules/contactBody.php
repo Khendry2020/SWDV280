@@ -29,43 +29,49 @@
             Send a Message
         </h2>          
         <div class="col-1"></div>
-        <div id="contactForm" class="col-10 mt-3 mb-5">     
+        <div id="contactForm" class="col-10 mt-3 mb-5">  
+            <form action="mailto:scotsbarn@email.com" enctype="text/plain" method="POST" class="needs-validation">   
+
             <div class="input-group my-4 mt-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">First and last name</span>
+                    <span class="input-group-text border-2">First and last name</span>
                 </div>
-                <input type="text" class="form-control" id="firstName" />
-                <input type="text" class="form-control" id="lastName" />                
+                <input type="text" class="form-control border-2" id="firstName" required />
+                <input type="text" class="form-control border-2" id="lastName" required />                
             </div>
             <!-- Email -->
             <div class="input-group my-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">Email address</span>
+                    <span class="input-group-text border-2">Email address</span>
                 </div>
-                <input type="text" class="form-control" id="inputEmail" />
+                <input type="text" class="form-control border-2" id="inputEmail" required />
             </div>      
 
             <!-- TextArea -->      
             <div class="input-group my-4">
                 <div class="input-group-prepend">
-                    <span class="input-group-text">Tell us some more</span>
+                    <span class="input-group-text border-2">Tell us some more</span>
                 </div>
                 <textarea
-                  class="form-control"
+                  class="form-control border-2"
                   aria-label="textArea"
                   id="textArea"
                   rows="3"
+                  required
                 ></textarea>
             </div>
             <!-- Submit and clear -->
             <div class="form-group text-center">
                 <input
-                  type="button"
+                  type="submit"
                   id="submit"
                   value="Submit"
                   class="btn btn-primary mx-auto"
                 />               
             </div>
+            
+            </form>
+
         </div>
         <div class="col-1"></div>
     </div>
