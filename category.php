@@ -37,8 +37,8 @@ $products = get_items_by_category($category['CategoryId']);
                     <div class="row row-cols-2 g-4">
                     <?php foreach ($products as $product) : ?>
                         <div class="col">                        
-                            <div class="card img-fluid mx-auto h-100 col-8 col-sm-6 col-md-4 col-lg-4 my-auto">                               
-                                    <img class="rounded" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
+                            <div class="card mx-auto col-8 col-sm-6 col-md-4 col-lg-4 my-auto">                               
+                                    <img class="" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
                                     <div class="card-body">
                                         <a class="card-title" href="product.php?product_id=<?php
                                                 echo $product['ItemId']; ?>">
