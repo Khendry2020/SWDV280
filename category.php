@@ -32,18 +32,40 @@ $products = get_items_by_category($category['CategoryId']);
                     </ul>
 
                     <?php else: ?>
-
+                    <div class="sorting mb-3">
+                        <div class="row">
+                            <div class="col">
+                                <div class="d-inline-flex justify-content-start my-2 me-4">
+                                    <label for="name-sort" class="d-inline me-3">Sort By Name</label>
+                                    <select class="name d-inline" id="name-sort">
+                                        <option value="1">A-Z</option>
+                                        <option value="2">Z-A</option>
+                                    </select>
+                                </div>
+                                <div class="d-inline-flex justify-content-start my-2">
+                                <label for="price-sort" class="d-inline me-3">Sort By Price</label>
+                                    <select class="price d-inline" id="price-sort">
+                                        <option value="1">Low to High</option>
+                                        <option value="2">High to Low</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                      <!--Cards for products listed in 2 columns per row-->
-                    <div class="row row-cols-2 g-4">
+                    <div class="row row-cols-2 g-4 isotope-grid">
                     <?php foreach ($products as $product) : ?>
-                        <div class="col">                        
-                            <div class="card img-fluid mx-auto h-100 col-8 col-sm-6 col-md-4 col-lg-4 my-auto">                               
-                                    <img class="rounded" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
+                        <div class="col grid-item">                        
+                            <div class="card product-card mx-auto col-8 col-sm-6 col-md-4 col-lg-4 my-auto" data-name="<?php echo $product['Name']; ?>" data-price="<?php echo $product['Price']; ?>">                               
+                                    <img class="" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
                                     <div class="card-body">
                                         <a class="card-title" href="product.php?product_id=<?php
                                                 echo $product['ItemId']; ?>">
                                             <?php echo $product['Name']; ?>
-                                        </a>                                   
+                                        </a>
+                                        <div>
+                                            $<?php echo $product['Price']; ?>    
+                                        </div>
                                     </div>
                             </div>                                   
                         </div>
@@ -58,5 +80,76 @@ $products = get_items_by_category($category['CategoryId']);
 
         </main>
         <?php include './modules/footer.php'; ?>
+        <script type="text/javascript">
+            $(document).on("change", ".price", function() 
+            {
+                var sortingMethod = $(this).val();
+            
+                if(sortingMethod == '1') {
+                    sortProductsPriceAscending();
+                } else if (sortingMethod == '2') {
+                    sortProductsPriceDescending();
+                }
+                else
+                {
+                    $(".isotope-grid").load(location.href+" .isotope-grid>*","");
+                }
+            });
+
+            $(document).on("change", ".name", function() 
+            {
+                var sortingMethod = $(this).val();
+            
+                if(sortingMethod == '1') {
+                    sortNameAscending();
+                } else if (sortingMethod == '2') {
+                    sortNameDescending();
+                }
+                else
+                {
+                    $(".isotope-grid").load(location.href+" .isotope-grid>*","");
+                }
+            });
+
+
+            function sortProductsPriceAscending() 
+            {
+                var gridItems = $('.grid-item');
+                gridItems.sort(function(a, b) {
+                    return $('.product-card', a).data("price") - $('.product-card', b).data("price");
+                });
+
+                $(".isotope-grid").append(gridItems);
+            }
+            function sortNameAscending() 
+            {
+                var gridItems = $('.grid-item');
+                gridItems.sort(function(a, b) {
+                    return $('.product-card', a).data("name").toUpperCase().localeCompare($('.product-card', b).data("name").toUpperCase());
+                });
+
+                $(".isotope-grid").append(gridItems);
+            }
+
+            function sortProductsPriceDescending() 
+            {
+                var gridItems = $('.grid-item');
+                gridItems.sort(function(a, b) {
+                    return $('.product-card', b).data("price") - $('.product-card', a).data("price");
+                });
+
+                $(".isotope-grid").append(gridItems);
+            }
+
+            function sortNameDescending() 
+            {
+                var gridItems = $('.grid-item');
+                gridItems.sort(function(a, b) {
+                    return $('.product-card', b).data("name").toUpperCase().localeCompare($('.product-card', a).data("name").toUpperCase());
+                });
+
+                $(".isotope-grid").append(gridItems);
+            }
+        </script>
     </body>
 </html>

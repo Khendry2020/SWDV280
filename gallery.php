@@ -28,11 +28,12 @@ function urlize($text)
 
                         <div class="col-lg-3 col-6 pb-3">
 
-                            <div class="card pb-0">
+                            <div class="card pb-0 ">
                                 <a class="text-body text-decoration-none" href="<?php echo 
                                     'category.php?cat_id=' . $category['CategoryId']; ?>">
                                     
-                                    <img src="https://placehold.co/600x400/png" alt="<?php echo $category['CategoryType']; ?>" class="img-fluid rounded gallery-img card-img-top" style="width: 100%">
+                                    <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($category['Img']); ?>" alt="<?php echo $category['CategoryType']; ?>" 
+                                    class="img-fluid rounded card-img-top ">
                                     
                                     <div class="card-footer pt-3">
 
