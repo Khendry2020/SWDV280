@@ -1,5 +1,4 @@
 <?php
-session_start();
 include './models/database.php';
 include './models/products_db.php';
 $product = [];
