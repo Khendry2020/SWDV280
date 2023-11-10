@@ -1,3 +1,14 @@
+
+<style>
+
+
+div > li{
+text-decoration: none;
+/* <a href="https://www.flaticon.com/free-icons/farm" title="farm icons">Farm icons created by smashingstocks - Flaticon</a> */
+list-style-image:url('barn.png');
+
+}
+</style>
 <div class="container row p-3 color-orange color-light rounded mr-5 ">
     <h1>Donation form download.</h1>
     <p>Download and fillout our form and bring it with you, when you bring your donations or email it to us at  
