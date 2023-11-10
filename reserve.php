@@ -1,5 +1,6 @@
 <?php
 session_start();
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <?php include './modules/head.php'; ?>
@@ -14,7 +15,7 @@ session_start();
         <div class="container">
             <?php
             include "./reserve/models/reserveCart.php";
-            include "./reserve/view/reserveView.php"
+            include "./reserve/view/reserveView.php";
             ?>
         </div>
     </main>
