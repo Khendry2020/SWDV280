@@ -1,6 +1,7 @@
 <header>
     <?php
     include("./modules/notification.php");
+    var_dump($_SESSION);
     ?>
 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">

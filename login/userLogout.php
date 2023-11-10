@@ -1,16 +1,20 @@
 <?php
+session_start();
 $oldFirstName = $_SESSION["FirstName"];
-session_unset();
-session_destroy();
+$_SESSION['UserId'] = null;
+$_SESSION['UserName'] = null;
 $_SESSION['loggedIn'] = false;
 $_SESSION['isAdmin'] = false;
-header("Location: ../index.php");
 echo 'logged in: ' . $_SESSION['loggedIn'];
 var_dump($_SESSION);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-session_start();
+session_unset();
+session_destroy();
+echo "<br>-----------------------------------------------------<br>";
+var_dump($_SESSION);
 $_SESSION['userLoginError'] = false;
 $_SESSION['adminLoginError'] = false;
 $_SESSION['notification'] = $oldFirstName . " has logged out. \n";
 $oldFirstName = "";
+header("Location: ../index.php");
