@@ -1,6 +1,7 @@
 <header>
     <?php
     include("./modules/notification.php");
+    var_dump($_SESSION);
     ?>
 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
@@ -25,7 +26,6 @@
             <!-- Checks to see if user is logged in and displays aproriate action -->
             <?php
             // Logic to ensure $_SESSION['LoggedIn'] is not missing.
-            var_dump($_SESSION);
             if (!isset($_SESSION["LoggedIn"])) {
                 $_SESSION['LoggedIn'] = false;
             }
