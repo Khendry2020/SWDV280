@@ -1,7 +1,7 @@
 <?php
 $oldFirstName = $_SESSION["FirstName"];
-session_unset();
-session_destroy();
+$_SESSION['UserId'] = null;
+$_SESSION['UserName'] = null;
 $_SESSION['loggedIn'] = false;
 $_SESSION['isAdmin'] = false;
 header("Location: ../index.php");

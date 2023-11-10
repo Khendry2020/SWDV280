@@ -25,6 +25,7 @@
             <!-- Checks to see if user is logged in and displays aproriate action -->
             <?php
             // Logic to ensure $_SESSION['LoggedIn'] is not missing.
+            var_dump($_SESSION);
             if (!isset($_SESSION["LoggedIn"])) {
                 $_SESSION['LoggedIn'] = false;
             }
