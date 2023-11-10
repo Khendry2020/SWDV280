@@ -23,7 +23,20 @@
 .color-brown {
     background-color: #864000;
 }
+/* style for donation page*/
+#download{
+    margin-top: 3em;
+    margin-right: 15em;
+    margin-bottom:3em;
+    padding: 5em;
+}
+/* style for donation page
+#download > li{
+text-decoration: none;
 
+list-style-image:url('barn.png');
+}
+*/
 
 @media only screen and (max-width: 768px) {
     #mobileCarousel {
