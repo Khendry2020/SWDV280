@@ -2,7 +2,7 @@
     .download > li{
 text-decoration: none;
 /* <a href="https://www.flaticon.com/free-icons/farm" title="farm icons">Farm icons created by smashingstocks - Flaticon</a> */
-list-style-image:url('barn.png');
+list-style-image:url('/SWDV280/images/barn(2).png');
 }
 </style>
 <h1 class="text-center">Donation form download.</h1>
