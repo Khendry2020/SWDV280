@@ -1,7 +1,5 @@
 <?php
 session_start();
-$_SESSION['userLoginError'];
-$_SESSION['adminLoginError'];
 /* 
      
     Code to spit out categories

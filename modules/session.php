@@ -8,3 +8,5 @@ if (isset($_SESSION)) {
 // if ($_SESSION['LoggedIn'] = false) {
 //     $_SESSION['UserId'] = 0;
 // }
+$_SESSION['userLoginError'];
+$_SESSION['adminLoginError'];
