@@ -65,18 +65,19 @@ function get_item($product_id) {
     }
 }
 // TODO Add Image - Maybe Timestamp for date added
-function add_item($cat_id, $name, $description, $price, $img) {
+function add_item($cat_id, $name, $description, $price, $condition, $img) {
     global $dba;
     $query = 'INSERT INTO items
-                 (CategoryId, `Name`, `Description`, Price, Img)
+                 (CategoryId, `Name`, `Description`, Price, Condition, Img)
               VALUES
-                 (:cat_id, :name, :description, :price, :img)';
+                 (:cat_id, :name, :description, :price, :condition, :img)';
     try {
         $statement = $dba->prepare($query);
         $statement->bindValue(':cat_id', $cat_id);
         $statement->bindValue(':name', $name);
         $statement->bindValue(':description', $description);
         $statement->bindValue(':price', $price);
+        $statement->bindValue(':condition', $condition);
         $statement->bindValue(':img', $img);
         $statement->execute();
         $statement->closeCursor();

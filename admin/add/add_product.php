@@ -17,11 +17,14 @@
         $_POST['description'] = trim($_POST['description']);
         $_POST['price'] = trim($_POST['price']);
         $_POST['category'] = trim($_POST['category']);
+        $_POST['condition'] = trim($_POST['condition']);
 
         $name = filter_input(INPUT_POST, 'name');
         $description = filter_input(INPUT_POST, 'description');
         $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
         $category_id = filter_input(INPUT_POST, 'category', FILTER_VALIDATE_INT);
+        $condition = filter_input(INPUT_POST, 'condition');
+
 
         $fileName = basename($_FILES["image"]["name"]); 
         $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
@@ -35,13 +38,13 @@
         } 
         
         if ($name == NULL || $description == NULL ||
-                $price == FALSE || $category_id == NULL) {            
+                $price == FALSE || $category_id == NULL || $condition) {            
             $errors[] = 'Invalid product data. Check all fields and try again.';
         } else if ($price <= 0) {
             $errors[] = 'Price of item cannot be 0 or less than 0.';
         } else {
             // Add item to database
-            add_item($category_id, $name, $description, $price, $img);
+            add_item($category_id, $name, $description, $price, $condition, $img);
 
             $_POST = [];
 
@@ -84,7 +87,10 @@
                     <label for="price" class="fw-bold">Price:</label>
                     <input type="number" class="form-control border border-3 rounded" step="0.01" min=0 id="price" name="price">
                 </div>
-
+                <div class="col-auto">
+                    <label for="condition" class="fw-bold">Condition:</label>
+                    <input type="text" class="form-control border border-3 rounded" id="condition" name="condition">
+                </div>
                 <div class="col-auto">
                     <label for="category" class="fw-bold">Select Category:</label>
 
