@@ -55,7 +55,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button> -->
                 <div class=""                >                    
-                    <div class="collapse navbar-collapse justify-content-end text-center" id="navbarResponsive">
+                    <div class="collapse navbar-collapse justify-content-center text-center" id="navbarResponsive">
                         <ul class="navbar-nav">
                             <li class="nav-item mt-md-0 mt-5"><a class="nav-link" href="index.php">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
