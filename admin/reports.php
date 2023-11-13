@@ -36,7 +36,7 @@ $reserveds = reservedFuniture();
 							<?php foreach ($availables as $available) : ?>
 								<tr>
 									<td><?php echo $available['Name']; ?></td>
-									<!-- <td><img href="<?php echo $available['Img']; ?>"></td>-->
+
 									<td><?php echo $available['Description']; ?></td>
 									<td><?php echo $available['Price']; ?></td>
 								</tr>
@@ -49,7 +49,7 @@ $reserveds = reservedFuniture();
 						<table class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
 							<h3 class="pt-1">Reserved Funiture</h3>
 							<tr>
-								<th>Buy's Name</th>
+								<th>Buyer's Name</th>
 								<th>Phone</th>
 								<th>Reserved date</th>
 								<th>Pickup Date</th>
