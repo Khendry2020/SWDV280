@@ -34,15 +34,17 @@ if (isset($_POST['create'])) {
     $birthday = strtotime($birthday);
     $birthday_insert = date('Y-m-d', $birthday);
 
-    if ($firstname == NULL || $lastname == NULL || $email == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
+    if ($firstname == NULL || $lastname == NULL || $email == NULL || $username == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
         $error = 'Invalid user data. Check all fields and try again.';        
         $_SESSION['notification'] .= "Invalid user data. Check all fields and try again. \n";
     } else {
-
         $email_check = check_email($email);
+        $user_check = check_user($username);
         if($email_check != NULL || $email_check != FALSE || $email_check != 0) {
             $error = 'This email address is already in use. Please try another email address.';            
             $_SESSION['notification'] .= "This email address is already in use. Please try another email address. \n";
+        } else if ($user_check != NULL || $user_check != FALSE || $user_check != 0) {
+            $_SESSION['notification'] .= "This username is already in use. Please try another username. \n";
         } else {
             // Add item to database
             add_address($street, $city, $state, $zip);

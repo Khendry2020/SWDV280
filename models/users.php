@@ -75,6 +75,21 @@ function check_email($email) {
         display_db_error($e->getMessage());
     }
 }
+function check_user($username) {
+    global $db;
+    $query = 'SELECT UserName FROM users
+              WHERE UserName = :username';
+    try {
+        $statement = $db->prepare($query);
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+        $result = $statement->fetch();
+        $statement->closeCursor();
+        return $result;
+    } catch (PDOException $e) {
+        display_db_error($e->getMessage());
+    }
+}
 // Add Address to database
 // will need get last ID
 function add_address($street, $city, $state, $zip) {
