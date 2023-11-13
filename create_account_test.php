@@ -56,6 +56,26 @@ if (isset($_POST['create'])) {
             $_POST = [];
             $_SESSION['Status Message'] = 'Your account has been successfully created.';
             header("Location: account.php");
+
+            $stmt = $db->prepare("SELECT * FROM users WHERE UserName = :username OR Email = :username AND Password = :password");
+            $stmt->bindParam(':username', $username);
+            $stmt->bindParam(':password', $password);
+            $stmt->execute();
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);  
+
+            if ($row) {
+                $_SESSION['LoggedIn'] = true;
+                $_SESSION['UserName'] = $row['UserName'];
+                $_SESSION['UserId'] = $row['UserId'];
+                $_SESSION['FirstName'] = $row['FirstName'];
+                $_SESSION['notification'] .= $firstname . " " . $lastname . "'s account has been successfully created. \n";
+                header("Location: index.php");
+                exit();
+            }
+            else {
+                $_SESSION['notification'] .= "An error has occurred with the server. Please contact support for help creating an account.";
+            } 
+
         }
     }
 }
@@ -75,7 +95,10 @@ if (isset($_POST['create'])) {
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <?php if($error != '') { echo $error; }; ?>
+                    <?php if(isset($error)) { ?>
+                        <h4 class="text-center text-danger mt-2">*<?php echo $error; ?></h4> 
+                    <?php } ?>
+                    <h3 class="my-2">Sign Up</h3>
                     <form action="" method="post" id="account">
                         <div class="mb-3">
                             <label for="fname" class="form-label">First Name</label> <span class="error"></span>
