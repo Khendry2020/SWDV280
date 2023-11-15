@@ -37,7 +37,26 @@ text-decoration: none;
 list-style-image:url('barn.png');
 }
 */
+/*Classes for category and product images*/
+.CategoryImage{
+    height: 10vw;
+    width: 'max-width';
+}
+.ProductImage{
+    height: 12vw;
+    width: 'max-width';
+}
+@media only screen and (max-width: 1000px) {
+    .CategoryImage {
+        height: 30vw;
+        width: 'max-width';
+    }
+    .ProductImage {
+        height: 30vw;
+        width: 'max-width';
+    }
 
+}
 @media only screen and (max-width: 768px) {
     #mobileCarousel {
         display: block;
