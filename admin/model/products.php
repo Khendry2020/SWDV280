@@ -65,12 +65,12 @@ function get_item($product_id) {
     }
 }
 // TODO Add Image - Maybe Timestamp for date added
-function add_item($cat_id, $name, $description, $price, $condition, $img) {
+function add_item($cat_id, $name, $description, $price, $condition, $img, $featured) {
     global $dba;
     $query = 'INSERT INTO items
-                 (CategoryId, `Name`, `Description`, Price, `condition`, Img)
+                 (CategoryId, `Name`, `Description`, Price, `condition`, Img, Featured)
               VALUES
-                 (:cat_id, :name, :description, :price, :condition, :img)';
+                 (:cat_id, :name, :description, :price, :condition, :img, :featured)';
     try {
         $statement = $dba->prepare($query);
         $statement->bindValue(':cat_id', $cat_id);
@@ -79,6 +79,7 @@ function add_item($cat_id, $name, $description, $price, $condition, $img) {
         $statement->bindValue(':price', $price);
         $statement->bindValue(':condition', $condition);
         $statement->bindValue(':img', $img);
+        $statement->bindValue(':featured', $featured);
         $statement->execute();
         $statement->closeCursor();
 
@@ -91,12 +92,13 @@ function add_item($cat_id, $name, $description, $price, $condition, $img) {
     }
 }
 
-function update_item($name, $description, $price, $cat_id, $item_id) {
+function update_item($name, $description, $price, $cat_id, $item_id, $featured) {
     global $dba;
     $query = 'UPDATE items
               SET `Name` = :name,
                  `description` = :description,
                   Price = :price,
+                  Featured = :featured,
                   CategoryId = :cat_id
               WHERE ItemId = :item_id';
     try {
@@ -106,6 +108,7 @@ function update_item($name, $description, $price, $cat_id, $item_id) {
         $statement->bindValue(':price', $price);
         $statement->bindValue(':cat_id', $cat_id);
         $statement->bindValue(':item_id', $item_id);
+        $statement->bindValue(':featured', $featured);
         $row_count = $statement->execute();
         $statement->closeCursor();
         return $row_count;
