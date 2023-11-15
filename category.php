@@ -56,8 +56,8 @@ $products = get_items_by_category($category['CategoryId']);
                     <div class="row row-cols-2 g-4 isotope-grid">
                     <?php foreach ($products as $product) : ?>
                         <div class="col grid-item">                        
-                            <div class="card product-card mx-auto col-8 col-sm-6 col-md-4 col-lg-4 my-auto" data-name="<?php echo $product['Name']; ?>" data-price="<?php echo $product['Price']; ?>">                               
-                                    <img class="img-fluid" style="width: 15vw; height: 15vw;"src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
+                        <div class="card product-card mx-auto col-12 col-sm-12 col-md-8 col-lg-8 my-auto" data-name="<?php echo $product['Name']; ?>" data-price="<?php echo $product['Price']; ?>">                               
+                                    <img class="img-fluid ProductImage"  src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" />
                                     <div class="card-body">
                                         <a class="card-title" href="product.php?product_id=<?php
                                                 echo $product['ItemId']; ?>">
@@ -67,7 +67,7 @@ $products = get_items_by_category($category['CategoryId']);
                                             $<?php echo $product['Price']; ?>    
                                         </div>
                                     </div>
-                            </div>                                   
+                            </div>                             
                         </div>
                         <?php endforeach; ?>        
                     </div>
