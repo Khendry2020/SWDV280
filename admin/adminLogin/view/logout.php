@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="admin/adminLogin/styles/adminStyles.php">
+  <link rel="stylesheet" href="./adminLogin/styles/adminStyles.php">
 </head>
 <button type="button" class="btn btn-light mx-md-4 mx-sm-1" data-bs-toggle="modal" data-bs-target="#logoutModal">
   Logout
