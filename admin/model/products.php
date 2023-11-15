@@ -111,7 +111,6 @@ function update_item($name, $description, $price, $cat_id, $item_id, $featured) 
         $statement->bindValue(':featured', $featured);
         $row_count = $statement->execute();
         $statement->closeCursor();
-        return $row_count;
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         display_db_error($error_message);
@@ -126,7 +125,6 @@ function delete_item($item_id) {
         $statement->bindValue(':item_id', $item_id);
         $row_count = $statement->execute();
         $statement->closeCursor();
-        return $row_count;
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         display_db_error($error_message);
@@ -144,5 +142,16 @@ function get_product_count() {
 
     $product_count = $result[0]['count'];
     return $product_count;
+}
+// Implement in case Scott needs to see reserved on admin/products.php
+function item_reserved_test($product_id) {
+    global $dba;
+    $query = 'SELECT ItemId FROM reserved WHERE ItemId = :product_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':product_id', $product_id);
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+    return $result;
 }
 ?>
