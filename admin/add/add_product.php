@@ -38,7 +38,7 @@
         } 
         
         if ($name == NULL || $description == NULL ||
-                $price == FALSE || $category_id == NULL || $condition) {            
+                $price == FALSE || $category_id == NULL || $condition == NULL ) {            
             $errors[] = 'Invalid product data. Check all fields and try again.';
         } else if ($price <= 0) {
             $errors[] = 'Price of item cannot be 0 or less than 0.';
@@ -89,14 +89,17 @@
                 </div>
                 <div class="col-auto">
                     <label for="condition" class="fw-bold">Condition:</label>
-                    <input type="text" class="form-control border border-3 rounded" id="condition" name="condition">
+                    <select class="form-select form-control border border-3 rounded" id="condition" aria-label="select condition" name="condition">
+                        <option value="Good">Good</option>
+                        <option value="Excellent" selected="selected">Excellent</option>
+                    </select>
                 </div>
                 <div class="col-auto">
                     <label for="category" class="fw-bold">Select Category:</label>
 
                     <select class="form-select form-control border border-3 rounded" aria-label="select category" name="category">
                         <?php foreach ($categories as $category) : ?>
-                        <option value=" <?php echo $category['CategoryId']; ?>"><?php echo $category['CategoryType']; ?></option>
+                        <option value="<?php echo $category['CategoryId']; ?>"><?php echo $category['CategoryType']; ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>

@@ -68,7 +68,7 @@ function get_item($product_id) {
 function add_item($cat_id, $name, $description, $price, $condition, $img) {
     global $dba;
     $query = 'INSERT INTO items
-                 (CategoryId, `Name`, `Description`, Price, Condition, Img)
+                 (CategoryId, `Name`, `Description`, Price, `condition`, Img)
               VALUES
                  (:cat_id, :name, :description, :price, :condition, :img)';
     try {

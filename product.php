@@ -11,7 +11,7 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
     $category_id = $product['CategoryId'];
     $category_name = $product['CategoryType'];
     $product_name = $product['Name'];
-
+    $condition = $product['condition'];
     $product_image = $product['Img'];
 
     //$image = $product['ImageName'];
@@ -64,6 +64,7 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
                 </div>
                 <div class="py-2">
                     <p class="fs-6 text-justify"><?php echo $description; ?></p>
+                    <p><b>Condition: <?php echo $condition; ?></b></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
                     <?php if ($_SESSION['LoggedIn'] = true) { ?>
                         <form action="reserve/models/reserveItem.php" method="post">

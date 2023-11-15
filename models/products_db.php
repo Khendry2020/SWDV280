@@ -35,7 +35,7 @@ function get_items() {
 
 function get_item($product_id) {
     global $db;
-    $query = 'SELECT ItemId, Name, items.Img, items.CategoryId, CategoryType, Description, Price
+    $query = 'SELECT ItemId, Name, items.Img, items.CategoryId, CategoryType, Description, `condition`, Price
               FROM items
               JOIN category ON items.CategoryId = category.CategoryId
               WHERE ItemId = :product_id';
