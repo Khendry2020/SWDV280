@@ -35,13 +35,11 @@ if (isset($_POST['create'])) {
     $birthday_insert = date('Y-m-d', $birthday);
 
     if ($firstname == NULL || $lastname == NULL || $email == NULL || $username == NULL || $password == NULL || $phone == NULL || $street == NULL || $city == NULL || $state == NULL || $zip == NULL) {            
-        $error = 'Invalid user data. Check all fields and try again.';        
         $_SESSION['notification'] .= "Invalid user data. Check all fields and try again. \n";
     } else {
         $email_check = check_email($email);
         $user_check = check_user($username);
         if($email_check != NULL || $email_check != FALSE || $email_check != 0) {
-            $error = 'This email address is already in use. Please try another email address.';            
             $_SESSION['notification'] .= "This email address is already in use. Please try another email address. \n";
         } else if ($user_check != NULL || $user_check != FALSE || $user_check != 0) {
             $_SESSION['notification'] .= "This username is already in use. Please try another username. \n";
@@ -88,48 +86,45 @@ if (isset($_POST['create'])) {
     <div>
       <?php include './modules/header.php'; ?>
     </div>
-    <?php if(isset($error)) { ?>
-        <h4 class="text-center text-danger mt-2">*<?php echo $error; ?></h4> 
-    <?php } ?>
     <div class="container">
         <h3 class="my-2">Sign Up</h3>
         <form action="" method="post" id="account" class="mb-5">
             <div class="my-2 text-start">
                 <label for="firstname" class="form-label">First Name</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="firstname" name="firstname">
+                <input type="text" class="form-control" id="firstname" name="firstname" value="<?php if (isset($_POST['firstname'])){ echo $_POST['firstname'];}; ?>">
             </div>            
             <div class="my-2 text-start">
                 <label for="lastname" class="form-label">Last Name</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="lastname" name="lastname">
+                <input type="text" class="form-control" id="lastname" name="lastname" value="<?php if (isset($_POST['lastname'])){ echo $_POST['lastname'];}; ?>">
             </div>                  
             <div class="my-2 text-start">
                 <label for="account-username" class="form-label">Username</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="account-username" name="account-username">
+                <input type="text" class="form-control" id="account-username" name="account-username" value="<?php if (isset($_POST['account-username'])){ echo $_POST['account-username'];}; ?>">
             </div>
             <div class="my-2 text-start">
                 <label for="email" class="form-label">Email</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="email" name="email">
+                <input type="text" class="form-control" id="email" name="email" value="<?php if (isset($_POST['email'])){ echo $_POST['email'];}; ?>">
             </div>
             <div class="my-2">
                 <label for="verify-email" class="form-label">Verify Email</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="verify-email" name="verify-email">
+                <input type="text" class="form-control" id="verify-email" name="verify-email" value="<?php if (isset($_POST['verify-email'])){ echo $_POST['verify-email'];}; ?>">
             </div>
             <div class="my-2 text-start">
                 <label for="account-password" class="form-label">Password</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="account-password" name="account-password">
+                <input type="text" class="form-control" id="account-password" name="account-password" value="<?php if (isset($_POST['account-password'])){ echo $_POST['account-password'];}; ?>">
             </div>
             <div class="my-2">
                 <label for="phone" class="form-label">Phone</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="aptPhoneHelp" placeholder="123-456-7890">
+                <input type="text" class="form-control" id="phone" name="phone" aria-describedby="aptPhoneHelp" placeholder="123-456-7890" value="<?php if (isset($_POST['phone'])){ echo $_POST['phone'];}; ?>">
                 <div id="aptPhoneHelp" class="form-text">Example: 555-555-5555</div>
             </div>
             <div class="my-2">
                 <label for="street" class="form-label">Street Address</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="street" name="street">
+                <input type="text" class="form-control" id="street" name="street" value="<?php if (isset($_POST['street'])){ echo $_POST['street'];}; ?>">
             </div>
             <div class="my-2">
                 <label for="city" class="form-label">City</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="city" name="city">
+                <input type="text" class="form-control" id="city" name="city" value="<?php if (isset($_POST['city'])){ echo $_POST['city'];}; ?>">
             </div>
             <div class="my-2">
                 <label for="state" class="form-label">State</label> <span class="text-danger small ms-3"></span>
@@ -149,11 +144,11 @@ EOL;
             </div>
             <div class="my-2">
                 <label for="zip" class="form-label">Zip</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="zip" name="zip">
+                <input type="text" class="form-control" id="zip" name="zip" value="<?php if (isset($_POST['zip'])){ echo $_POST['zip'];}; ?>">
             </div>            
             <div class="my-2">
                 <label for="birthday" class="form-label">Birthday</label> <span class="text-danger small ms-3"></span>
-                <input type="text" class="form-control" id="birthday" name="birthday" aria-describedby="aptDateHelp" placeholder="12/31/2000">
+                <input type="text" class="form-control" id="birthday" name="birthday" aria-describedby="aptDateHelp" placeholder="12/31/2000" value="<?php if (isset($_POST['birthday'])){ echo $_POST['birthday'];}; ?>">
                 <div id="aptDateHelp" class="form-text">Example: 12/31/2000</div>
             </div>
             <button type="submit" class="btn btn-primary mt-3" name="create" id="submit-form">Create Account</button>
