@@ -8,6 +8,10 @@
     ;
 }
 
+.color-yellow {
+    background-color: #F8D213;
+}
+
 .scotts-brown {
     background-image: linear-gradient(#762F0A, #905739, #762F0A);
 }
@@ -23,13 +27,20 @@
 .color-brown {
     background-color: #864000;
 }
+
+
+.txt-brown {
+    color: #864000;
+}
+
 /* style for donation page*/
-#download{
+#download {
     margin-top: 3em;
     margin-right: 15em;
-    margin-bottom:3em;
+    margin-bottom: 3em;
     padding: 5em;
 }
+
 /* style for donation page
 #download > li{
 text-decoration: none;
@@ -38,25 +49,29 @@ list-style-image:url('barn.png');
 }
 */
 /*Classes for category and product images*/
-.CategoryImage{
+.CategoryImage {
     height: 10vw;
     width: 'max-width';
 }
-.ProductImage{
+
+.ProductImage {
     height: 12vw;
     width: 'max-width';
 }
+
 @media only screen and (max-width: 1000px) {
     .CategoryImage {
         height: 30vw;
         width: 'max-width';
     }
+
     .ProductImage {
         height: 30vw;
         width: 'max-width';
     }
 
 }
+
 @media only screen and (max-width: 768px) {
     #mobileCarousel {
         display: block;

@@ -85,20 +85,42 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
         </div>
     </div>
 </div>
-<hr> 
+
+
+<div class="text-center d-md-none d-block">
+    <hr>   
+    <h2>Contact Us</h2>
+    <div class="col">
+        <a href="tel:000-000-0000" class="text-decoration-none text-dark">
+            <i class="bi bi-telephone">&nbsp;(000)-000-0000</i>
+        </a>
+    </div>
+    <div class="col">
+        <a href="mailto:ScottsFurnitureBarn@gmail.com" class="text-decoration-none text-dark">
+            <i class="bi bi-envelope-at">&nbsp;ScottsFurnitureBarn@gmail.com</i>
+        </a>
+    </div>
+    <div class="col">
+        <a href="contact.php" class="text-decoration-none text-dark">
+            <i class="bi bi-pin-map">&nbsp;3489&nbsp;N&nbsp;Meridian&nbsp;Rd.&nbsp;Meridian&nbsp;ID&nbsp;83646</i>
+        </a>
+    </div>
+    
+</div>
+
+
+<hr>
 
 <!-- This is the about section to be included here on the homepage. The content needs to be created still -->
-<div class="MMblue border border-black border-5 container color-red mb-4">
-<a href="about.php" class="text-decoration-none color-light" >
-    <div class="container-fluid color-light">
-        <h2>
-        Click here to learn more about Scott's Funiture Barn
-        </h2>
-
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium impedit soluta doloribus voluptatem magnam molestias inventore rerum distinctio! Minus enim inventore deserunt quas ipsa iure animi impedit, in facere voluptatibus.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse quisquam, illo ut in asperiores sed suscipit facilis sunt vero odio quos aperiam inventore et commodi corrupti eligendi iure ducimus minima?
-        </p>
-    </div>
-</a>
+<div class="border border-black border-3 color-yellow mb-4 mx-4">
+    <a href="about.php" class="text-decoration-none txt-brown" >
+        <div class="container-fluid text-center">
+            <h3>
+            Click here to learn more about Scott's Funiture Barn
+            </h3>
+            <p class="d-md-block d-none">
+            Over the past 5 years Scott's Furniture Barn has kept the ideal that one person's junk is another person's treasure. We believe that used furniture can still be great furniture, and should not be tossed in a landfill or on the side of the road when they become unwanted. That is where we come in...    
+            </p>
+        </div>
+    </a>
 </div>
