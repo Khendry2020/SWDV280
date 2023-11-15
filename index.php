@@ -1,7 +1,11 @@
 <?php
 session_start();
-$_SESSION['userLoginError'];
-$_SESSION['adminLoginError'];
+if (!isset($_SESSION['userLoginError'])) {
+  $_SESSION['userLoginError'] = false;
+};
+if (!isset($_SESSION['adminLoginError'])) {
+  $_SESSION['adminLoginError'] = false;
+};
 /* 
      
     Code to spit out categories
