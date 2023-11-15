@@ -5,7 +5,7 @@
         <br><br><p>Over the past 5 years Scott's Furniture Barn has kept the ideal that one person's junk is another person's treasure. We believe that used furniture
             can still be great furniture, and should not be tossed in a landfill or on the side of the road when they become unwanted. That is were we come in.
             The barn is a one-stop shop to donate your old items and find your new ones. Create an account today to reserve your next favorite household item or 
-            donate your unwanted piece, guilt free. We are operating 5 days a week and are centerally located in central Ada county and serve Boise, Meridian, Nampa and Ontario.</p>
+            donate your unwanted piece, guilt free. We are operating 5 days a week and are centerally located in Ada county and serve Boise, Meridian, Nampa and Ontario.</p>
         </div>
         <div class="col-md-6 col-12 text-center"><img src="./images/scottsbarn.jpg" class="img-fluid rounded p-1"></div>
         <div class="col-md-6 col-12 text-center"><img src="./images/jediMaster.jpg" class="img-fluid rounded p-1"></div>
