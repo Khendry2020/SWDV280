@@ -25,6 +25,7 @@
         $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
         $cat_id = filter_input(INPUT_POST, 'category', FILTER_VALIDATE_INT);
         $item_id = filter_input(INPUT_POST, 'item_id', FILTER_VALIDATE_INT);
+        $featured = filter_input(INPUT_POST, 'featured');
 
         if ($name == NULL || $description == NULL ||
                 $price == FALSE || $cat_id == NULL) {            
@@ -38,7 +39,7 @@
             include('../../errors/error.php');
         } else {
             // Update item to database
-            update_item($name, $description, $price, $cat_id, $item_id);
+            update_item($name, $description, $price, $cat_id, $item_id, $featured);
             $_POST = [];
             //header("Refresh: 0");
             $_SESSION['Status Message'] = 'Item updated successfully.';
@@ -84,7 +85,6 @@
                     </div>
 
                     <div class="col-auto">
-                        <!-- TODO pull from database -->
                         <label for="category" class="fw-bold">Select Category:</label>
                         <select class="form-select form-control border border-3 rounded" aria-label="select category" name="category">
 
@@ -101,6 +101,23 @@
                             ?>
                             <?php endforeach; ?>
 
+                        </select>
+                    </div>
+
+                    <div class="col-auto">
+                        <label for="featured" class="fw-bold">Will this be a featured product?</label>
+                        <select class="form-select form-control border border-3 rounded" id="featured" aria-label="select featured" name="featured">
+                            <?php if ($product['Featured'] == 'Yes') {
+                                echo PHP_EOL . <<<EOL
+                                <option value="Yes" selected="selected">Yes</option>
+                                <option value="No">No</option>
+EOL;
+                            } else {
+                                echo PHP_EOL . <<<EOL
+                                <option value="Yes">Yes</option>
+                                <option value="No" selected="selected">No</option>
+EOL;
+                            } ?>
                         </select>
                     </div>
 
