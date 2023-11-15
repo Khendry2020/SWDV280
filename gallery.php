@@ -33,7 +33,7 @@ function urlize($text)
                                     'category.php?cat_id=' . $category['CategoryId']; ?>">
                                     
                                     <img src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($category['Img']); ?>" alt="<?php echo $category['CategoryType']; ?>" 
-                                    class="img-fluid rounded card-img-top" style="width: 15vw; height: 15vw;">
+                                    class="img-fluid rounded card-img-top CategoryImage">
                                     
                                     <div class="card-footer pt-3">
 
@@ -49,4 +49,5 @@ function urlize($text)
         </main>
         <?php include './modules/footer.php'; ?>
     </body>
+    
 </html>

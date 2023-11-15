@@ -1,7 +1,6 @@
 <header>
     <?php
     include("./modules/notification.php");
-    var_dump($_SESSION);
     ?>
 
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
@@ -10,45 +9,61 @@
                 <a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
             </div>
             <div id="headerImg">
-                <a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px"></a>
-            </div>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center pe-5 " id="navbarResponsive">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="donationform_view.php">Donate</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                </ul>
-            </div>
-            <!-- Checks to see if user is logged in and displays aproriate action -->
-            <?php
-            // Logic to ensure $_SESSION['LoggedIn'] is not missing.
-            if (!isset($_SESSION["LoggedIn"])) {
-                $_SESSION['LoggedIn'] = false;
-            }
-            if ($_SESSION['LoggedIn'] == true) {
-                include './login/view/logout.php';
-            } else {
-                include './login/view/signin.php';
-            } ?>
-            <div class="d-flex justify-content-center">
-                <?php
-                if ($_SESSION['LoggedIn'] == true) {
-                    /* The styling for this is is really difficult to get set up */
-                    // echo "<a id='welcome' class='pt-2 pe-4 text-decoration-none'>Welcome, " . $_SESSION['FirstName'] . "</a>";
-                    echo '<a class="text-light pe-1 pt-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="Account Details">
-                        <i class="bi bi-person-circle h1" ></i>
-                    </a>';
-                }
-                ?>
-                <a class="nav-link text-light pe-1 position-relative rounded pt-1" data-bs-toggle="tooltip" title="Reserved Item's" href="reserve.php"> <!-- To reserve Page -->
-                    <i class="bi bi-cart3 h1"></i>
-                    <div id="cartAmount" class=" translate-middle badge text-light ps-1 pe-1 rounded">0</div>
-                </a>
+                <a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px" style="
+                position: absolute;
+                top: 10px;
+                "></a>
+            </div>            
+            <div class="d-flex flex-row-reverse">
+                <div class="">                
+                    <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="d-flex me-2">
+                    <div class="d-block mt-1 me-2">
+                        <?php
+                        // Logic to ensure $_SESSION['LoggedIn'] is not missing.
+                        if (!isset($_SESSION["LoggedIn"])) {
+                            $_SESSION['LoggedIn'] = false;
+                        }
+                        if ($_SESSION['LoggedIn'] == true) {
+                            include './login/view/logout.php';
+                        } else {
+                            include './login/view/signin.php';
+                        } ?>
+                    </div>                   
+                    <?php
+                    if ($_SESSION['LoggedIn'] == true) {
+                        /* The styling for this is is really difficult to get set up */
+                        // echo "<a id='welcome' class='pt-2 pe-4 text-decoration-none'>Welcome, " . $_SESSION['FirstName'] . "</a>";
+                        ?>
+                            <a class="text-light pe-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="Account Details">
+                                <i class="bi bi-person-circle h1" ></i>
+                            </a>
+                        <?php
+                    }
+                    ?>
+                    <div class="container-fluid">
+                        <a class="nav-link text-light pe-1 position-relative rounded" data-bs-toggle="tooltip" title="Reserved Item's" href="reserve.php"> <!-- To reserve Page -->
+                            <i class="bi bi-cart3 h1 me-1"></i>
+                            <div id="cartAmount" class=" badge text-light rounded translate-middle">0</div>
+                        </a>
+                    </div>
+                </div>
+                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
+                    <span class="navbar-toggler-icon"></span>
+                </button> -->
+                <div class=""                >                    
+                    <div class="collapse navbar-collapse justify-content-center text-center" id="navbarResponsive">
+                        <ul class="navbar-nav">
+                            <li class="nav-item mt-md-0 mt-5"><a class="nav-link" href="index.php">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+                            <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
@@ -91,3 +106,6 @@
     </div>
     </div>
 </header>
+
+
+

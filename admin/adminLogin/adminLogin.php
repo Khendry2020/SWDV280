@@ -41,6 +41,7 @@ if (isset($_POST['adminUsername']) && isset($_POST['adminPassword'])) {
         $_SESSION['isAdmin'] = true;
         $_SESSION['UserName'] = $row['UserName'];
         $_SESSION['AdminId'] = $row['AdminId'];
+        $_SESSION['notification'] = $_SESSION['UserName'] . ' has successfully logged in.';
         header("Location: ../index.php");
         exit();
     } else {

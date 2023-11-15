@@ -65,19 +65,21 @@ function get_item($product_id) {
     }
 }
 // TODO Add Image - Maybe Timestamp for date added
-function add_item($cat_id, $name, $description, $price, $img) {
+function add_item($cat_id, $name, $description, $price, $condition, $img, $featured) {
     global $dba;
     $query = 'INSERT INTO items
-                 (CategoryId, `Name`, `Description`, Price, Img)
+                 (CategoryId, `Name`, `Description`, Price, `condition`, Img, Featured)
               VALUES
-                 (:cat_id, :name, :description, :price, :img)';
+                 (:cat_id, :name, :description, :price, :condition, :img, :featured)';
     try {
         $statement = $dba->prepare($query);
         $statement->bindValue(':cat_id', $cat_id);
         $statement->bindValue(':name', $name);
         $statement->bindValue(':description', $description);
         $statement->bindValue(':price', $price);
+        $statement->bindValue(':condition', $condition);
         $statement->bindValue(':img', $img);
+        $statement->bindValue(':featured', $featured);
         $statement->execute();
         $statement->closeCursor();
 
@@ -90,12 +92,13 @@ function add_item($cat_id, $name, $description, $price, $img) {
     }
 }
 
-function update_item($name, $description, $price, $cat_id, $item_id) {
+function update_item($name, $description, $price, $cat_id, $item_id, $featured) {
     global $dba;
     $query = 'UPDATE items
               SET `Name` = :name,
                  `description` = :description,
                   Price = :price,
+                  Featured = :featured,
                   CategoryId = :cat_id
               WHERE ItemId = :item_id';
     try {
@@ -105,9 +108,9 @@ function update_item($name, $description, $price, $cat_id, $item_id) {
         $statement->bindValue(':price', $price);
         $statement->bindValue(':cat_id', $cat_id);
         $statement->bindValue(':item_id', $item_id);
+        $statement->bindValue(':featured', $featured);
         $row_count = $statement->execute();
         $statement->closeCursor();
-        return $row_count;
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         display_db_error($error_message);
@@ -122,7 +125,6 @@ function delete_item($item_id) {
         $statement->bindValue(':item_id', $item_id);
         $row_count = $statement->execute();
         $statement->closeCursor();
-        return $row_count;
     } catch (PDOException $e) {
         $error_message = $e->getMessage();
         display_db_error($error_message);
@@ -140,5 +142,16 @@ function get_product_count() {
 
     $product_count = $result[0]['count'];
     return $product_count;
+}
+// Implement in case Scott needs to see reserved on admin/products.php
+function item_reserved_test($product_id) {
+    global $dba;
+    $query = 'SELECT ItemId FROM reserved WHERE ItemId = :product_id';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':product_id', $product_id);
+    $statement->execute();
+    $result = $statement->fetch();
+    $statement->closeCursor();
+    return $result;
 }
 ?>

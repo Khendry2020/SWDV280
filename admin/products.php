@@ -2,7 +2,10 @@
 session_start();
 include('./model/database.php');
 include('./model/products.php');
-
+if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
+	$_SESSION['notification'] = 'Failed to log into. Please try again.';
+	header('Location: /swdv280/index.php');
+}
 
 // Deletion
 if (isset($_POST['product_id'])) {
@@ -99,6 +102,7 @@ EOL;
 				<tr class="text-center">
 					<th><a href="products.php?column=name&order=<?php echo $asc_or_desc; ?>">Name<i style="display: inline-block; line-height: 1rem; margin-left: 6px;" class="fas fa-sort<?php echo $column == 'name' ? '-' . $up_or_down : ''; ?>"></i></a></th>
 					<th style="width: 80px;"><a href="products.php?column=price&order=<?php echo $asc_or_desc; ?>">Price<i style="display: inline-block; line-height: 1rem; margin-left: 6px;" class="fas fa-sort<?php echo $column == 'price' ? '-' . $up_or_down : ''; ?>"></i></a></th>
+					<th>Condition</th>
 					<th>Image</th>
 					<th></th>
 					<th></th>
@@ -106,7 +110,8 @@ EOL;
 				<?php foreach ($products as $product): ?>
 				<tr>
 					<td<?php echo $column == 'name' ? $add_class : ''; ?>><?php echo $product['Name']; ?></td>
-					<td<?php echo $column == 'price' ? $add_class : ''; ?>><?php echo $product['Price']; ?></td>
+					<td<?php echo $column == 'price' ? $add_class : ''; ?>><?php echo number_format($product['Price'], 2); ?></td>
+					<td><?php echo $product['condition']; ?></td>
 					<td class="text-center"><img class="img-fluid mx-auto mx-lg-0 h-100 col-8 col-sm-6 col-md-4 col-lg-2 my-auto" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product['Img']); ?>" alt="<?php echo $product['Name']; ?>" /></td>
 					<td class="text-center"><a class="btn btn-warning text-light" href="<?php echo './edit/edit_product.php?product_id=' . $product['ItemId']; ?>"> Edit</a></td>
 					<td class="text-center">

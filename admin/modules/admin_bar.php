@@ -6,7 +6,7 @@
 				<a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
 			</div>
 			<div id="headerImg">
-				<a class="navbar-brand" href="index.php"><img src="./images/scotts_S.png" alt="" class="img-fluid rounded"></a>
+				<a class="navbar-brand" href="index.php"><img src="/swdv280/images/scotts_S.png" alt="" class="img-fluid rounded"></a>
 			</div>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
 				<span class="navbar-toggler-icon"></span>
