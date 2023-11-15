@@ -66,23 +66,23 @@
                 <div class="modal-body">
                     <div class="container my-3">
                         <?php if (isset($_GET['errorAdmin'])) { ?>
-                            <p class="error"> <?php echo $_GET['errorAdmin']; ?> </p>
-                        <?php } ?>
-                        <form action="admin/adminLogin/adminLogin.php" method="post">
-                            <div class="form-floating mb-3 mt-3">
-                                <input type="text" class="form-control border border-4" id="adminUsername" placeholder2="Enter Username" name="adminUsername">
-                                <label for="adminUsername">Username</label>
-                            </div>
+                            <h4 class="error"> <?php echo $_GET['errorAdmin']; ?> </4>
+                            <?php } ?>
+                            <form action="admin/adminLogin/adminLogin.php" method="post">
+                                <div class="form-floating mb-3 mt-3">
+                                    <input type="text" class="form-control border border-4" id="adminUsername" placeholder2="Enter Username" name="adminUsername">
+                                    <label for="adminUsername">Username</label>
+                                </div>
 
-                            <div class="form-floating mt-3 mb-3">
-                                <input type="password" class="form-control border border-4" id="adminPassword" placeholder="Enter password" name="adminPassword">
-                                <label for="adminPassword">Password</label>
-                            </div>
+                                <div class="form-floating mt-3 mb-3">
+                                    <input type="password" class="form-control border border-4" id="adminPassword" placeholder="Enter password" name="adminPassword">
+                                    <label for="adminPassword">Password</label>
+                                </div>
 
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-dark">Log In</button>
-                            </div>
-                        </form>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-dark">Log In</button>
+                                </div>
+                            </form>
                     </div>
                 </div>
 
