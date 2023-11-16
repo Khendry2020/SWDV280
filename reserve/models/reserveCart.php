@@ -1,38 +1,16 @@
 <?php
 try {
-    include "././models/database.php";
+    include "models/database.php";
+
     $user = $_SESSION['UserId'];
-    $stmt = $db->prepare("SELECT * FROM reserved WHERE UserID = :user");
-    $stmt->bindParam(':user', $user);
+    $stmt = $db->prepare("SELECT items.ItemId AS `ProductId`, Name, items.Img, Description, `condition`, Price, ReservedDate, PickupDate, Tax, Total
+  FROM reserved
+  JOIN items ON reserved.ItemId = items.ItemId
+  WHERE UserId = :user_id");
+    $stmt->bindParam(':user_id', $user);
     $stmt->execute();
-
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($row) {
-        $_SESSION['itemID'] = $row['ItemId'];
-    }
+    $reservedRows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
-    echo "<br>Failed on get reserved items: ";
-    echo "User ID: ";
-    echo $user;
-    echo " Item ID: ";
-    echo $_SESSION['itemID'];
-    echo $row;
+    error_log('Error getting reserved items: ' . $e->getMessage());
+    echo 'Failed to retrieve reserved items.';
 }
-
-try {
-    $itemId = $_SESSION['itemID'];
-    $stmt = $db->prepare("SELECT * FROM items WHERE itemId = :itemId");
-    $stmt->bindParam(':itemId', $itemId);
-    $stmt->execute();
-
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if ($row) {
-        $_SESSION['itemName'] = $row['Name'];
-        $_SESSION['itemPrice'] = $row['Price'];
-    }
-} catch (Exception $e) {
-    echo 'Message: ' . $e->getMessage();
-    echo "<br>Failed on get items from DB";
-}
-var_dump($_SESSION);

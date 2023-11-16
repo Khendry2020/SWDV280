@@ -2,6 +2,10 @@
 session_start();
 include('./model/database.php');
 include('./model/reports.php');
+if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
+	$_SESSION['notification'] = 'Failed to log into. Please try again.';
+	header('Location: /swdv280/index.php');
+}
 $availables = availableFuniture();
 $reserveds = reservedFuniture();
 ?>

@@ -4,6 +4,10 @@ include('./model/database.php');
 include('./model/admins.php');
 $admins = display_admins();
 $error = '';
+if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
+	$_SESSION['notification'] = 'Failed to log into. Please try again.';
+	header('Location: /swdv280/index.php');
+  }
 if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
     $_POST['admin_id'] = trim($_POST['admin_id']);
 

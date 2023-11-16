@@ -22,44 +22,45 @@ $("#submit-form").click( evt => {
 	let isValid = true;
 	// validate the name entry
 
-	const fname = $("#fname").val().trim();
+	const fname = $("#firstname").val();
 	if (fname == "") {
-		$("label[for='fname']").next().text("First Name field is required.");
+		$("label[for='firstname']").next().text("First Name field is required.");
 		isValid = false;
 	} else if(fname.length > 50) {
-		$("label[for='fname']").next().text('Too many characters in Name field');
+		$("label[for='firstname']").next().text('Too many characters in Name field');
 		isValid = false;
 	} 
 	else {
-		$("label[for='fname']").next().text("");
+		$("label[for='firstname']").next().text("");
 	}
-    $("#fname").val(fname);
+    $("#firstname").val(fname);
 
-	const lname = $("#lname").val().trim();
+	const lname = $("#lastname").val();
 	if (lname == "") {
-		$("label[for='lname']").next().text("Last Name field is required.");
+		$("label[for='lastname']").next().text("Last Name field is required.");
 		isValid = false;
 	} else if(lname.length > 50) {
-		$("label[for='lname']").next().text('Too many characters in Last Name field');
+		$("label[for='lastname']").next().text('Too many characters in Last Name field');
 		isValid = false;
 	} 
 	else {
-		$("label[for='lname']").next().text("");
+		$("label[for='lastname']").next().text("");
 	}
     $("#lname").val(lname);
 
-	const user_name = $("#user_name").val().trim();
-	if (user_name == "") {
-		$("label[for='user_name']").next().text("Username field is required.");
+	const username = $("#account-username").val();
+
+	if (username == "") {
+		$("label[for='account-username']").next().text("Username field is required.");
 		isValid = false;
-	} else if(user_name.length > 50) {
-		$("label[for='user_name']").next().text('User Name has too many characters');
+	} else if(username.length > 50) {
+		$("label[for='account-username']").next().text('Username has too many characters');
 		isValid = false;
 	} 
 	else {
-		$("label[for='user_name']").next().text("");
+		$("label[for='account-username']").next().text("");
 	}
-    $("#user_name").val(user_name);
+    $("#account-username").val(username);
 
 
 	const phone = $("#phone").val();
@@ -125,6 +126,7 @@ $("#submit-form").click( evt => {
 		$("label[for='account-password']").next().text("");
 	}
     $("#password").val(password);
+	
 
 	const street = $("#street").val();
 	if (street == "") {

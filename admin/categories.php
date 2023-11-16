@@ -4,6 +4,10 @@ include('./model/database.php');
 include('./model/categories.php');
 $categories = get_categories();
 $error = '';
+if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
+	$_SESSION['notification'] = 'Failed to log into. Please try again.';
+	header('Location: /swdv280/index.php');
+  }
 if (isset($_POST['cat_id'])) {
     $_POST['cat_id'] = trim($_POST['cat_id']);
 
