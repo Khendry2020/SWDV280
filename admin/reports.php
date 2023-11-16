@@ -36,9 +36,9 @@ $reserveds = reservedFuniture();
 							<?php foreach ($availables as $available) : ?>
 								<tr>
 									<td><?php echo $available['Name']; ?></td>
-
+                                    
 									<td><?php echo $available['Description']; ?></td>
-									<td><?php echo $available['Price']; ?></td>
+									<td>$<?php echo $available['Price']; ?></td>
 								</tr>
 							<?php endforeach; ?>
 						</table>
@@ -50,6 +50,7 @@ $reserveds = reservedFuniture();
 							<h3 class="pt-1">Reserved Funiture</h3>
 							<tr>
 								<th>Buyer's Name</th>
+								<th>Item's Name</th>
 								<th>Phone</th>
 								<th>Reserved date</th>
 								<th>Pickup Date</th>
@@ -57,11 +58,12 @@ $reserveds = reservedFuniture();
 							</tr>
 							<?php foreach ($reserveds as $reserved) : ?>
 								<tr>
-									<td><?php echo $reserved['Name']; ?></td>    
+									<td><?php echo $reserved['Name']; ?></td> 
+									<td><?php echo $reserved['ItemName']; ?></td>   
 									<td><?php echo $reserved['Phone']; ?></td>            
 									<td><?php echo $reserved['ReservedDate']; ?></td>
 									<td><?php echo $reserved['PickupDate']; ?></td>
-									<td><?php echo $reserved['Total']; ?></td>
+									<td>$<?php echo $reserved['Total']; ?></td>
 								</tr>
 							<?php endforeach; ?> 
 						</table>

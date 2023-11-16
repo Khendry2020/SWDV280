@@ -25,16 +25,21 @@ $donations = donationFuniture();
 							unset($_SESSION['Status Message']);
 						} 
 					?>
+
 					<div class="text-center table-bordered border-primary">
+					<h4 class="pb-4"><a href="./add/add_category.php" class=" btn btn-dark"> Add Category</a></h4>
 						<h2>Donated Funiture</h2>
 						<table class="table table-bordered align-middle table-sm table-hover table-light center" >
+						  
 							<tr>
 								<th>User Name</th>
 								<th>Phone</th>
+								<th>Item name</th>
 								<th>Description</th>
 							</tr>
 							<?php foreach ($donations as $donation) : ?>
 							<tr>
+							<input type="hidden" name="Donation_id" value="<?php echo $donation['Name']; ?>" />
 								<td><?php echo $donation['Name']; ?></td>
 								<td><?php echo $donation['Phone']; ?></td>
 								<td><?php echo $donation['Description']; ?></td>
