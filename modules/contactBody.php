@@ -32,28 +32,29 @@
         <div id="contactForm" class="col-10 mt-3 mb-5">  
             <form action="mailto:scotsbarn@email.com" enctype="text/plain" method="POST" class="needs-validation">   
 
-            <div class="input-group my-4 mt-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text border-2">First and last name</span>
+            <div class="mb-4 row">
+                <div class="col">
+                    <label for="firstName" class="form-label">First Name</label>                
+                    <input type="text" class="form-control " placeholder="First Name" id="firstName" required />
                 </div>
-                <input type="text" class="form-control border-2" id="firstName" required />
-                <input type="text" class="form-control border-2" id="lastName" required />                
+                <div class="col">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input type="text" class="form-control " placeholder="Last Name" id="lastName" required />                
+                </div>                
             </div>
+            
             <!-- Email -->
-            <div class="input-group my-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text border-2">Email address</span>
-                </div>
-                <input type="text" class="form-control border-2" id="inputEmail" required />
+            <div class="my-4">
+                <label for="inputEmail" class="form-label">Email Address</label>                
+                <input type="text" class="form-control" placeholder="Email@email.com" id="inputEmail" required />
             </div>      
 
             <!-- TextArea -->      
-            <div class="input-group my-4">
-                <div class="input-group-prepend">
-                    <span class="input-group-text border-2">Tell us some more</span>
-                </div>
+            <div class="my-4">
+                <label for="textArea" class="form-label">Tell us some more... </label>
                 <textarea
-                  class="form-control border-2"
+                placeholder="Tell us some more..."
+                  class="form-control"
                   aria-label="textArea"
                   id="textArea"
                   rows="3"
