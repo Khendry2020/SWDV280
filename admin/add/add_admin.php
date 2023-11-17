@@ -28,7 +28,7 @@
             add_admin($username, $roles, $password);
             $_POST = [];
             //header("Refresh: 0");
-            $_SESSION['Status Message'] = 'Admin created successfully.';
+            $_SESSION['notification'] = 'Admin created successfully.';
             header("Location: ../admins.php");
         }
     }

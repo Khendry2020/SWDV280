@@ -52,7 +52,7 @@
 
             $_POST = [];
 
-            $_SESSION['Status Message'] = 'Item added successfully.';
+            $_SESSION['notification'] = 'Item added successfully.';
             header("Location: ../products.php");
         }
     }

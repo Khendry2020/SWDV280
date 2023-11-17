@@ -112,4 +112,5 @@ if (isset($_POST['cat_id'])) {
 			});
 		</script>
 	</body>
+	<?php include($_SERVER['DOCUMENT_ROOT'] . "/swdv280/modules/notification.php"); ?>
 </html>
