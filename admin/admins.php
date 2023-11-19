@@ -7,8 +7,8 @@ $error = '';
 if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
 	$_SESSION['notification'] = 'Failed to log into. Please try again.';
 	header('Location: /swdv280/index.php');
-  }
-if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
+}
+if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1 && $_SESSION['AdminId'] != $_POST['admin_id']) {
     $_POST['admin_id'] = trim($_POST['admin_id']);
 
     $admin_id = filter_input(INPUT_POST, 'admin_id', FILTER_VALIDATE_INT);
@@ -114,5 +114,6 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1) {
 			$('#myModal').modal('hide');
 		});
 	</script>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/swdv280/modules/notification.php"); ?>
 </body>
 </html>
