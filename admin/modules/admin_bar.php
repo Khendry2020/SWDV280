@@ -16,8 +16,17 @@
 					<li class="nav-item"><a class="nav-link" href="/swdv280/admin/products.php">View Products</a></li>
 					<li class="nav-item"><a class="nav-link" href="/swdv280/admin/categories.php">View Categories</a></li>
 					<li class="nav-item"><a class="nav-link" href="/swdv280/admin/admins.php">View Users</a></li>
-					<li class="nav-item"><a class="nav-link" href="/swdv280/admin/reports.php">View Reports</a></li>
-					<li class="nav-item"><a class="nav-link" href="/swdv280/admin/donations.php">View Donations</a></li>
+				    <li class="nav-item"><a class="nav-link" href="/swdv280/admin/donations.php">View Donations</a></li>
+			       <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                       Reports
+                      </a>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                       <li><a class="dropdown-item" href="available_reports.php">Available Furniture</a></li>
+                       <li><a class="dropdown-item" href="reserved_reports.php">Reserved Furniture</a></li>
+                      </ul>
+                    </li>
+                  </ul>
 				</ul>
 			</div>
 			<?php
