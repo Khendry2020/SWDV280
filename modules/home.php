@@ -37,7 +37,13 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
                             $imgData = base64_encode($item['Img']);
                             $imgSrc = "data:image/jpeg;base64,{$imgData}";
                         ?>
-                        <img src="<?= $imgSrc ?>" class="d-block w-100 img-fluid rounded" alt="<?= $item['Name'] ?>">
+                        <img src="<?= $imgSrc ?>" class="d-block w-100 img-fluid rounded" style="width: 8vw; height: 35vw;" alt="<?= $item['Name'] ?>">
+
+                        <a href="product.php?product_id=<?= $item['ItemId'] ?>" class="link-dark link-underline link-underline-opacity-0">
+                            <div class="card-footer text-center pt-2">
+                                <small class="text-muted">Reserve now</small>
+                            </div>
+                        </a>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -59,24 +65,22 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
         <div class="row py-3 g-3">
             <?php foreach ($perfectConditionItems as $item) : ?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="card h-100">
+                    <div class="card h-100 mb-0">
                         <?php 
                             $imgData = base64_encode($item['Img']);
                             $imgSrc = "data:image/jpeg;base64,{$imgData}";
                         ?>
                         
-                        <a href="product.php?product_id=<?= $item['ItemId'] ?>" class="link-dark link-underline link-underline-opacity-0" >
+                        <a href="product.php?product_id=<?= $item['ItemId'] ?>" class="link-dark link-underline link-underline-opacity-0">
+                            <img src="<?= $imgSrc ?>" class="img-fluid rounded card-img-top mx-auto d-block pb-1" alt="<?= $item['Name'] ?>" style="width: 16vw; height: 10vw;">
 
-                            <img src="<?= $imgSrc ?>" class="img-fluid rounded card-img-top mx-auto d-block pb-1" alt="<?= $item['Name'] ?>" style="width: 17vw; height: 15vw;">
-
-                            <div class="card-body py-1">
-                                <h5 class="card-title text-center"><?= $item['Name'] ?></h5>
-                                <p class="card-text text-center pt-2">$<?= $item['Price'] ?></p>
+                            <div class="card-body h-25 mb-4">
+                                <h6 class="card-title text-center"><?= $item['Name'] ?></h6>
+                                <p class="card-text text-center">$<?= $item['Price'] ?></p>
                             </div>
-                            
-                            <div class="card-footer py-0">
-                                <!-- <small class="text-muted"><?= $item['condition'] ?> condition</small><br> -->
-                                <small class="text-muted">Reserve now</small>
+
+                            <div class="text-center">
+                                <small class="text-muted">Reserve Now</small>
                             </div>
                         </a>
                     </div>
@@ -124,3 +128,10 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
         </div>
     </a>
 </div>
+
+<script>
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>

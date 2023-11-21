@@ -16,13 +16,13 @@
 		$categorytype = filter_input(INPUT_POST, 'categorytype');
 
 		if ($categorytype == NULL) {            
-			$error = 'Category requires a name. Please try again.';
+			$_SESSION['notification'] = 'Category requires a name. Please try again.';
 		} else {
 
 			// Add category to database
 			add_category($categorytype);
 			$_POST = [];
-			$_SESSION['Status Message'] = 'Category added successfully.';
+			$_SESSION['notification'] = 'Category added successfully.';
 			//header("Refresh: 0");
 			header("Location: ../categories.php"); 
 		}

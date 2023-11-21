@@ -33,7 +33,7 @@ if (isset($_POST['edit'])) {
         update_admin($admin_name, $role, $password, $admin_id);
         $_POST = [];
         //header("Refresh: 0");
-        $_SESSION['Status Message'] = 'Admin updated successfully.';
+        $_SESSION['notification'] = 'Admin updated successfully.';
         header("Location: ../admins.php");
     }
 }
