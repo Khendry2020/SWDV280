@@ -21,8 +21,8 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
         VALUES (?, ?, ?, ?)');
 
         $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
-        header("Location: ../../product.php");
     }
+    header('Location: ../../reserve.php');
 } else {
     echo "Failed";
 }
