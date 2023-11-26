@@ -28,7 +28,7 @@ if (isset($_POST['edit'])) {
 
         $_POST = [];
         //header("Refresh: 0");
-        $_SESSION['Status Message'] = 'Category updated successfully.';
+        $_SESSION['notification'] = 'Category updated successfully.';
         header("Location: ../categories.php");
     }
 }

@@ -1,10 +1,10 @@
 <?php
-// 
+
 function availableFuniture(){
     global $dba;
     try{
-    $query = 'SELECT Name, Img, Price, Description From items Join  	
-              reserved where Items.ItemID !=  reserved.ItemId'; 
+    $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
+      (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId)'; 
          
          $statement = $dba->prepare($query);
          $statement->execute();
@@ -22,8 +22,8 @@ function availableFuniture(){
 function reservedFuniture(){
      global $dba;
      try{
-          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name, Phone, ReservedDate, PickupDate, Tax, Total FROM  	
-               reserved JOIN users WHERE Users.UserId = Reserved.UserId'; 
+          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name,Items.Name AS ItemName,  Phone, ReservedDate, PickupDate, Tax, Total FROM  	
+               reserved JOIN users ON Users.UserId = Reserved.UserId JOIN Items ON Items.ItemId = Reserved.ItemId'; 
          
           $statement = $dba->prepare($query);
           $statement->execute();

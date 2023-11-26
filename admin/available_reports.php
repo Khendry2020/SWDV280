@@ -7,7 +7,7 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
 	header('Location: /swdv280/index.php');
 }
 $availables = availableFuniture();
-$reserveds = reservedFuniture();
+
 ?>
 
 <!DOCTYPE html>
@@ -49,29 +49,7 @@ $reserveds = reservedFuniture();
 					</div>
 
 					<!-- display links for all Reserved funiture -->
-					<div class=" container text-center">
-						<table class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
-							<h3 class="pt-1">Reserved Funiture</h3>
-							<tr>
-								<th>Buyer's Name</th>
-								<th>Item's Name</th>
-								<th>Phone</th>
-								<th>Reserved date</th>
-								<th>Pickup Date</th>
-								<th>Total</th>
-							</tr>
-							<?php foreach ($reserveds as $reserved) : ?>
-								<tr>
-									<td><?php echo $reserved['Name']; ?></td> 
-									<td><?php echo $reserved['ItemName']; ?></td>   
-									<td><?php echo $reserved['Phone']; ?></td>            
-									<td><?php echo $reserved['ReservedDate']; ?></td>
-									<td><?php echo $reserved['PickupDate']; ?></td>
-									<td>$<?php echo $reserved['Total']; ?></td>
-								</tr>
-							<?php endforeach; ?> 
-						</table>
-					</div>
+				
 				</div>
 			</div>
 		</div>

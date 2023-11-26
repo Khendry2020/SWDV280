@@ -46,7 +46,7 @@
             update_item($name, $description, $price, $cat_id, $item_id, $featured);
             $_POST = [];
             //header("Refresh: 0");
-            $_SESSION['Status Message'] = 'Item updated successfully.';
+            $_SESSION['notification'] = 'Item updated successfully.';
             header("Location: ../products.php");
         }
     }

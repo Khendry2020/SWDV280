@@ -60,6 +60,7 @@
                             <li class="nav-item mt-md-0 mt-5"><a class="nav-link" href="index.php">Home</a></li>
                             <li class="nav-item"><a class="nav-link" href="about.php">About</a></li>
                             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+                            <li class="nav-item"><a class="nav-link" href="donationform_view.php">Donate</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
                         </ul>
                     </div>
