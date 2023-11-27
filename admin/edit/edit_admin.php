@@ -16,13 +16,13 @@ $password;
 $admin_id;
 $error = '';
 if (isset($_POST['edit'])) {
-    $_POST['adminname'] = trim($_POST['adminname']);
-    $_POST['role'] = trim($_POST['role']);
+    $_POST['username'] = trim($_POST['username']);
+    $_POST['roles'] = trim($_POST['roles']);
     $_POST['password'] = trim($_POST['password']);
     $_POST['admin_id'] = trim($_POST['admin_id']);
 
-    $admin_name = filter_input(INPUT_POST, 'adminname');
-    $role = filter_input(INPUT_POST, 'role');
+    $admin_name = filter_input(INPUT_POST, 'username');
+    $role = filter_input(INPUT_POST, 'roles');
     $password = filter_input(INPUT_POST, 'password');
     $admin_id = filter_input(INPUT_POST, 'admin_id', FILTER_VALIDATE_INT);
 
@@ -33,7 +33,7 @@ if (isset($_POST['edit'])) {
         update_admin($admin_name, $role, $password, $admin_id);
         $_POST = [];
         //header("Refresh: 0");
-        $_SESSION['notification'] = 'Admin updated successfully.';
+        $_SESSION['notification'] = 'Admin user ' . $admin_name . ' has been updated successfully.';
         header("Location: ../admins.php");
     }
 }
@@ -61,28 +61,29 @@ if (isset($_POST['edit'])) {
 
             <form action="" method="post" class="row gy-2 gx-3 align-items-center pt-4">
                 <div class="col-auto">
-                    <label for="adminname" class="fw-bold">Admin Name:</label>
-                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['UserName']; ?>" id="username" name="adminname">
+                    <label for="username" class="fw-bold">Admin Name:</label> <span class="text-danger small ms-3"></span>
+                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['UserName']; ?>" id="username" name="username">
                 </div>
 
                 <div class="col-auto">
-                    <label for="roles" class="fw-bold">Role:</label>
-                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['Roles']; ?>" id="role" name="role">
+                    <label for="roles" class="fw-bold">Role:</label> <span class="text-danger small ms-3"></span>
+                    <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['Roles']; ?>" id="roles" name="roles">
                 </div>
 
                 <div class="col-auto">
-                    <label for="password" class="fw-bold">Password:</label>
+                    <label for="password" class="fw-bold">Password:</label> <span class="text-danger small ms-3"></span>
                     <input type="text" class="form-control border border-3 rounded" value="<?php echo $admin['Password']; ?>" id="password" name="password">
                 </div>
 
                 <input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>">
                 
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mt-4" name="edit">Update</button> <a href="/swdv280/admin/admins.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/swdv280/admin/admins.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                 </div>
             </form>
             <?php endif; ?>
         </div>
     </main>
+    <script src="/swdv280/admin/scripts/add-admin-validator.js"></script>
 </body>
 </html>

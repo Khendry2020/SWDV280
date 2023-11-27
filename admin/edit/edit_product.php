@@ -79,12 +79,12 @@
 
                 <form action="" method="post" class="row gy-2 gx-3 align-items-center pt-4">
                     <div class="col-auto">
-                        <label for="name" class="fw-bold">Name of Product:</label>
+                        <label for="name" class="fw-bold">Name of Product:</label> <span class="text-danger small ms-3"></span>
                         <input type="text" class="form-control border border-3 rounded" value="<?php echo $product['Name']; ?>" id="name" name="name">
                     </div>
 
                     <div class="col-auto">
-                        <label for="price" class="fw-bold">Price:</label>
+                        <label for="price" class="fw-bold">Price:</label> <span class="text-danger small ms-3"></span>
                         <input type="text" class="form-control border border-3 rounded" value="<?php echo number_format($product['Price'], 2); ?>" id="price" name="price">
                     </div>
 
@@ -126,18 +126,19 @@ EOL;
                     </div>
 
                     <div class="col-auto">
-                        <label for="description" class="fw-bold">Description:</label>
+                        <label for="description" class="fw-bold">Description:</label> <span class="text-danger small ms-3"></span>
                         <textarea class="form-control border border-3 rounded" rows="5" name="description" cols="100"><?php echo $product['Description']; ?></textarea>
                     </div>
 
                     <input type="hidden" name="item_id" value="<?php echo $product['ItemId']; ?>">
                     <div class="row-auto">
-                        <button type="submit" class="btn btn-primary mt-4" name="edit">Update</button> <a href="/swdv280/admin/products.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/swdv280/admin/products.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                     </div>
                 </form>
 
             <?php endif; ?>
         </div>
     </main>
+    <script src="/swdv280/admin/scripts/add-product-validator.js"></script>
 </body>
 </html>

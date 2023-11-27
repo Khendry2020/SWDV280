@@ -53,14 +53,14 @@ if (isset($_POST['edit'])) {
 
                 <form action="" method="post" class="row gy-2 gx-3 align-items-center pt-4">
                     <div class="col-auto">
-                        <label for="categorytype" class="fw-bold">Category Name:</label>
+                        <label for="categorytype" class="fw-bold">Category Name:</label> <span class="text-danger small ms-3"></span>
                         <input type="text" class="form-control border border-3 rounded" value="<?php echo $category['CategoryType']; ?>" id="categorytype" name="categorytype">
                         <input type="hidden" name="cat_id" value="<?php echo $category['CategoryId']; ?>">
                         <input type="hidden" name="action" value="update_category" />
                     </div>
 
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mt-4" name="edit">Update</button> <a href="/swdv280/admin/categories.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/swdv280/admin/categories.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                     </div>
 
                 </form>
@@ -68,5 +68,6 @@ if (isset($_POST['edit'])) {
             <?php endif; ?>
         </div>
     </main>
+    <script src="/swdv280/admin/scripts/add-category-validator.js"></script>
 </body>
 </html>
