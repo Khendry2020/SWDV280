@@ -41,6 +41,24 @@
     padding: 5em;
 }
 
+#downloadh1{
+    margin-left: 18.5em;
+    margin-top: 1.5em;
+}
+
+@media only screen and (min-width: 2560px) {
+    #download {
+
+        margin-right: 58em;
+      
+     
+    }
+    #downloadh1{
+        margin-left: 18.5em;
+        margin-top: 1.5em;
+    }
+}
+
 /* style for donation page
 #download > li{
 text-decoration: none;
@@ -58,6 +76,7 @@ list-style-image:url('barn.png');
     height: 12vw;
     width: 'max-width';
 }
+
 
 @media only screen and (max-width: 1000px) {
     .CategoryImage {

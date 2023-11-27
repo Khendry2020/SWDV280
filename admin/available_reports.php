@@ -30,7 +30,7 @@ $availables = availableFuniture();
 				
 					<div class="text-center pt-1 ">
 						<h3 class="pt-1">Available Funiture</h3>
-						<table class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
+						<table id="myTable" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
 							<tr>
 								<th>Name</th>
 								<th>Description</th>
@@ -56,3 +56,6 @@ $availables = availableFuniture();
 	</main>
 </body>
 </html>
+<script>
+	let table = new DataTable('#myTable');
+</script>

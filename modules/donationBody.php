@@ -3,10 +3,11 @@
 text-decoration: none;
 /* <a href="https://www.flaticon.com/free-icons/farm" title="farm icons">Farm icons created by smashingstocks - Flaticon</a> */
 list-style-image:url('/SWDV280/images/barn(2).png');
+
 }
 </style>
-<h1 class="text-center">Donation form download.</h1>
-<div id="download"  class="container color-orange color-light rounded mt-4 download">
+<h1 id="downloadh1"  class="">Donation form download.</h1>
+<div id="download"  class="container color-orange color-light rounded mt-4 ">
    
     <p class="text-center">Download and fillout our form and bring it with you, when you bring your donations or email it to us at  
         <a href="mailto:ScottsFurnitureBarn@gmail.com" class="text-decoration-none color-info">
