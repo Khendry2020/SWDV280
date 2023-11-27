@@ -47,7 +47,7 @@
                     <div class="container-fluid">
                         <a class="nav-link text-light pe-1 position-relative rounded" data-bs-toggle="tooltip" title="Reserved Item's" href="reserve.php"> <!-- To reserve Page -->
                             <i class="bi bi-cart3 h1 me-1"></i>
-                            <div id="cartAmount" class=" badge text-light rounded translate-middle">0</div>
+                            <div id="cartAmount" class=" badge text-light rounded translate-middle"><?php echo $_SESSION['cartCount'] ?></div>
                         </a>
                     </div>
                 </div>
