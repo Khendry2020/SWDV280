@@ -36,21 +36,24 @@
 	<?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
     <main>
         <div class="container pt-5">
-            <?php if($error != '') {echo $error;} ?>
+            <?php if($error != '') {echo <<<EOL
+                    <span class="d-block text-danger small">{$error}</span>
+EOL;} ?>
 
 			<h3>Add Category</h3>
 
             <form action="" method="post" enctype="post" class="row gy-2 gx-3 align-items-center pt-4">
                 <div class="col-auto">
-                    <label for="categorytype" class="fw-bold">Category Name:</label>
+                    <label for="categorytype" class="fw-bold">Category Name:</label> <span class="text-danger small ms-3"></span>
                     <input type="text" class="form-control border border-3 rounded" id="categorytype" name="categorytype">
                 </div>
 				<div class="col-auto">
-					<button type="submit" class="btn btn-primary mt-3" name="add">Submit</button> <a href="/swdv280/admin/categories.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
+					<button type="submit" class="btn btn-primary mt-3" name="add" id="submit-form">Submit</button> <a href="/swdv280/admin/categories.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
 				</div>
             </form>
 
         </div>
     </main>
+	<script src="/swdv280/admin/scripts/add-category-validator.js"></script>
 </body>
 </html>

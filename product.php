@@ -68,7 +68,7 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
                     <p><b>Condition: <?php echo $condition; ?></b></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
 
-                    <form action="reserve/models/reserveItem.php?id=<?php echo $product_id ?>" method="post">
+                    <form action="reserve/models/addReserveItem.php?id=<?php echo $product_id ?>" method="post">
                         <input type="hidden" name="action" value="reserve_item">
                         <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                         <input class="btn btn-dark" type="submit" value="Reserve Item">

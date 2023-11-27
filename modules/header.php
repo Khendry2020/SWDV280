@@ -5,9 +5,9 @@
     ?>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
-            <div id="headerBrandname">
+            <!-- <div id="headerBrandname">
                 <a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
-            </div>
+            </div> -->
             <div id="headerImg">
                 <a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px" style="
                 position: absolute;
@@ -47,7 +47,7 @@
                     <div class="container-fluid">
                         <a class="nav-link text-light pe-1 position-relative rounded" data-bs-toggle="tooltip" title="Reserved Item's" href="reserve.php"> <!-- To reserve Page -->
                             <i class="bi bi-cart3 h1 me-1"></i>
-                            <div id="cartAmount" class=" badge text-light rounded translate-middle">0</div>
+                            <div id="cartAmount" class=" badge text-light rounded translate-middle"><?php echo $_SESSION['cartCount'] ?></div>
                         </a>
                     </div>
                 </div>
@@ -62,6 +62,7 @@
                             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                             <li class="nav-item"><a class="nav-link" href="donationform_view.php">Donate</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
+                            <?php if(isset($_SESSION['isAdmin'])) {echo '<li class="nav-item"><a class="nav-link" href="/swdv280/admin">Admin</a></li>';} ?>
                         </ul>
                     </div>
                 </div>

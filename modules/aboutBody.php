@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 <div class="container pb-5">
     <h2 class="text-center py-2">About Scott's Funiture Barn</h2>
+=======
+<div class="container p-5">
+    <h2 class="text-center pt-5">About Scott's Funiture Barn</h2>
+>>>>>>> 70711e184a7e66629b69c832b171264fd8ac0ed5
     <div class="container row p-3 color-orange color-light rounded">
         <div class="col-md-6 col-12">
         <br><br><p>Over the past 5 years Scott's Furniture Barn has kept the ideal that one person's junk is another person's treasure. We believe that used furniture
