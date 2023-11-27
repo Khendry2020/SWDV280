@@ -76,7 +76,7 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
 
                             <div class="card-body h-25 mb-4">
                                 <h6 class="card-title text-center"><?= $item['Name'] ?></h6>
-                                <p class="card-text text-center">$<?= $item['Price'] ?></p>
+                                <p class="card-text text-center">$<?= number_format($item['Price'], 2) ?></p>
                             </div>
 
                             <div class="text-center">
