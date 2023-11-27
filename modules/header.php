@@ -5,9 +5,9 @@
     ?>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
-            <div id="headerBrandname">
+            <!-- <div id="headerBrandname">
                 <a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
-            </div>
+            </div> -->
             <div id="headerImg">
                 <a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px" style="
                 position: absolute;
