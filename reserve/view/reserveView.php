@@ -27,7 +27,7 @@ $_SESSION['totalPrice'] = 0 ?>
 
             ?>
     </ol>
-<?php
+    <?php
             echo "<h5>Subtotal: ";
             echo $_SESSION['totalPrice'];
             echo ("<h5>");
@@ -38,8 +38,10 @@ $_SESSION['totalPrice'] = 0 ?>
             echo number_format((float)$total, 2, '.', '');
             echo ("<h5>");
         }
-?>
-<a class="btn btn-dark">Reserve Items</a><a class="btn btn-danger" href="./reserve/models/reserveDelete.php">Remove All Items</a>
+    ?><?php if ($_SESSION['LoggedIn'] == true) { ?>
+    <a class="btn btn-dark">Reserve Items</a> <?php } else { ?>
+    <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve these item's</a>
+<?php } ?><a class="btn btn-danger" href="./reserve/models/reserveDelete.php">Remove All Items</a>
 <? //} 
 ?>
 </div>

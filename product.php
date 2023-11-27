@@ -61,21 +61,18 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
                 <h4 class="fs-4 pb-1"><?php echo $product_name; ?></h4>
                 <div class="container-fluid">
                     <a data-bs-toggle="modal" href="#productModal" role="button">
-                        <img style="min-height: 50px; max-height: 500px"class="img-fluid rounded col-lg-6 col-sm-6" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product_image); ?>" alt="<?php echo $product_name; ?>" /></a>
+                        <img style="min-height: 50px; max-height: 500px" class="img-fluid rounded col-lg-6 col-sm-6" src="data:image/jpg;charset=utf8;base64,<?php echo base64_encode($product_image); ?>" alt="<?php echo $product_name; ?>" /></a>
                 </div>
                 <div class="py-2">
                     <p class="fs-6 text-justify"><?php echo $description; ?></p>
                     <p><b>Condition: <?php echo $condition; ?></b></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
-                    <?php if ($_SESSION['LoggedIn'] == true) { ?>
-                        <form action="reserve/models/reserveItem.php?id= <?php echo $product_id ?>" method="post">
-                            <input type="hidden" name="action" value="reserve_item">
-                            <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
-                            <input class="btn btn-dark" type="submit" value="Reserve Item">
-                        </form>
-                    <?php } else { ?>
-                        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve an item</a>
-                    <?php } ?>
+
+                    <form action="reserve/models/reserveItem.php?id=<?php echo $product_id ?>" method="post">
+                        <input type="hidden" name="action" value="reserve_item">
+                        <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
+                        <input class="btn btn-dark" type="submit" value="Reserve Item">
+                    </form>
                 </div>
                 <!-- check this functionality -->
                 <a class="link-dark" href="category.php?cat_id=<?php echo $category_id; ?>">
@@ -98,4 +95,5 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
     </div>
     <?php include './modules/footer.php'; ?>
 </body>
+
 </html>
