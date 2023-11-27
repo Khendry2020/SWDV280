@@ -1,5 +1,5 @@
 <div class="container">
-    <h2 class="text-center">Contact Us</h2>
+    <h2 class="text-center py-2">Contact Us</h2>
     <div class="row text-center mb-4 gy-1">
         <div class="col-sm-6 col-12 border rounded">
             <h4>Give Us A Call</h4>
