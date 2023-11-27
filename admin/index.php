@@ -21,11 +21,11 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
         <div class="col">
           <section class="py-5">
             <p>
-              Welcome to the administration site. These pages are for updating and changing products and information for Scott's Furnature barn.
+              Welcome to the administration site. These pages are for updating and changing products and information for Scott's Furniture barn.
             </p>
             <p>
               It is a criminal offense to access and/or make changes to this site without permission. 
-              If you are not an administrator for Scott's Furnature Barn, log out now.
+              If you are not an administrator for Scott's Furniture Barn, log out now.
             </p>
           </section>
         </div>
