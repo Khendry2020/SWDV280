@@ -1,4 +1,4 @@
-<div class="container pb-5">
+<div class="container p-5">
     <h2 class="text-center pt-5">About Scott's Funiture Barn</h2>
     <div class="container row p-3 color-orange color-light rounded">
         <div class="col-md-6 col-12">
