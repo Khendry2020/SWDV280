@@ -35,17 +35,14 @@
 
 /* style for donation page*/
 #download {
-    margin-top: 3em;
-    margin-right: 15em;
-    margin-bottom: 3em;
     padding: 5em;
 }
 
-#downloadh1{
-    margin-left: 18.5em;
-    margin-top: 1.5em;
+.drop-off-hours > li{
+    text-decoration: none;
+    /* <a href="https://www.flaticon.com/free-icons/farm" title="farm icons">Farm icons created by smashingstocks - Flaticon</a> */
+    list-style-image:url('/SWDV280/images/barn(2).png');
 }
-
 @media only screen and (min-width: 2560px) {
     #download {
 
