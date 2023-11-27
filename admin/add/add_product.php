@@ -35,6 +35,7 @@
 
         // Allow certain file formats 
         $allowTypes = array('jpg'); 
+        $img = NULL;
         if(in_array($fileType, $allowTypes)){ 
             $img = file_get_contents($_FILES['image']['tmp_name']);
         } else {
@@ -42,7 +43,7 @@
         } 
         
         if ($name == NULL || $description == NULL ||
-                $price == FALSE || $category_id == NULL || $condition == NULL || $featured == NULL ) {            
+                $price == FALSE || $category_id == NULL || $condition == NULL || $featured == NULL || $img == NULL ) {            
             $errors[] = 'Invalid product data. Check all fields and try again.';
         } else if ($price <= 0) {
             $errors[] = 'Price of item cannot be 0 or less than 0.';
@@ -69,7 +70,7 @@
             <?php if($errors != []) {
                 foreach ($errors as $error) {
                     echo <<<EOL
-                    <span class="d-block error">{$error}</span>
+                    <span class="d-block text-danger small">{$error}</span>
                     EOL;
                 }
             } ?>
@@ -78,28 +79,28 @@
 
                 <form action="" method="post" enctype="multipart/form-data" class="row gy-2 gx-3 align-items-center pt-4">
                     <div class="col-auto">
-                        <label for="name" class="fw-bold">Name:</label>
-                        <input type="text" class="form-control border border-3 rounded" id="name" name="name">
+                        <label for="name" class="fw-bold">Name:</label> <span class="text-danger small ms-3"></span>
+                        <input type="text" class="form-control border border-3 rounded" id="name" name="name" value="<?php if (isset($_POST['name'])){ echo $_POST['name'];}; ?>">
                     </div>
 
                     <div class="col-auto">
-                        <label for="image" class="fw-bold">Image:</label>
+                        <label for="image" class="fw-bold">Image:</label> <span class="text-danger small ms-3"></span>
                         <input type="file" class="form-control border border-3 rounded" id="image" name="image">
                     </div>
 
                     <div class="col-auto">
-                        <label for="price" class="fw-bold">Price:</label>
-                        <input type="number" class="form-control border border-3 rounded" step="0.01" min=0 id="price" name="price">
+                        <label for="price" class="fw-bold">Price:</label> <span class="text-danger small ms-3"></span>
+                        <input type="number" class="form-control border border-3 rounded" step="0.01" min=0 id="price" name="price" value="<?php if (isset($_POST['price'])){ echo $_POST['price'];}; ?>">
                     </div>
                     <div class="col-auto">
-                        <label for="condition" class="fw-bold">Condition:</label>
+                        <label for="condition" class="fw-bold">Condition:</label> <span class="text-danger small ms-3"></span>
                         <select class="form-select form-control border border-3 rounded" id="condition" aria-label="select condition" name="condition">
                             <option value="Good">Good</option>
                             <option value="Excellent" selected="selected">Excellent</option>
                         </select>
                     </div>
                     <div class="col-auto">
-                        <label for="category" class="fw-bold">Select Category:</label>
+                        <label for="category" class="fw-bold">Select Category:</label> <span class="text-danger small ms-3"></span>
 
                         <select class="form-select form-control border border-3 rounded" aria-label="select category" name="category">
                             <?php foreach ($categories as $category) : ?>
@@ -108,22 +109,23 @@
                         </select>
                     </div>
                     <div class="col-auto">
-                        <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control border border-3 rounded" id="description" name="description" cols="100"></textarea>
+                        <label for="description" class="form-label">Description</label> <span class="text-danger small ms-3"></span>
+                        <textarea class="form-control border border-3 rounded" id="description" name="description" cols="100"><?php if (isset($_POST['description'])){ echo $_POST['description'];}; ?></textarea>
                     </div>
                     <div class="col-auto">
-                        <label for="featured" class="fw-bold">Will this be a featured product?</label>
+                        <label for="featured" class="fw-bold">Will this be a featured product?</label> <span class="text-danger small ms-3"></span>
                         <select class="form-select form-control border border-3 rounded" id="featured" aria-label="select featured" name="featured">
                             <option value="Yes">Yes</option>
                             <option value="No" selected="selected">No</option>
                         </select>
                     </div>
                     <div class="row-auto">
-                        <button type="submit" class="btn btn-primary mt-3" name="add">Submit</button> <a href="/swdv280/admin/products.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
+                        <button type="submit" class="btn btn-primary mt-3" name="add" id="submit-form">Submit</button> <a href="/swdv280/admin/products.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
     </main>
+    <script src="/swdv280/admin/scripts/add-product-validator.js"></script>
 </body>
 </html>
