@@ -31,7 +31,7 @@ download = document.querySelectorAll("[data-Download]")
 download.foreach(button =>{
     const id = button.dataset.download;
     const image = document.getElementById(id);
-    const a = document,createElement("a");
+    const a = document.createElement("a");
 
     a.href = image.src;
     a.download = "";
