@@ -25,7 +25,7 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
             </p>
             <p>
               It is a criminal offense to access and/or make changes to this site without permission. 
-              If you are not an administrator for Scott's Furnature Barn, log out now.
+              If you are not an administrator for Scott's Furniture Barn, log out now.
             </p>
           </section>
         </div>
