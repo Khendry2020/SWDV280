@@ -15,12 +15,14 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
 
     $product = $sql->fetch(PDO::FETCH_ASSOC);
 
-    if ($product && $product['ItemId'] == $productId && isset($_SESSION['UserId']) && $_SESSION['UserId'] > 0) {
-        $_SESSION['isReserved'] = true;
-        $sql = $db->prepare('INSERT INTO reserved (UserId, ItemId, ReservedDate, PickupDate) 
+    if ($product && $product['ItemId'] == $productId && $_SESSION['UserId'] > 0) {
+        if (isset($_SESSION['UserId'])) {
+            $_SESSION['isReserved'] = true;
+            $sql = $db->prepare('INSERT INTO reserved (UserId, ItemId, ReservedDate, PickupDate) 
         VALUES (?, ?, ?, ?)');
 
-        $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
+            $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
+        }
     }
     header('Location: ../../reserve.php');
 } else {
