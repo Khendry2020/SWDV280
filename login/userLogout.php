@@ -13,6 +13,8 @@ session_unset();
 session_destroy();
 echo "<br>-----------------------------------------------------<br>";
 var_dump($_SESSION);
+// Needed to reset session variables
+session_start();
 $_SESSION['userLoginError'] = false;
 $_SESSION['adminLoginError'] = false;
 $_SESSION['notification'] = $oldFirstName . " has logged out. \n";
