@@ -29,9 +29,9 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
 							unset($_SESSION['Status Message']);
 						} 
 					?>
-
+                     <h4 class=" mt-5"><a href="./add/add_donationUsers.php" class=" btn btn-dark"> Add Donation user</a></h4>
 					<div class="text-center table-bordered border-primary">
-					<h4 class="pb-4"><a href="./add/add_donationUsers.php" class=" btn btn-dark"> Add Donation user</a></h4>
+					
 						<h2>Donated Funiture</h2>
 						<table class="table table-bordered align-middle table-sm table-hover table-light center" >
 						  
@@ -39,14 +39,17 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
 								<th>User Name</th>
 								<th>Phone</th>
 								<th>Item name</th>
-								<th>Description</th>
+								<th>Email</th>
+								<th> Drop-off Date</th>
 							</tr>
 							<?php foreach ($donations as $donation) : ?>
 							<tr>
-							<input type="hidden" name="Donation_id" value="<?php echo $donation['donationId']; ?>" />
+						
 								<td><?php echo $donation['Name']; ?></td>
 								<td><?php echo $donation['Phone']; ?></td>
-								<td><?php echo $donation['Description']; ?></td>
+								<td><?php echo $donation['itemname']; ?></td>
+								<td><?php echo $donation['Email']; ?></td>
+								<td><?php echo $donation['Date']; ?></td>
 								</tr>
 							<?php endforeach; ?> 
 						</table>

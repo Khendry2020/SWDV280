@@ -1,8 +1,9 @@
 <?php
+ 
 function donationFuniture(){
     global $dba;
    
-    $query = 'SELECT Name, Email, Phone, Date From DonatedFurniture';
+    $query = 'SELECT Name, itemname, Email, Phone, Date From DonatedFurniture';
 
 try{
          $statement = $dba->prepare($query);
@@ -17,25 +18,30 @@ try{
      }         
 }
 
-function add_donation($item,$name,$itemName,$phone,$email) {
+
+
+
+function add_donation($name,$itemName,$phone,$email, $date) {
     global $dba;
-    $query = 'INSERT INTO category (CategoryType)
-              VALUES (:name)';
-    try {
+    $query = 'INSERT INTO donatedfurniture (Name, itemname, Email, Phone, Date)
+              VALUES (:userName, :itemName, :email, :phone,  :datepicker)';
+    //try {
         $statement = $dba->prepare($query);
-        $statement->bindValue(':name', $name);
+        $statement->bindValue(':userName', $name);
         $statement->bindValue(':itemName', $itemName);
         $statement->bindValue(':phone', $phone);
         $statement->bindValue(':email', $email);
-        $statement->bindValue(':name', $name);
+        $statement->bindValue(':datepicker', $date);
         $statement->execute();
-        $result = $statement->fetch();
-        $statement->closeCursor();
-        return $result;
+         $statement->closeCursor();
+      
+         
        
-    } catch (PDOException $e) {
-        $error_message = $e->getMessage();
-        display_db_error($error_message);
-    }
+ //   } catch (PDOException $e) {
+     //   $error_message = $e->getMessage();
+      //  display_db_error($error_message);
+   // }
+
 }
+
 ?>

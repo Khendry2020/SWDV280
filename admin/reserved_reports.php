@@ -8,6 +8,8 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
 }
 
 $reserveds = reservedFuniture();
+
+
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +33,7 @@ $reserveds = reservedFuniture();
 
 					<!-- display links for all Reserved funiture -->
 					<div class=" container text-center">
-						<table id="myTable" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
+						<table id="" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
 							<h3 class="pt-1">Reserved Funiture</h3>
 							<tr>
 								<th>Buyer's Name</th>
@@ -59,6 +61,3 @@ $reserveds = reservedFuniture();
 	</main>
 </body>
 </html>
-<script>
-	let table = new DataTable('#myTable');
-</script>

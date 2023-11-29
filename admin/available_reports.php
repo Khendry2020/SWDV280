@@ -7,7 +7,9 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
 	header('Location: /swdv280/index.php');
 }
 $availables = availableFuniture();
+$page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
+$num_results_on_page = 5;
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,7 @@ $availables = availableFuniture();
 				
 					<div class="text-center pt-1 ">
 						<h3 class="pt-1">Available Funiture</h3>
-						<table id="myTable" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
+						<table id="" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
 							<tr>
 								<th>Name</th>
 								<th>Description</th>
@@ -40,8 +42,7 @@ $availables = availableFuniture();
 							<?php foreach ($availables as $available) : ?>
 								<tr>
 									<td><?php echo $available['Name']; ?></td>
-                                    
-									<td><?php echo $available['Description']; ?></td>
+                                    <td><?php echo $available['Description']; ?></td>
 									<td>$<?php echo $available['Price']; ?></td>
 								</tr>
 							<?php endforeach; ?>
@@ -56,6 +57,3 @@ $availables = availableFuniture();
 	</main>
 </body>
 </html>
-<script>
-	let table = new DataTable('#myTable');
-</script>
