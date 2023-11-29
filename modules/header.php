@@ -1,7 +1,7 @@
 <header>
     <?php
     include("./modules/notification.php");
-    $_SESSION['redirect'] = urlencode($_SERVER['REQUEST_URI']);
+    $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
     ?>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">

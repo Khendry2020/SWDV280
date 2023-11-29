@@ -40,7 +40,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $_SESSION['UserId'] = $row['UserId'];
         $_SESSION['FirstName'] = $row['FirstName'];
         $_SESSION["notification"] .= $_SESSION['FirstName'] . " has logged in! \n";
-        header("Location: ../" . $_SESSION['redirect']);
+        header("Location: " . $_SESSION['redirect']);
 
         exit();
     } else {

@@ -17,4 +17,4 @@ $_SESSION['userLoginError'] = false;
 $_SESSION['adminLoginError'] = false;
 $_SESSION['notification'] = $oldFirstName . " has logged out. \n";
 $oldFirstName = "";
-header("Location: " . $_SESSION['redirect']);
+header("Location: ../index.php");
