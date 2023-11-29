@@ -4,7 +4,7 @@ function availableFuniture(){
     global $dba;
     try{
     $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-      (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId)'; 
+      (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) LIMIT 0,5'; 
          
          $statement = $dba->prepare($query);
          $statement->execute();
