@@ -2,6 +2,7 @@
     <?php
     include("./modules/notification.php");
     $_SESSION['redirect'] = $_SERVER['REQUEST_URI'];
+    include("./modules/cartCount.php");
     ?>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
