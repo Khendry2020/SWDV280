@@ -22,7 +22,7 @@
                        Reports
                       </a>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
-                       <li><a class="dropdown-item" href="available_reports.php">Available Furniture</a></li>
+                       <li><a class="dropdown-item" href="availablelivingroom_reports.php">Available Furniture</a></li>
                        <li><a class="dropdown-item" href="reserved_reports.php">Reserved Furniture</a></li>
 					   <li><a class="dropdown-item" href="donations.php">User Donation</a></li>
                       </ul>
