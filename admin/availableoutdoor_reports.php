@@ -47,7 +47,7 @@ $availables = availableFunitureOutdoor();
 								<tr>
 									<td><?php echo $outdoor['Name']; ?></td>
                                     <td><?php echo $outdoor['Description']; ?></td>
-									<td>$<?php echo $outdoor['Price']; ?></td>
+									<td>$<?php echo number_format($outdoor['Price'], 2); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							

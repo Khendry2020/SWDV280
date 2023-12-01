@@ -47,7 +47,7 @@ $availables = availableFunitureBedroom();
 								<tr>
 									<td><?php echo $bedroom['Name']; ?></td>
                                     <td><?php echo $bedroom['Description']; ?></td>
-									<td>$<?php echo $bedroom['Price']; ?></td>
+									<td>$<?php echo number_format($bedroom['Price'], 2); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							

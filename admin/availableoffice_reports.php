@@ -47,7 +47,7 @@ $availables = availableFunitureOffice();
 								<tr>
 									<td><?php echo $office['Name']; ?></td>
                                     <td><?php echo $office['Description']; ?></td>
-									<td>$<?php echo $office['Price']; ?></td>
+									<td>$<?php echo number_format($office['Price'], 2); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							
