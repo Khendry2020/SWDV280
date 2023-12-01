@@ -28,7 +28,7 @@ $date = '';
         $email = filter_input(INPUT_POST, 'email');
         $date = filter_input(INPUT_POST, 'datepicker');
         if($name == NULL|| $itemName == NULL || $phone == NULL || $email == NULL || $date == NULL) {            
-			$_SESSION['notification'] = 'Fildes can not be blank. Please try again.';
+			$error= 'Fildes can not be blank. Please try again.';
 		}else{
        add_donation($name,$itemName,$phone,$email, $date);
 			$_POST = [];
@@ -64,7 +64,7 @@ $date = '';
             <h3>Add Donated furniture</h3>
 
             <form action="" method="post"  enctype="multipart/form-data" class="row gy-2 gx-3 align-items-center pt-4" >
-            <span class="text-danger small ms-3"></span>
+            <span class="text-danger small ms-3"></span><?php $error ?>
                 <div class="col-auto">
                     <label for="userName" class="form-label fw-bold">User's Name:</label>
                     <input type="text" class="form-control border border-3 rounded" id="userName" name="userName">
@@ -79,7 +79,7 @@ $date = '';
 
                 <div class="col-auto">
                     <label for="phone" class="form-label fw-bold">Phone:</label>
-                    <input type="text" placeholder="000-000-0000" class="form-control border border-3 rounded" id="phone" name="phone">
+                    <input type="text" placeholder="555-555-555" class="form-control border border-3 rounded" id="phone" name="phone">
                 </div>
 
                 <div class="col-auto">
