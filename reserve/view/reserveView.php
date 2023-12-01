@@ -62,9 +62,11 @@ $_SESSION['totalPrice'] = 0;
     }
     ?>
 
-    <?php if ($_SESSION['LoggedIn'] == true) { ?>
+    <?php if ($_SESSION['LoggedIn'] == true) { 
+        if (!empty($reservedRows)) {
+        ?>
         <a class="btn btn-dark" href="reserve/models/reserveItems.php">Reserve Items</a>
-    <?php } else { ?>
+    <?php } } else { ?>
         <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve these items</a>
     <?php } ?>
 
