@@ -31,7 +31,7 @@ $_SESSION['totalPrice'] = 0;
                     ?>
 
                     <tr>
-                        <td class="col-12 col-sm-4 col-md-4 col-lg-2">
+                        <td class="col-12 col-sm-4 col-md-4 col-lg-2 text-center">
                             <img src="<?= $imgSrc ?>" alt="Product Image" class="img-fluid mx-auto mx-lg-0 h-100 col-8 col-sm-6 col-md-4 col-lg-2 rounded">
                             <br><?php echo htmlspecialchars($row['Name']); ?>
                         </td>
