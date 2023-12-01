@@ -34,7 +34,7 @@ $availables = availableFunitureOutdoor();
 					?>
 				
 					<div class="text-center pt-1 ">
-						<h3 class="pt-1">Available Funiture: outdoor</h3>
+						<h3 class="pt-1">Available Funiture: Outdoor</h3>
 						<table id="" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
 				       <?php include './modules/availblelinks.php' ?>
 							<tr>
@@ -47,7 +47,7 @@ $availables = availableFunitureOutdoor();
 								<tr>
 									<td><?php echo $outdoor['Name']; ?></td>
                                     <td><?php echo $outdoor['Description']; ?></td>
-									<td>$<?php echo $outdoor['Price']; ?></td>
+									<td>$<?php echo number_format($outdoor['Price'], 2); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							

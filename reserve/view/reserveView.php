@@ -31,7 +31,7 @@ $_SESSION['totalPrice'] = 0;
                     ?>
 
                     <tr>
-                        <td class="col-12 col-sm-4 col-md-4 col-lg-2">
+                        <td class="col-12 col-sm-4 col-md-4 col-lg-2 text-center">
                             <img src="<?= $imgSrc ?>" alt="Product Image" class="img-fluid mx-auto mx-lg-0 h-100 col-8 col-sm-6 col-md-4 col-lg-2 rounded">
                             <br><?php echo htmlspecialchars($row['Name']); ?>
                         </td>
@@ -62,10 +62,13 @@ $_SESSION['totalPrice'] = 0;
     }
     ?>
 
-    <?php if ($_SESSION['LoggedIn'] == true) { ?>
-        <a class="btn btn-dark" href="reserve/models/reserveItems.php?CartId=<?php echo $row["CartId"]; ?>">Reserve Items</a>
-    <?php } else { ?>
-        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve items</a>
+    <?php if ($_SESSION['LoggedIn'] == true) {
+        if (!empty($reservedRows)) {
+    ?>
+            <a class="btn btn-dark" href="reserve/models/reserveItems.php">Reserve Items</a>
+        <?php }
+    } else { ?>
+        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve these items</a>
     <?php } ?>
 
     <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
