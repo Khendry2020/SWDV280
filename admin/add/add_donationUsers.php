@@ -27,6 +27,7 @@ $date = '';
         $phone = filter_input(INPUT_POST, 'phone');
         $email = filter_input(INPUT_POST, 'email');
         $date = filter_input(INPUT_POST, 'datepicker');
+        try{
         if($name == NULL|| $itemName == NULL || $phone == NULL || $email == NULL || $date == NULL) {            
 			$error= 'Fildes can not be blank. Please try again.';
 		}else{
@@ -36,7 +37,7 @@ $date = '';
 			
 			header("Location: ../donations.php"); 
         }
-      
+    }
     }
 ?>
 
