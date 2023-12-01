@@ -68,5 +68,5 @@ $_SESSION['totalPrice'] = 0;
         <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve these items</a>
     <?php } ?>
 
-    <a class="btn btn-danger" href="./reserve/models/reserveDelete.php">Remove All Items</a>
+    <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
 </div>

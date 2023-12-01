@@ -7,5 +7,5 @@ $stmt = $db->prepare("DELETE FROM reserved WHERE UserId = :user");
 $stmt->bindParam(':user', $user);
 $stmt->execute();
 $_SESSION['cartCount'] = 0;
-header("../view/reserveView.php");
+header("Location: /swdv280/reserve.php");
 exit;
