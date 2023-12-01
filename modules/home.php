@@ -21,7 +21,13 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
 
 <!-- This is the mobile carousel for featured items, should be invisible on medium and up-->
 <div class="container">
-    <h2 class="text-center pt-2">Featured Items</h2>
+    <h2 class="text-center pt-2">
+        <?php if ($perfectConditionItems == NULL) {
+        echo 'There are currently no featured items';}
+        else 
+            echo 'Featured Items'    
+        ?>
+    </h2>
     <div class="container-fluid" id="mobileCarousel"> 
         <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
