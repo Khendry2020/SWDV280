@@ -47,7 +47,7 @@ $availables = availableFunitureKids();
 								<tr>
 									<td><?php echo $kid['Name']; ?></td>
                                     <td><?php echo $kid['Description']; ?></td>
-									<td>$<?php echo $kid['Price']; ?></td>
+									<td>$<?php echo number_format($kid['Price'], 2); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							

@@ -47,7 +47,7 @@ $availables = availableFunitureKitchen();
 								<tr>
 									<td><?php echo $kitchen['Name']; ?></td>
                                     <td><?php echo $kitchen['Description']; ?></td>
-									<td>$<?php echo $kitchen['Price']; ?></td>
+									<td>$<?php echo number_format($kitchen['Price'], 2); ?></td>
 								</tr>
 							<?php endforeach; ?>
 							
