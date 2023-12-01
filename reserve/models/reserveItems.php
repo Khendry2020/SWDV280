@@ -26,9 +26,12 @@ if ($cart && $cart['ItemId'] == $cartId && $_SESSION['UserId'] > 0) {
         $stmt->bindParam(':user', $user);
         $stmt->execute();
         $_SESSION['cartCount'] = 0;
+        $_SESSION["notification"] .= $_SESSION['FirstName'] . ", your item's will be reserved until '" . $_SESSION['ReturnDate'] . "'\n";
     }
+} else {
+    $_SESSION["notification"] .= "An error occurred. Please contact an administrator for assistance. \n";
 }
 
-$_SESSION["notification"] .= $_SESSION['FirstName'] . ", your item's will be reserved until '" . $_SESSION['ReturnDate'] . "'\n";
+
 header('Location: ../../reserve.php');
 die();

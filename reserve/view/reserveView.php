@@ -65,10 +65,10 @@ $_SESSION['totalPrice'] = 0;
     <?php if ($_SESSION['LoggedIn'] == true) {
         if (!empty($reservedRows)) {
     ?>
-            <a class="btn btn-dark" href="reserve/models/reserveItems.php">Reserve Items</a>
+            <a class="btn btn-dark" href="reserve/models/reserveItems.php?CartId=<?php echo $row["CartId"]; ?>">Reserve Items</a>
         <?php }
     } else { ?>
-        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve these items</a>
+        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve items</a>
     <?php } ?>
 
     <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
