@@ -38,6 +38,10 @@ $date = '';
 			header("Location: ../donations.php"); 
         }
     }
+    catch(Throwable $ex){
+        $errormes = $ex->getMessage();
+        $error1 = 'Fildes can not be blank. Please try again.';
+    }
     }
 ?>
 
