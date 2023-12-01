@@ -1,5 +1,5 @@
-<div class="container">
-<h2 class="text-center">About Scott's Funiture Barn</h2>
+<div class="container pb-4">
+<h2 class="text-center py-2">About Scott's Funiture Barn</h2>
 <div class="container-fluid rounded">
 <div class="row color-orange color-light rounded">
     <div class="col-md-6 col-12 p-5">
@@ -8,11 +8,11 @@
         The barn is a one-stop shop to donate your old items and find your new ones. Create an account today to reserve your next favorite household item or 
         donate your unwanted piece, guilt free. We are operating 5 days a week and are centerally located in Ada county and serve Boise, Meridian, Nampa, Eagle and Ontario.</p>
     </div>
-    <div class="col-md-6 col-12 text-center">
-        <img src="./images/scottsbarn.jpg" class="img-fluid rounded p-1">
+    <div class="col-md-6 col-12 text-center pe-5 pt-4">
+        <img src="./images/scottsbarn.jpg" class="img-fluid rounded">
     </div>
-    <div class="col-md-6 col-12 text-center">
-        <img src="./images/jediMaster.jpg" class="img-fluid rounded p-1">
+    <div class="col-md-6 col-12 text-center pb-4">
+        <img src="./images/jediMaster.jpg" class="img-fluid rounded">
     </div>
     <div class="col-md-6 col-12 p-5">
         <p>I spent the early part of my career as a communications officer in the USAF. I worked with computers doing command and control 
