@@ -23,7 +23,7 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
 <div class="container">
     <h2 class="text-center pt-2">
         <?php if ($perfectConditionItems == NULL) {
-        echo 'There are currently no featured items';}
+        echo 'There are currently no featured items <br> Please check the Gallery for current furniture';}
         else 
             echo 'Featured Items'    
         ?>
