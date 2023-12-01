@@ -18,10 +18,10 @@ if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
     if ($product && $product['ItemId'] == $productId && $_SESSION['UserId'] > 0) {
         if (isset($_SESSION['UserId'])) {
             $_SESSION['isReserved'] = true;
-            $sql = $db->prepare('INSERT INTO reserved (UserId, ItemId, ReservedDate, PickupDate) 
-        VALUES (?, ?, ?, ?)');
+            $sql = $db->prepare('INSERT INTO cart (UserId, ItemId) 
+        VALUES (?, ?)');
 
-            $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
+            $sql->execute([$_SESSION["UserId"], $productId]);
         }
     }
     header('Location: ../../reserve.php');

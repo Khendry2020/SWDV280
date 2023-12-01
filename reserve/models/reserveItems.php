@@ -1,30 +1,34 @@
 <?php
 session_start();
 include "../../models/database.php";
-
 $_SESSION['isReserved'] = false;
 $Date = date('Y-m-d');
-$ReturnDate = date('Y-m-d', strtotime($Date . '+ 5 days'));
+$_SESSION['ReturnDate'] = date('Y-m-d', strtotime($Date . '+ 5 days'));
 
-if (isset($_POST['product_id']) && is_numeric($_POST['product_id'])) {
+$cartId = $_GET['CartId'];
+echo ($cartId);
 
-    $productId = (int)$_POST['product_id'];
+$sql = $db->prepare('SELECT * FROM items WHERE ItemId = ?');
+$sql->execute([$cartId]);
 
-    $sql = $db->prepare('SELECT * FROM items WHERE ItemId = ?');
-    $sql->execute([$productId]);
+$cart = $sql->fetch(PDO::FETCH_ASSOC);
 
-    $product = $sql->fetch(PDO::FETCH_ASSOC);
-
-    if ($product && $product['ItemId'] == $productId && $_SESSION['UserId'] > 0) {
-        if (isset($_SESSION['UserId'])) {
-            $_SESSION['isReserved'] = true;
-            $sql = $db->prepare('INSERT INTO reserved (UserId, ItemId, ReservedDate, PickupDate) 
+if ($cart && $cart['ItemId'] == $cartId && $_SESSION['UserId'] > 0) {
+    if (isset($_SESSION['UserId'])) {
+        $_SESSION['isReserved'] = true;
+        $sql = $db->prepare('INSERT INTO reserved (UserId, ItemId, ReservedDate, PickupDate) 
         VALUES (?, ?, ?, ?)');
 
-            $sql->execute([$_SESSION["UserId"], $productId, $Date, $ReturnDate]);
-        }
+        $sql->execute([$_SESSION["UserId"], $cartId, $Date, $_SESSION['ReturnDate']]);
+
+        $user = $_SESSION['UserId'];
+        $stmt = $db->prepare("DELETE FROM cart WHERE UserId = :user");
+        $stmt->bindParam(':user', $user);
+        $stmt->execute();
+        $_SESSION['cartCount'] = 0;
     }
-    header('Location: ../../reserve.php');
-} else {
-    echo "Failed";
 }
+
+$_SESSION["notification"] .= $_SESSION['FirstName'] . ", your item's will be reserved until '" . $_SESSION['ReturnDate'] . "'\n";
+header('Location: ../../reserve.php');
+die();

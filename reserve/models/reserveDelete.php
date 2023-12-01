@@ -2,10 +2,11 @@
 session_start();
 include "../../models/database.php";
 
-$reserveId = $_GET['ReservedId'];
-$stmt = $db->prepare("DELETE FROM reserved WHERE ReservedId = :reserveId");
-$stmt->bindParam(':reserveId', $reserveId);
+$cartId = $_GET['CartId'];
+$stmt = $db->prepare("DELETE FROM cart WHERE CartId = :cartId");
+$stmt->bindParam(':cartId', $cartId);
 $stmt->execute();
 $_SESSION['cartCount'] -= 1;
+$_SESSION["notification"] .= "Item Removed\n";
 header("Location: /swdv280/reserve.php");
 exit;
