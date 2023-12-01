@@ -34,10 +34,9 @@ $availables = availableFunitureBedroom();
 					?>
 				
 					<div class="text-center pt-1 ">
-						<h3 class="pt-1">Available Funiture</h3>
+						<h3 class="pt-1">Available Funiture: Bedroom</h3>
 						<table id="" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
-					<a href="availablelivingroom_reports.php">LivingRoom</a> <a href="availablekitchen_reports.php">Kitchen</a> <a href="availablediningroom_reports">Dining Room</a> <a href="availableoutdoor_reports.php">Outdoor</a> 
-					<a href="availableoffice_reports.php">Office</a> <a href="availablebedroom_reports.php">Bedroom</a> <a href="availablekids_reports.php">Kids & Babies</a>
+						<?php include './modules/availblelinks.php' ?>
 							<tr>
 								<th>Name</th>
 								<th>Description</th>

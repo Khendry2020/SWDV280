@@ -34,7 +34,7 @@ $availables = availableFunitureOutdoor();
 					?>
 				
 					<div class="text-center pt-1 ">
-						<h3 class="pt-1">Available Funiture: outdoor</h3>
+						<h3 class="pt-1">Available Funiture: Outdoor</h3>
 						<table id="" class="table table-bordered align-middle table-sm table-hover table-light pt-1 center">
 				       <?php include './modules/availblelinks.php' ?>
 							<tr>
