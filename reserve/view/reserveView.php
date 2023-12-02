@@ -26,8 +26,8 @@ $_SESSION['totalPrice'] = 0;
                 <?php foreach ($reservedRows as $row) { ?>
 
                     <?php
-                        $imgData = base64_encode($row['Img']);
-                        $imgSrc = "data:image/jpeg;base64,{$imgData}";
+                    $imgData = base64_encode($row['Img']);
+                    $imgSrc = "data:image/jpeg;base64,{$imgData}";
                     ?>
 
                     <tr>
@@ -38,7 +38,7 @@ $_SESSION['totalPrice'] = 0;
                         <td class="col-sm-4 col-md-4 col-lg-2 text-center"><?php echo htmlspecialchars($row['condition']); ?></td>
                         <td class="col-sm-4 col-md-4 col-lg-2 text-center">$<?php echo htmlspecialchars($row['Price']); ?></td>
                         <td class="col-sm-4 col-md-4 col-lg-2 text-center">
-                            <a class="btn btn-danger" href="./reserve/models/reserveDelete.php?ReservedId=<?php echo $row["ReservedId"]; ?>" type="button">Remove</a>
+                            <a class="btn btn-danger" href="./reserve/models/reserveDelete.php?CartId=<?php echo $row["CartId"]; ?>" type="button">Remove</a>
                         </td>
                     </tr>
 
@@ -49,7 +49,7 @@ $_SESSION['totalPrice'] = 0;
             </tbody>
         </table>
 
-        <?php
+    <?php
         echo "<h5>Subtotal: $";
         echo $_SESSION['totalPrice'];
         echo "</h5>";
@@ -62,12 +62,13 @@ $_SESSION['totalPrice'] = 0;
     }
     ?>
 
-    <?php if ($_SESSION['LoggedIn'] == true) { 
+    <?php if ($_SESSION['LoggedIn'] == true) {
         if (!empty($reservedRows)) {
-        ?>
-        <a class="btn btn-dark" href="reserve/models/reserveItems.php">Reserve Items</a>
-    <?php } } else { ?>
-        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve these items</a>
+    ?>
+            <a class="btn btn-dark" href="reserve/models/reserveItems.php?CartId=<?php echo $row["CartId"]; ?>">Reserve Items</a>
+        <?php }
+    } else { ?>
+        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve items</a>
     <?php } ?>
 
     <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
