@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2023 at 10:29 PM
+-- Generation Time: Dec 01, 2023 at 11:34 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -26,39 +26,14 @@ USE `scotts_furniture_barn`;
 -- --------------------------------------------------------
 
 --
--- Table structure for table `address`
---
-
-DROP TABLE IF EXISTS `address`;
-CREATE TABLE `address` (
-  `AddressId` int(11) NOT NULL,
-  `Streetaddress` varchar(50) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `Zip` int(11) NOT NULL,
-  `State` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `address`
---
-
-INSERT INTO `address` (`AddressId`, `Streetaddress`, `city`, `Zip`, `State`) VALUES
-(1, 'testaddress', 'nampa', 42342, 'id'),
-(2, '104 e sowth st', 'boise', 83617, 'ID');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `cart`
 --
 
 DROP TABLE IF EXISTS `cart`;
 CREATE TABLE `cart` (
-  `CartId` int(1) NOT NULL,
-  `ItemId` int(1) NOT NULL,
-  `Subtotal` float(10,2) NOT NULL,
-  `Tax` float(10,2) NOT NULL,
-  `Total` float(10,2) NOT NULL
+  `CartId` int(11) NOT NULL,
+  `userId` int(11) NOT NULL,
+  `ItemId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -272,22 +247,11 @@ CREATE TABLE `reserved` (
 --
 
 INSERT INTO `reserved` (`ReservedId`, `UserId`, `ItemId`, `ReservedDate`, `PickupDate`, `Tax`, `Total`) VALUES
-(1, 1, 5, '2023-10-27 00:00:00', '2023-11-01 00:00:00', 0.60, 100.00),
-(2, 2, 16, '2023-11-10 00:00:00', '2023-11-15 00:00:00', 0.00, 0.00),
-(3, 2, 44, '2023-11-10 00:00:00', '2023-11-15 00:00:00', 0.00, 0.00),
-(4, 2, 15, '2023-11-10 00:00:00', '2023-11-15 00:00:00', 0.00, 0.00),
-(5, 2, 1, '2023-11-13 19:01:59', '2023-11-13 19:01:59', 0.06, 100.00),
-(6, 2, 21, '2023-11-27 00:00:00', '2023-12-02 00:00:00', 0.00, 0.00);
+(1, 1, 5, '2023-10-27 00:00:00', '2023-11-01 00:00:00', 0.60, 100.00);
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `address`
---
-ALTER TABLE `address`
-  ADD PRIMARY KEY (`AddressId`);
 
 --
 -- Indexes for table `cart`
@@ -324,16 +288,10 @@ ALTER TABLE `reserved`
 --
 
 --
--- AUTO_INCREMENT for table `address`
---
-ALTER TABLE `address`
-  MODIFY `AddressId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `CartId` int(1) NOT NULL AUTO_INCREMENT;
+  MODIFY `CartId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `category`
