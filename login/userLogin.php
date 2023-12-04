@@ -29,7 +29,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         exit();
     }
 
-    $stmt = $db->prepare("SELECT * FROM users WHERE UserName = :username OR Email = :username AND Password = :password");
+    $stmt = $db->prepare("SELECT * FROM users WHERE UserName = :username AND Password = :password OR Email = :username AND Password = :password");
     $stmt->bindParam(':username', $username);
     $stmt->bindParam(':password', $password);
     $stmt->execute();
