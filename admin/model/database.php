@@ -6,6 +6,11 @@ $username = 'root';
 $password = '';
 $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
 
+// $dsn = 'mysql:host=3.93.31.85;dbname=scotts_furniture_barn';
+// $username = 'phpmyadmin';
+// $password = 'Pa$$w0rd';
+// $options = array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+
 try {
     $dba = new PDO($dsn, $username, $password, $options);
 } catch (PDOException $e) {

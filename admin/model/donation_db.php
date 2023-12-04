@@ -3,7 +3,7 @@
 function donationFuniture(){
     global $dba;
    
-    $query = 'SELECT Name, itemname, Email, Phone, Date From DonatedFurniture';
+    $query = 'SELECT Name, itemname, Email, Phone, Date From donatedfurniture';
 
 try{
          $statement = $dba->prepare($query);
