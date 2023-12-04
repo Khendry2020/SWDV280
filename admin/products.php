@@ -4,7 +4,7 @@ include('./model/database.php');
 include('./model/products.php');
 if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
 	$_SESSION['notification'] = 'Failed to log into. Please try again.';
-	header('Location: /swdv280/index.php');
+	header('Location: /SWDV280/index.php');
 }
 
 // Deletion
@@ -73,7 +73,7 @@ if ($statement = $dba->prepare($query)) {
 	$add_class = ' class="highlight"';
 	?>
 <!DOCTYPE html>
-<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/head.php'); ?>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
 <body>
@@ -175,7 +175,7 @@ EOL;
 		});
 	</script>
 </body>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/swdv280/modules/notification.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/SWDV280/modules/notification.php"); ?>
 </html>
 	<?php
 }

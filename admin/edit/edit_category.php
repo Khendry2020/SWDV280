@@ -4,7 +4,7 @@ include('./../model/database.php');
 include('./../model/categories.php');
 if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
     $_SESSION['notification'] = 'Failed to log into. Please try again.';
-    header('Location: /swdv280/index.php');
+    header('Location: /SWDV280/index.php');
 }
 $cat_id = filter_input(INPUT_GET, 'cat_id', 
 FILTER_VALIDATE_INT);
@@ -35,10 +35,10 @@ if (isset($_POST['edit'])) {
 ?>
 
 <!DOCTYPE html>
-<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/head.php'); ?>
 <body>
-  <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
-  <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
+  <?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/hero.php'); ?>
+  <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/admin/modules/admin_bar.php'); ?>
     <main>
         <div class="container pt-5">
             <?php // Check if cateogry is empty or null, if so show error that category doesn't exist, otherwise proceed
@@ -60,7 +60,7 @@ if (isset($_POST['edit'])) {
                     </div>
 
                     <div class="col-auto">
-                        <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/swdv280/admin/categories.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
+                        <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/SWDV280/admin/categories.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                     </div>
 
                 </form>
@@ -68,6 +68,6 @@ if (isset($_POST['edit'])) {
             <?php endif; ?>
         </div>
     </main>
-    <script src="/swdv280/admin/scripts/add-category-validator.js"></script>
+    <script src="/SWDV280/admin/scripts/add-category-validator.js"></script>
 </body>
 </html>

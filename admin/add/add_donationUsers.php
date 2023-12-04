@@ -6,7 +6,7 @@ session_start();
     include('./../model/donation_db.php');
     if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
         $_SESSION['notification'] = 'Failed to log into. Please try again.';
-        header('Location: /swdv280/index.php');
+        header('Location: /SWDV280/index.php');
     }
     $name = '';
 $itemName = '';
@@ -47,7 +47,7 @@ $date = '';
 
 
 <!DOCTYPE html>
-<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/head.php'); ?>
 <script>
   $( function() {
     $( "#datepicker" ).datepicker({
@@ -60,8 +60,8 @@ $date = '';
   </script>
 <body>
     <main>
-        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
-        <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
+        <?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/hero.php'); ?>
+        <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/admin/modules/admin_bar.php'); ?>
 
         <div class="container pt-5">
            
@@ -100,7 +100,7 @@ $date = '';
  
 
                 <div class="row-auto">
-                    <button type="submit" class="btn btn-primary mt-3" name="add">Submit</button> <a href="/swdv280/admin/donations.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
+                    <button type="submit" class="btn btn-primary mt-3" name="add">Submit</button> <a href="/SWDV280/admin/donations.php" class="btn btn-warning mt-3 ms-5">Cancel</a>
                 </div>
             </form>
         </div>
