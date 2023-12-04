@@ -3,8 +3,8 @@
 /*function availableFuniture(){
     global $dba;
     try{
-    $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-    (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId)'; 
+    $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+    (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId)'; 
          
          $statement = $dba->prepare($query);
          $statement->execute();
@@ -22,8 +22,8 @@
 function availableFunitureLivingRoom(){
     global $dba;
     try{
-    $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-    (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Living Room") '; 
+    $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+    (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Living Room") '; 
          
          $statement = $dba->prepare($query);
          $statement->execute();
@@ -40,8 +40,8 @@ function availableFunitureLivingRoom(){
 function availableFunitureKitchen(){
     global $dba;
     try{
-    $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-    (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Kitchen") '; 
+    $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+    (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Kitchen") '; 
          
          $statement = $dba->prepare($query);
          $statement->execute();
@@ -58,8 +58,8 @@ function availableFunitureKitchen(){
 function availableFunitureDiningRoom(){
     global $dba;
     try{
-    $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-    (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Dining Room") '; 
+    $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+    (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Dining Room") '; 
          
          $statement = $dba->prepare($query);
          $statement->execute();
@@ -77,8 +77,8 @@ function availableFunitureDiningRoom(){
     function availableFunitureOutdoor(){
         global $dba;
         try{
-        $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-        (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Outdoor") '; 
+        $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+        (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Outdoor") '; 
              
              $statement = $dba->prepare($query);
              $statement->execute();
@@ -97,8 +97,8 @@ function availableFunitureDiningRoom(){
         function availableFunitureOffice(){
             global $dba;
             try{
-            $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-            (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Office") '; 
+            $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+            (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Office") '; 
                  
                  $statement = $dba->prepare($query);
                  $statement->execute();
@@ -117,8 +117,8 @@ function availableFunitureDiningRoom(){
             function availableFunitureBedroom(){
                 global $dba;
                 try{
-                $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-                (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Bedroom") '; 
+                $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+                (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Bedroom") '; 
                      
                      $statement = $dba->prepare($query);
                      $statement->execute();
@@ -137,8 +137,8 @@ function availableFunitureDiningRoom(){
             function availableFunitureKids(){
                 global $dba;
                 try{
-                $query = 'SELECT  Items.Name,  Items.Price, Items.Description  From items  WHERE NOT EXISTS
-                (SELECT * FROM  reserved WHERE Items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Kids & Babies") '; 
+                $query = 'SELECT  items.Name,  items.Price, items.Description  From items  WHERE NOT EXISTS
+                (SELECT * FROM  reserved WHERE items.ItemId = reserved.ItemId) AND CategoryId = (SELECT CategoryId From category WHERE CategoryType = "Kids & Babies") '; 
                      
                      $statement = $dba->prepare($query);
                      $statement->execute();
@@ -158,8 +158,8 @@ function availableFunitureDiningRoom(){
 function reservedFuniture(){
      global $dba;
      try{
-          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name,Items.Name AS ItemName,  Phone, ReservedDate, PickupDate, Tax, Total FROM  	
-               reserved JOIN users ON Users.UserId = Reserved.UserId JOIN Items ON Items.ItemId = Reserved.ItemId'; 
+          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name,items.Name AS ItemName,  Phone, ReservedDate, PickupDate, Tax, Total FROM  	
+               reserved JOIN users ON Users.UserId = Reserved.UserId JOIN Items ON items.ItemId = Reserved.ItemId'; 
          
           $statement = $dba->prepare($query);
           $statement->execute();
