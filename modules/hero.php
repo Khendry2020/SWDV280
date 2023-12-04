@@ -1,7 +1,7 @@
 <!-- ======= Hero Section =======  --> <!-- add    d-md-block d-none   to make it disappear on small -->
 <div id="hero" class="scotts-brown hero text-center">   
-  <a href="/swdv280/index.php">
-    <img src="/swdv280/images/scottslogo.png" alt="" class="img-fluid">
+  <a href="/SWDV280/index.php">
+    <img src="/SWDV280/images/scottslogo.png" alt="" class="img-fluid">
   </a>
 </div><!-- End Hero -->
 <!-- THIS IS EXPERIMENTAL and BROKEN
