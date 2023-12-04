@@ -63,18 +63,22 @@ $_SESSION['totalPrice'] = 0;
         echo "</h5>";
     }
     ?>
+    <div class="text-center">
+        <?php if ($_SESSION['LoggedIn'] == true) {
+            if (!empty($reservedRows)) {
+        ?>
+                <a class="btn btn-dark" href="reserve/models/reserveItems.php?CartId=<?php echo $row["CartId"]; ?>">Reserve Items</a>
+            <?php }
+        } else { ?>
+            <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve items</a>
+        <?php } ?>
 
-    <?php if ($_SESSION['LoggedIn'] == true) {
-        if (!empty($reservedRows)) {
-    ?>
-            <a class="btn btn-dark" href="reserve/models/reserveItems.php?CartId=<?php echo $row["CartId"]; ?>">Reserve Items</a>
-        <?php }
-    } else { ?>
-        <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve items</a>
-    <?php } ?>
 
-
-    <?php if (!empty($reservedRows)) { ?>
-        <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
-    <?php } ?>
+        <?php if (!empty($reservedRows)) { ?>
+            <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
+        <?php } ?>
+    </div>
 </div>
+<style>
+
+    </style>
