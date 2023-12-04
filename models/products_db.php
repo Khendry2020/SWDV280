@@ -3,7 +3,8 @@ function get_items_by_category($cat_id) {
     global $db;
     $query = 'SELECT * FROM items
               WHERE CategoryId = :cat_id
-              AND ItemId NOT IN (SELECT ItemID FROM reserved)
+              AND ItemId NOT IN (SELECT ItemId FROM reserved)
+              AND ItemId NOT IN (SELECT ItemId FROM cart)
               ORDER BY Name';
     try {
         $statement = $db->prepare($query);
