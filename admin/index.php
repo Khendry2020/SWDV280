@@ -12,7 +12,6 @@ if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['ad
   <h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4>
   <?php include $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/hero.php'; ?>
   <main>
-    <!--Navigation-->
     <div>
       <?php include $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/admin/modules/admin_bar.php'; ?>
     </div>

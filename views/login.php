@@ -14,7 +14,7 @@
                     <h2>Log In</h2>
                 </div>
     
-                <form action="#"> <!-- add action php page -->
+                <form action="#">
                     <div class="form-floating mb-3 mt-3">
                         <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
                         <label for="email">Email</label>
@@ -37,7 +37,7 @@
                     <h2 class="mx-auto">Register</h2>
                 </div>
                 
-                <form action="#"> <!-- add action php page -->
+                <form action="#">
                     <div class="form-floating mb-3 mt-3">
                         <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
                         <label for="email">Email</label>

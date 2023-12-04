@@ -19,7 +19,6 @@ function getFeaturedItems($limit = 4) {
 $perfectConditionItems = getFeaturedItems($limit = 4);
 ?> 
 
-<!-- This is the mobile carousel for featured items, should be invisible on medium and up-->
 <div class="container">
     <h2 class="text-center pt-2">
         <?php if ($perfectConditionItems == NULL) {
@@ -66,7 +65,6 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
         </div>
     </div>
 
-    <!-- This is the scalable model for featured items in md and up -->
     <div class="container-fluid" id="desktopCards">
         <div class="row py-3 g-3">
             <?php foreach ($perfectConditionItems as $item) : ?>
@@ -121,7 +119,6 @@ $perfectConditionItems = getFeaturedItems($limit = 4);
 
 <hr>
 
-<!-- This is the about section to be included here on the homepage. The content needs to be created still -->
 <div class="border border-black border-3 color-yellow mb-4 mx-4">
     <a href="about.php" class="text-decoration-none txt-brown" >
         <div class="container-fluid text-center">

@@ -6,9 +6,6 @@
     ?>
     <nav class="navbar navbar-expand-md bg-dark navbar-dark ">
         <div class="container">
-            <!-- <div id="headerBrandname">
-                <a class="navbar-brand" href="index.php">Scott's Furniture Barn</a>
-            </div> -->
             <div id="headerImg">
                 <a class="navbar-brand" href="index.php"><img src="./favicon/apple-touch-icon.png" alt="" class="img-fluid rounded" width="40px" style="
                 position: absolute;
@@ -36,8 +33,6 @@
                     </div>
                     <?php
                     if ($_SESSION['LoggedIn'] == true) {
-                        /* The styling for this is is really difficult to get set up */
-                        // echo "<a id='welcome' class='pt-2 pe-4 text-decoration-none'>Welcome, " . $_SESSION['FirstName'] . "</a>";
                     ?>
                         <a class="text-light pe-1 rounded me-2" href="account.php" data-bs-toggle="tooltip" title="Account Details">
                             <i class="bi bi-person-circle h1"></i>
@@ -52,9 +47,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive">
-                    <span class="navbar-toggler-icon"></span>
-                </button> -->
                 <div class="">
                     <div class="collapse navbar-collapse justify-content-center text-center" id="navbarResponsive">
                         <ul class="navbar-nav">

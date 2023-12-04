@@ -77,6 +77,4 @@ $_SESSION['totalPrice'] = 0;
     <?php if (!empty($reservedRows)) { ?>
         <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
     <?php } ?>
-
-    <!-- <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a> -->
 </div>

@@ -72,7 +72,6 @@ if (isset($_POST['update'])) {
 <body>
     <?php include './modules/hero.php'; ?> 
     <main>
-        <!--Navigation-->
         <div>
             <?php include './modules/header.php'; ?>
         </div>
@@ -85,7 +84,6 @@ if (isset($_POST['update'])) {
             <?php if (isset($_GET['error'])) { ?>
             <p class="error"> <?php echo $_GET['error']; ?> </p>
             <?php } ?>
-            <!-- Let's create an action page for this, I'm thinking this page will get all the DB data and display it, allow changes in the input fields, send all the data (changed or unchanged) to the action page, and update the user in the DB-->
             <form action="" method="post">
             <div class="my-3 text-start">
                     <label class="text-start" for="username">Username</label>

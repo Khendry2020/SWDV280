@@ -80,7 +80,6 @@ if ($statement = $dba->prepare($query)) {
 	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4> 
 	<?php include './modules/hero.php'; ?>
 	<main>
-		<!--Navigation-->
 		<div>
 			<?php include './modules/admin_bar.php'; ?>
 		</div>
