@@ -13,36 +13,9 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
     $product_name = $product['Name'];
     $condition = $product['condition'];
     $product_image = $product['Img'];
-
-    //$image = $product['ImageName'];
-    //$product_name = 'Placeholder';  
     $description = $product['Description'];
     $list_price = number_format($product['Price'], 2);
-    //$discount_percent = $product['discountPercent'];
 
-    // Add HMTL tags to the description
-    //$description_tags = add_tags($description);
-
-    // Calculate discounts
-    //$discount_amount = round($list_price * ($discount_percent / 100), 2);
-    //$discount_percent = 0;
-    //$discount_amount = 0;
-    //$unit_price = $list_price - $discount_amount;
-
-    // Format discounts
-    //$discount_percent_f = number_format($discount_percent, 0);
-    //$discount_amount_f = number_format($discount_amount, 2);
-    //$unit_price_f = number_format($unit_price, 2);
-
-    /*
-    <!--<p><b>Discount:</b>
-    <?php echo $discount_percent_f . '%'; ?></p>-->
-    <p><b>Your Price:</b>
-    <?php echo '$' . $unit_price_f; ?>
-    (You save <?php echo '$' . $discount_amount_f; ?>)</p>
-
-    <p class="fs-5"><?php echo $product_name; ?></p>
-*/
 }
 ?>
 <!DOCTYPE html>
@@ -76,7 +49,6 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
                         <a class="btn btn-dark" href="signup.php">Sign up or sign in to reserve item's</a>
                     <?php }; ?>
                 </div>
-                <!-- check this functionality -->
                 <a class="link-dark" href="category.php?cat_id=<?php echo $category_id; ?>">
                     <p class="py-1 my-0 fs-6 fw-light">Back to <?php echo $category_name; ?></p>
                 </a>

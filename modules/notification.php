@@ -1,6 +1,4 @@
 <?php 
-//$_SESSION["notification"] = "This is a test";
-
 // Verify that $_SESSION["notification"] exists, if it doesn't then set it to ""
 if (!isset($_SESSION["notification"])) {
     $_SESSION["notification"] = "";

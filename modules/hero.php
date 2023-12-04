@@ -1,10 +1,6 @@
-<!-- ======= Hero Section =======  --> <!-- add    d-md-block d-none   to make it disappear on small -->
+<!-- ======= Hero Section =======  -->
 <div id="hero" class="scotts-brown hero text-center">   
-  <a href="/swdv280/index.php">
-    <img src="/swdv280/images/scottslogo.png" alt="" class="img-fluid">
+  <a href="/SWDV280/index.php">
+    <img src="/SWDV280/images/scottslogo.png" alt="" class="img-fluid">
   </a>
 </div><!-- End Hero -->
-<!-- THIS IS EXPERIMENTAL and BROKEN
-<div id="hero" class="scotts-brown hero text-center d-md-none d-block">
-  <img src="/swdv280/images/scottsminilogo.png" alt="" class="img-fluid">
-</div> -->

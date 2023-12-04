@@ -23,7 +23,7 @@ if (isset($_SESSION['UserId'])){
 
   $cartCountUserId = $_SESSION['UserId'];
   $stmt = $db->prepare("SELECT COUNT(ItemId) AS `cartCount`
-  FROM reserved
+  FROM cart
   WHERE UserId = :user_id");
   $stmt->bindParam(':user_id', $cartCountUserId);
   $stmt->execute();

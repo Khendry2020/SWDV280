@@ -7,7 +7,6 @@ session_start();
 <body>
     <?php include './modules/hero.php'; ?>
     <main>
-        <!--Navigation-->
         <div>
             <?php include './modules/header.php'; ?>
         </div>

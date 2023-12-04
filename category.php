@@ -52,7 +52,6 @@ $products = get_items_by_category($category['CategoryId']);
                             </div>
                         </div>
                     </div>
-                     <!--Cards for products listed in 2 columns per row-->
                     <div class="row row-cols-2 g-4 isotope-grid">
                     <?php foreach ($products as $product) : ?>
                         <div class="col grid-item">                        

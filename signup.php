@@ -82,7 +82,6 @@ if (isset($_POST['create'])) {
 <body>
   <?php include './modules/hero.php'; ?>
   <main>
-    <!--Navigation-->
     <div>
       <?php include './modules/header.php'; ?>
     </div>

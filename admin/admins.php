@@ -6,7 +6,7 @@ $admins = display_admins();
 $error = '';
 if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
 	$_SESSION['notification'] = 'Failed to log into. Please try again.';
-	header('Location: /swdv280/index.php');
+	header('Location: /SWDV280/index.php');
 }
 if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1 && $_SESSION['AdminId'] != $_POST['admin_id']) {
     $_POST['admin_id'] = trim($_POST['admin_id']);
@@ -28,7 +28,7 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1 && $_SESSION['AdminId']
 ?>
 
 <!DOCTYPE html>
-<?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+<?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/head.php'); ?>
 <body>
   	<h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4>
 	<?php include './modules/hero.php'; ?>
@@ -114,6 +114,6 @@ if (isset($_POST['admin_id']) && $_POST['admin_id'] != 1 && $_SESSION['AdminId']
 			$('#myModal').modal('hide');
 		});
 	</script>
-<?php include($_SERVER['DOCUMENT_ROOT'] . "/swdv280/modules/notification.php"); ?>
+<?php include($_SERVER['DOCUMENT_ROOT'] . "/SWDV280/modules/notification.php"); ?>
 </body>
 </html>

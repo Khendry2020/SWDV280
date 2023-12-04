@@ -8,5 +8,5 @@ $stmt->bindParam(':user', $user);
 $stmt->execute();
 $_SESSION['cartCount'] = 0;
 $_SESSION["notification"] .= "All Item's Removed\n";
-header("Location: /swdv280/reserve.php");
+header("Location: /SWDV280/reserve.php");
 exit;

@@ -22,7 +22,6 @@ function urlize($text)
                 
                 <h2 class="pt-2">Furniture Categories</h2>
                 <div class="row text-center py-3">
-                        <!-- display links for all categories -->
                     <?php foreach ($categories as $category) : ?>
                     <?php $image_url = urlize($category['CategoryType']); ?>
 

@@ -17,7 +17,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <a class="btn btn-primary" href="/swdv280/admin/adminLogin/adminLogout.php">Logout</a>
+        <a class="btn btn-primary" href="/SWDV280/admin/adminLogin/adminLogout.php">Logout</a>
       </div>
     </div>
   </div>

@@ -4,7 +4,7 @@ include('./../model/database.php');
 include('./../model/admins.php');
 if (!$_SESSION['isAdmin'] || $_SESSION['isAdmin'] == NULL || isset($_SESSION['adminLogError'])) {
     $_SESSION['notification'] = 'Failed to log into. Please try again.';
-    header('Location: /swdv280/index.php');
+    header('Location: /SWDV280/index.php');
 }
 $admin_id = filter_input(INPUT_GET, 'admin_id', 
 FILTER_VALIDATE_INT);
@@ -40,11 +40,11 @@ if (isset($_POST['edit'])) {
 
 ?>
 <!DOCTYPE html>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/head.php'); ?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/head.php'); ?>
 <body>
     <h4 class="text-center bg-dark text-light m-0 py-2">Administration</h4>
-    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/hero.php'); ?>
-    <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/swdv280/admin/modules/admin_bar.php'); ?>
+    <?php include( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/hero.php'); ?>
+    <?php include ( $_SERVER['DOCUMENT_ROOT'] . '/SWDV280/admin/modules/admin_bar.php'); ?>
 
     <main>
         <div class="container pt-5">
@@ -78,12 +78,12 @@ if (isset($_POST['edit'])) {
                 <input type="hidden" name="admin_id" value="<?php echo $admin['AdminId']; ?>">
                 
                 <div class="col-auto">
-                    <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/swdv280/admin/admins.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
+                    <button type="submit" class="btn btn-primary mt-4" name="edit" id="submit-form">Update</button> <a href="/SWDV280/admin/admins.php" class="btn btn-warning mt-4 ms-3">Cancel</a>
                 </div>
             </form>
             <?php endif; ?>
         </div>
     </main>
-    <script src="/swdv280/admin/scripts/add-admin-validator.js"></script>
+    <script src="/SWDV280/admin/scripts/add-admin-validator.js"></script>
 </body>
 </html>
