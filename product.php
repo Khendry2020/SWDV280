@@ -68,13 +68,13 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
                     <p><b>Condition: <?php echo $condition; ?></b></p>
                     <p><b>List Price:<?php echo '$' . $list_price; ?></b></p>
                     <?php if ($_SESSION['LoggedIn'] == true) { ?>
-                        <form action="reserve/models/addReserveItem.php?id=<?php echo $product_id ?>" method="post">
+                        <form action="reserve/models/addReserveItem.php?id=<?php echo $product_id; ?>" method="post">
                             <input type="hidden" name="action" value="reserve_item">
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                             <input class="btn btn-dark" type="submit" value="Reserve Item">
-                        </form> <? } else { ?>
+                        </form> <?php } else { ?>
                         <button class="btn btn-dark">Sign up or sign in to reserve item's</button>
-                    <? } ?>
+                    <?php }; ?>
                 </div>
                 <!-- check this functionality -->
                 <a class="link-dark" href="category.php?cat_id=<?php echo $category_id; ?>">
