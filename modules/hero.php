@@ -6,5 +6,5 @@
 </div><!-- End Hero -->
 <!-- THIS IS EXPERIMENTAL and BROKEN
 <div id="hero" class="scotts-brown hero text-center d-md-none d-block">
-  <img src="/swdv280/images/scottsminilogo.png" alt="" class="img-fluid">
+  <img src="/SWDV280/images/scottsminilogo.png" alt="" class="img-fluid">
 </div> -->

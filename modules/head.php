@@ -1,5 +1,4 @@
-    <!-- Jake needs it to include /swdv280/ for it to work. Is this a Jake problem? Does this cause other people problems? -->
-    <?php include($_SERVER['DOCUMENT_ROOT'] . '/swdv280/modules/session.php'); ?>
+    <?php include($_SERVER['DOCUMENT_ROOT'] . '/SWDV280/modules/session.php'); ?>
 
     <head>
         <!-- Required meta tags -->

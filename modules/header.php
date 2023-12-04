@@ -63,7 +63,7 @@
                             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                             <li class="nav-item"><a class="nav-link" href="donationform_view.php">Donate</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                            <?php if(isset($_SESSION['isAdmin'])) {echo '<li class="nav-item"><a class="nav-link" href="/swdv280/admin">Admin</a></li>';} ?>
+                            <?php if(isset($_SESSION['isAdmin'])) {echo '<li class="nav-item"><a class="nav-link" href="/SWDV280/admin">Admin</a></li>';} ?>
                         </ul>
                     </div>
                 </div>
