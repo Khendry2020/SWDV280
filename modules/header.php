@@ -55,7 +55,9 @@
                             <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
                             <li class="nav-item"><a class="nav-link" href="donationform_view.php">Donate</a></li>
                             <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
-                            <?php if(isset($_SESSION['isAdmin'])) {echo '<li class="nav-item"><a class="nav-link" href="/SWDV280/admin">Admin</a></li>';} ?>
+                            <?php if (isset($_SESSION['isAdmin'])) {
+                                echo '<li class="nav-item"><a class="nav-link" href="/SWDV280/admin">Admin</a></li>';
+                            } ?>
                         </ul>
                     </div>
                 </div>
@@ -75,24 +77,21 @@
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="container my-3">
-                        <?php if (isset($_GET['errorAdmin'])) { ?>
-                            <h4 class="error"> <?php echo $_GET['errorAdmin']; ?> </4>
-                            <?php } ?>
-                            <form action="admin/adminLogin/adminLogin.php" method="post">
-                                <div class="form-floating mb-3 mt-3">
-                                    <input type="text" class="form-control border border-4" id="adminUsername" placeholder2="Enter Username" name="adminUsername">
-                                    <label for="adminUsername">Username</label>
-                                </div>
+                        <form action="admin/adminLogin/adminLogin.php" method="post">
+                            <div class="form-floating mb-3 mt-3">
+                                <input type="text" class="form-control border border-4" id="adminUsername" placeholder2="Enter Username" name="adminUsername">
+                                <label for="adminUsername">Username</label>
+                            </div>
 
-                                <div class="form-floating mt-3 mb-3">
-                                    <input type="password" class="form-control border border-4" id="adminPassword" placeholder="Enter password" name="adminPassword">
-                                    <label for="adminPassword">Password</label>
-                                </div>
+                            <div class="form-floating mt-3 mb-3">
+                                <input type="password" class="form-control border border-4" id="adminPassword" placeholder="Enter password" name="adminPassword">
+                                <label for="adminPassword">Password</label>
+                            </div>
 
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-dark">Log In</button>
-                                </div>
-                            </form>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-dark">Log In</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
 
