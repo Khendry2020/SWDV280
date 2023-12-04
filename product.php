@@ -73,7 +73,7 @@ if ($product != NULL || $product_id != 0 || $product !== false) {
                             <input type="hidden" name="product_id" value="<?php echo $product_id; ?>">
                             <input class="btn btn-dark" type="submit" value="Reserve Item">
                         </form> <?php } else { ?>
-                        <button class="btn btn-dark">Sign up or sign in to reserve item's</button>
+                        <a class="btn btn-dark" href="signup.php">Sign up or sign in to reserve item's</a>
                     <?php }; ?>
                 </div>
                 <!-- check this functionality -->
