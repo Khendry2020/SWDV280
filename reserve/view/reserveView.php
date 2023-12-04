@@ -8,8 +8,10 @@ $_SESSION['totalPrice'] = 0;
     <h2 class="py-2 text-center">Reserved Items</h2>
 
     <?php if (empty($reservedRows)) { ?>
-        <h3>Cart is empty</h3>
-        <a class="btn btn-dark" href="./gallery.php">Click here to view our Gallery</a>
+        <div class="text-center">
+            <h3>Cart is empty</h3>
+            <a class="btn btn-dark" href="./gallery.php">Click here to view our Gallery</a>
+        </div>
     <?php } else { ?>
 
         <table class="table table-sm table-bordered align-middle table-hover table-light">
@@ -71,5 +73,10 @@ $_SESSION['totalPrice'] = 0;
         <a class="btn btn-dark" href="signup.php">Sign up for an account to reserve items</a>
     <?php } ?>
 
-    <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
+
+    <?php if (!empty($reservedRows)) { ?>
+        <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a>
+    <?php } ?>
+
+    <!-- <a class="btn btn-danger" href="./reserve/models/reserveDeleteAll.php">Remove All Items</a> -->
 </div>
