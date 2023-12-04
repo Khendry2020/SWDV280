@@ -158,7 +158,7 @@ function availableFunitureDiningRoom(){
 function reservedFuniture(){
      global $dba;
      try{
-          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name,items.Name AS ItemName, Phone, ReservedDate, PickupDate, Tax, Total
+          $query = 'SELECT CONCAT_WS(" ", FirstName, LastName) AS Name,items.Name AS ItemName, Phone, ReservedDate, PickupDate
           FROM reserved JOIN users ON users.UserId = reserved.UserId JOIN items ON items.ItemId = reserved.ItemId;'; 
          
           $statement = $dba->prepare($query);
