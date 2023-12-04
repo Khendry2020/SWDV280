@@ -45,7 +45,8 @@ $_SESSION['totalPrice'] = 0;
                     <?php
                     $_SESSION['totalPrice'] += $row['Price'];
                     ?>
-                <?php } ?>
+                <?php }
+                var_dump($_SESSION) ?>
             </tbody>
         </table>
 
